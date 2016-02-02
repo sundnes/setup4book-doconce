@@ -76,3 +76,195 @@ to give a soft introduction to material modeling before diving into
 the more complex and realistic case, and (2) to arrive at some fairly
 compact model problems that will be used to introduce the
 computational techniques in the next chapter.
+
+
+# #ifdef LATEX2DOCONCE
+This is the result of the doconce latex2doconce program.
+The translation from LaTeX is just a helper. The text must
+be carefully examined! (Be prepared that some text might also
+be lost in the translation - in seldom cases.)
+
+
+## search for CHECK to see if auto editing was correct
+
+# #endif
+
+For continuums undergoing small deformations linear theory is usually applicable. 
+In linear continuum mechanics the main quantities are the Cauchy stress tensor 
+$\mathbfx{\sigma}$ and the tensor for infinitesimal strains $\mathbfx{\varepsilon}$.
+These are related through a linear constitutive relation such as Hooke's law, which
+will be described in more detail below. The most important simplifying concept in
+linear solid mechanics is that the deformations are so small that they need
+not be taken into account.
+
+In problems of large deformations, for example the deformation of a tire on a moving car, or simply stretching of a rubber band, the accuracy of linear methods is not satisfactory. First of all, geometric non-linear effects must be taken into account. In addition, the material has non-linear behavior.
+# , for example as a hyperelastic material. 
+Thus, fully non-linear continuum mechanics theory should be applied. 
+# An example where linear models are not accurate enough is the deformation of .
+
+In non-linear problems the Cauchy stress tensor $\mathbfx{\sigma}$ is still applicable. However, the stress tensor must then be related to the deformed geometry, which is generally unknown. Hence, it might be desirable to introduce a stress measure that is related to the undeformed state, often referred to as the \textit{reference} or the \textit{material configuration} cite{heart_holzapfel}. (In this report we use both terms.) Referring all quantities to the undeformed configuration is known as the total Lagrangian formulation cite{heart_sussman_bathe1987}. 
+# In this first section basic non-linear continuum mechanics theory is summarized.
+
+A stress measure referred to the material configuration is offered by the 
+first Piola-Kirchhoff stress tensor $\mathbfx{\mathcal{P}}$, which is 
+related to the Cauchy stress tensor through
+
+!bt
+\begin{equation*}
+\mathbfx{\mathcal{P}} = J\mathbfx{\sigma}\mathbfx{\mathcal{F}}^{-T},
+\end{equation*}
+!et
+where $J$ is the determinant of the deformation gradient $\mathbfx{\mathcal{F}}$, and the superscript $T$ denotes the transpose. The deformation gradient relates the coordinates of the deformed configuration $\mathbfx{x}$ to the reference coordinate system $\mathbfx{X}$,
+# ( _PROBLEM: footnote_ in the middle of a sentence must be rewritten) (In this paper we use boldface capital calligraphic letters for tensors, and boldface letters for vectors and matrices.)
+
+!bt
+\begin{equation}
+label{heart_eq:F_tensor}
+{\mathcal{F}}_{ij} = {\partial x_i\over\partial X_j} = \delta_{ij} + {\partial u_i\over\partial X_j},
+\end{equation}
+!et
+where $\delta_{ij}$ is the Kronecker delta, and $u_i$ is the $i$th component of the displacement vector field $\mathbfx{u}$.
+However, the first Piola-Kirchhoff stress tensor is not symmetric. Therefore, the second Piola-Kirchhoff stress tensor $\mathbfx{\mathcal{S}}$, which also refers to the material configuration, is introduced. The first Piola-Kirchhoff stress tensor may be expressed as the tensor product of the deformation gradient and the second Piola-Kirchhoff stress tensor,
+
+!bt
+\begin{equation}
+label{heart_eq:P_FS}
+\mathbfx{\mathcal{P}} = \mathbfx{\mathcal{F}\mathcal{S}}.
+# \nonumber
+\end{equation}
+!et
+The second Piola-Kirchhoff stress tensor is symmetric and work conjugate with the Green-Lagrange strain tensor cite{heart_holzapfel}, defined as
+
+!bt
+\begin{equation}
+label{heart_eq:E_tensor}
+\mathbfx{\mathcal{E}} = \frac{1}{2}\left (\mathbfx{\mathcal{F}}^{T}\mathbfx{\mathcal{F}}- \mathbfx{I} \right ) = \frac{1}{2}\left (\mathbfx{C} - \mathbfx{I} \right ).
+\end{equation}
+!et
+Here $\mathbfx{I}$ is the identity matrix. 
+Moreover, the second Piola-Kirchhoff stress tensor is related to the Cauchy stresses through
+
+!bt
+\begin{equation*}
+\mathbfx{\sigma} = J^{-1}\mathbfx{\mathcal{F}\mathcal{S}}\mathbfx{\mathcal{F}}^T.
+\nonumber
+\end{equation*}
+!et
+Remark that the second Piola-Kirchhoff stress tensor does not have a simple physical interpretation (like the Cauchy and the first Piola-Kirchhoff stress tensors). Hence, it mainly serves as a mathematical quantity for computing stresses and strains in finite deformation cases. 
+
+===== The Boundary Value Problem =====
+label{heart_sec:boundary_value_problem}
+
+A suitable starting point when modeling the deformation of a continuum, is Cauchy's first equation of motion, which may be expressed as cite{heart_holzapfel}
+
+!bt
+\begin{equation*}
+label{heart_eq:cauchy_deformed}
+\nabla\cdot\mathbfx{\sigma} + \mathbfx{b} - \varrho\mathbfx{\ddot{u}} = \mathbfx{0}.
+\end{equation*}
+!et
+Here, $\mathbfx{\sigma}$ is the Cauchy stress tensor, $\mathbfx{b}$ is a vector representing the body forces per unit volume, $\varrho$ is the density, and $-\varrho\mathbfx{\ddot{u}}$ characterizes the inertia force per unit volume. In this equation all terms refer to the deformed configuration. We remark that the Cauchy stress tensor is symmetric, i.e. $\mathbfx{\sigma}^T = \mathbfx{\sigma}$, resulting in a maximum of six independent stress components in the general three-dimensional (3D) case cite{heart_holzapfel}. 
+# This property is often referred to as Cauchy's second equation of motion cite{holzapfel}. 
+
+One of the goals of the present work is to model the mechanics of the heart muscle. Then, the contributions from body forces and the inertia term are believed to be much smaller than the contribution from the term containing internal stresses. Hence, the body force and the inertia terms may be neglected, yielding 
+# cite{kerckhoffs2003}
+
+!bt
+\begin{equation}
+label{heart_eq:del_sigma_zero}
+\nabla\cdot\mathbfx{\sigma} = \mathbfx{0}.
+\end{equation}
+!et
+For this problem, a proper set of boundary conditions
+# , referred to the deformed configuration, 
+is cite{heart_holzapfel}
+
+!bt
+
+!bt
+\begin{align}
+label{heart_eq:u_prescribed_def}
+\mathbfx{u} &= \bar{\mathbfx{u}}, \hspace{8mm} \mbox{on} \hspace{2mm} {\partial\Omega_u}, \\
+label{heart_eq:t_prescribed_def}
+\mathbfx{t} &= \bar{\mathbfx{\sigma}}\cdot\mathbfx{n}, \hspace {2mm} \mbox{on} \hspace{2mm} {\partial\Omega_\sigma}.
+\end{align}
+!et
+!et
+Here, $\bar{\mathbfx{u}}$ represents prescribed displacement components on the part of the boundary ${\partial\Omega_u}$, and $\bar{\mathbfx{\sigma}}$ is a prescribed Cauchy stress tensor on the boundary part ${\partial\Omega_\sigma}$, with an outward unit normal vector $\mathbfx{n}$. The two boundary parts are non-overlapping and complete, that is, ${\partial\Omega_u}\cap{\partial\Omega_\sigma} = \emptyset$, and ${\partial\Omega_u}\cup{\partial\Omega_\sigma}={\partial\Omega}$.
+In this report we introduce the restriction that traction forces have to be normal stresses on the surface of the continuum. This means that the stress loads on ${\partial\Omega_\sigma}$ can be expressed by a diagonal tensor,
+
+!bt
+\begin{equation*}
+\bar{\mathbfx{\sigma}} = \sigma_0\mathbfx{I},
+\end{equation*}
+!et
+where $\sigma_0$ generally is a time-varying scalar value. 
+
+
+In Section ref{heart_sec:basic_quantities} we argued that it 
+is convenient to refer all quantities to a reference configuration.
+In this configuration the simplified equation of motion 
+(ref{heart_eq:del_sigma_zero}) has the following equivalent counterpart,
+
+!bt
+\begin{equation}
+label{heart_eq:del_P}
+\nabla_0\cdot\mathbfx{\mathcal{P}} = \mathbfx{0},
+\end{equation}
+!et
+where $\nabla_0$ is the differentiation operator with respect to the undeformed configuration. Furthermore, the first Piola-Kirchhoff stress tensor in (ref{heart_eq:del_P}) can be replaced by the tensor product in (ref{heart_eq:P_FS}), which gives
+
+!bt
+\begin{equation*}
+\nabla_0\cdot(\mathbfx{\mathcal{FS}}) = \mathbfx{0}.
+\end{equation*}
+!et
+Similarly, the natural boundary condition (ref{heart_eq:t_prescribed_def}) may be expressed by the equivalent traction force in the reference configuration,
+
+!bt
+\begin{equation}
+label{heart_eq:traction_reference}
+\mathbfx{T}  = \bar{\mathbfx{\mathcal{P}}}\cdot\mathbfx{\eta} = \mathbfx{\mathcal{F}} \bar{\mathbfx{\mathcal{S}}}\cdot\mathbfx{\eta} = \mathbfx{\mathcal{F}} J \mathbfx{\mathcal{F}}^{-1} \bar{\mathbfx{\sigma}} \mathbfx{\mathcal{F}}^{-T}\cdot\mathbfx{\eta} = J \bar{\mathbfx{\sigma}} \mathbfx{\mathcal{F}}^{-T} \cdot\mathbfx{\eta}.
+\end{equation}
+!et
+# when referred to the material configuration.
+Here, $\mathbfx{\eta}$ is the outward unit normal vector with respect to the reference configuration. The rest of the involved quantities have been defined above.
+ 
+The traction forces in the two configurations, (ref{heart_eq:t_prescribed_def}) and (ref{heart_eq:traction_reference}), are closely related. From Nanson's formula cite{heart_holzapfel}, we have that
+
+!bt
+\begin{equation*}
+\mathbfx{\eta}dS = J^{-1}\mathbfx{\mathcal{F}}^{T}\cdot\mathbfx{n}ds,
+\end{equation*}
+!et
+where $dS$ is an infinitesimal area in the reference configuration and $ds$ is the corresponding area in the deformed configuration. 
+# The normal vector referred to the material configuration is known, and the normal vector referred to the deformed configuration, $\mathbfx{n}$, can hence be computed from this relation.
+Thus, the traction force on the area $dS$ becomes
+
+!bt
+\begin{equation}
+label{heart_eq:traction_expression}
+\mathbfx{T}dS = J \mathbfx{\sigma} \mathbfx{\mathcal{F}}^{-T} \cdot\mathbfx{\eta}dS = J \mathbfx{\sigma} \mathbfx{\mathcal{F}}^{-T}J^{-1}\mathbfx{\mathcal{F}}^{T}\cdot\mathbfx{n}ds = \mathbfx{\sigma}\cdot\mathbfx{n} ds = \mathbfx{t}ds.
+\end{equation}
+!et
+From (ref{heart_eq:traction_expression}), we observe that the traction vectors in the material and deformed configurations are pointing in the same direction, but that the absolute values generally differ.
+
+
+Summing up, we have the complete boundary value problem in the material configuration:
+
+!bt
+
+!bt
+\begin{align}
+label{heart_eq:DivFS}
+\nabla_0\cdot(\mathbfx{\mathcal{F}\mathcal{S}}) &= \mathbfx{0}, \hspace{20mm} \mbox{on} \hspace{2mm} {\Omega}, \\
+label{heart_eq:u_prescribed}
+\mathbfx{u} &= \bar{\mathbfx{u}}, \hspace{20mm} \mbox{on} \hspace{2mm} {\partial\Omega_u}, \\
+label{heart_eq:T_prescribed}
+\mathbfx{T}  &= J \sigma_0 \mathbfx{\mathcal{F}}^{-T} \cdot\mathbfx{\eta}, \hspace {2mm} \mbox{on} \hspace{2mm} {\partial\Omega_\sigma}.
+\end{align}
+!et
+!et
+In order to completely describe the problem under consideration, we need to define some material properties. 
+# Deformation and stiffness characteristics are quite different in, for example, concrete and rubber. 
+Equation (ref{heart_eq:DivFS}) is expressed by the deformation gradient and stresses. Stresses are related to strains, and the stress-strain relation defines the constitutive law for the material. This will be the main theme of the next section.

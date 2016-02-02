@@ -41,7 +41,7 @@ label{ch:passive}
 
 !split
 ========= Modeling cell and tissue contraction =========
-label{ch:comp_elast}
+label{ch:contraction}
 # #include "../chapters/contraction/contraction.do.txt"
 
 !split

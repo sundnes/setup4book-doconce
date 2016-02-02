@@ -41,3 +41,127 @@ Poisson problem as model equation.
   * Element choices, incompressibility and locking
 
 
+# #ifdef LATEX2DOCONCE
+This is the result of the doconce latex2doconce program.
+The translation from LaTeX is just a helper. The text must
+be carefully examined! (Be prepared that some text might also
+be lost in the translation - in seldom cases.)
+
+
+## search for CHECK to see if auto editing was correct
+
+# #endif
+===== Finite Element Formulations =====
+label{heart_sec:numerical_methods}
+
+The differential equation in (ref{hearteq:DivFS}) must be solved by applying 
+a numerical method. For elasticity problems in general, and the non-linear heart
+mechanics problem in particular, the main method of choice has been the
+finite element method. The finite element method is based on the weak form of 
+(ref{hearteq:DivFS}), which can be established using a variational principle. 
+One approach is to employ the principle of virtual work cite{heart_holzapfel}. 
+Alternatively, we can use the principle of minimum potential energy 
+cite{heart_holzapfel,heart_me355}. In this section we apply what is referred to 
+as Galerkin's method cite{heart_DpBook2}, which is a formulation that is well 
+suited when using the finite element method.
+
+In the finite element method, the continuous displacement field $\mathbfx{u}$ is 
+approximated by a vector of nodal values  $\mathbfx{v}$ and a 
+set of basis functions $\mathbfx{N}$,
+
+!bt
+\begin{equation*}
+\mathbfx{u}\approx\hat{\mathbfx{u}} = \mathbfx{N}\mathbfx{v}.
+\end{equation*}
+!et
+The basis functions $\mathbfx{N}$ depend on the reference coordinates 
+$\mathbfx{X}$. Furthermore, the derivatives of the continuous displacements 
+may be approximated by
+
+!bt
+\begin{equation}
+label{heart_eq:u_deriv}
+\mathbfx{\partial u\over\partial X}\approx \mathbfx{\partial \hat{u}\over\partial X}= \nabla^T\mathbfx{N}\mathbfx{v} = \mathbfx{B}\mathbfx{v},
+\end{equation}
+!et
+where $\mathbfx{B}= \nabla^T\mathbfx{N}$ is a matrix containing derivatives of the basis functions; ${\partial N_i\over\partial X_j}$.
+# Our objective is to compute $\mathbfx{v}$ such that the error $\mathbfx{u} -\hat{\mathbfx{u}}$ is minimized.
+
+To establish the weak formulation in the matrix-vector notation, we generally multiply  (ref{heart_eq:DivFS}) by some test (or trial) functions, and integrate over the volume $\Omega$ of the continuum. In Galerkin's method the test functions are equal to the basis functions $\mathbfx{N}$ for the displacement field. Hence, we obtain
+
+!bt
+\begin{equation*}
+label{heart_eq:governing_weak_1}
+\int_{\Omega}\mathbfx{N}^T\nabla\left (\mathbfx{F}\mathbfx{S}\right )dV = \mathbfx{0}.
+\end{equation*}
+!et
+Now, integrating by parts and employing (ref{heart_eq:u_deriv}), we end up with
+
+!bt
+\begin{equation}
+label{heart_eq:governing_weak_2}
+\int_{\Omega}\mathbfx{B}^T\mathbfx{F}\mathbfx{S} dV = \int_{\partial\Omega_\sigma}\mathbfx{N}^T{\mathbfx{T}}dS.
+\end{equation}
+!et
+# which is our weak formulation.
+One observes that the natural boundary condition for the prescribed traction forces in (ref{heart_eq:T_prescribed}) has been incorporated into the weak form of the equation.   
+
+
+=== Solving the Non-Linear Equations ===
+label{heart_sec:displ_NR}
+For the problems of consideration, the weak form in (ref{heart_eq:governing_weak_2}) generally produces a system of non-linear equations to be solved for the unknown displacement field. Hence, iterative solution techniques are needed. We apply a common technique for solving non-linear equations, namely an incremental/iterative method of Newton's type, referred to as Newton-Raphson's method cite{heart_holzapfel,heart_DpBook2}. This technique requires a consistent linearization of all quantities, and results in efficient recurrence update formulas. 
+
+
+
+After linearizing and also including the discrete displacement field $\mathbfx{v}$, we obtain a set of (linear) equations with $\Delta\mathbfx{v}$ as unknowns. For each iteration we solve the linear system of equations, and update the discrete solution $\mathbfx{v}^{\ell}$ by the solution $\Delta\mathbfx{v}$,
+
+!bt
+\begin{equation*}
+\mathbfx{v}^{\ell} = \mathbfx{v}^{\ell-1} + \omega\Delta\mathbfx{v},
+\end{equation*}
+!et
+where $\ell$ is the iteration number, and $\omega$ is a relaxation parameter. This iterative process is repeated until some convergence criterion is fulfilled.
+
+=== Linearizing the Second Piola-Kirchhoff Stress Vector ===
+label{heart_sec:gov_eq_linearization}
+
+Employing the matrix-vector notation, an incremental decomposition of the second Piola-Kirchhoff stress vector in (ref{heart_eq:S_vector}) may be written
+
+!bt
+\begin{equation}
+label{heart_eq:S_expanded}
+\mathbfx{S}^{\ell} = \mathbfx{S}^{\ell-1} + \Delta \mathbfx{S},
+\end{equation}
+!et
+where $\mathbfx{S}^{\ell}$ is the unknown stress vector at iteration $\ell$, $\mathbfx{S}^{\ell-1}$ is the stress vector from the previous iteration, and $\Delta \mathbfx{S}$ is the increment of the stress. 
+# The incremental increase equals the product of the fourth order elasticity tensor $\mathbfx{\mathcal{C}}$ and the incremental Green-Lagrange strain tensor $\Delta\mathbfx{\mathcal{E}}$ cite{holzapfel}. The equivalent expression in the matrix-vector notation is obtained just from rewriting the expressions in the tensor notation. That is, 
+The increment of the stress can be expressed in terms of the elasticity properties and the strains, as follows
+
+!bt
+\begin{equation}
+label{heart_eq:S_DE}
+\Delta\mathbfx{S}= \mathbfx{D}\Delta\mathbfx{E},
+\end{equation}
+!et
+where $\Delta\mathbfx{E}$ is the increment of the Green-Lagrange strain vector. Moreover, the matrix $\mathbfx{D}$ contains components of the elasticity tensor $\mathbfx{\mathcal{C}}$, evaluated at iteration $\ell-1$, yielding cite{heart_bonet_wood}
+
+
+
+=== Linearization of the Governing Equation on Weak Form ===
+label{heart_sec:gov_eq_linearization_weak}
+# Linearizing the weak form in (ref{heart_eq:governing_weak_2}), and then inserting the linearized second Piola-Kirchhoff stress tensor, results in the same expression as inserting (ref{heart_eq:S_expanded}) into the weak form, and then linearizing. We apply the latter approach, although this procedure may be viewed as less mathematically rigorous compared to first linearizing all involved quantities. 
+
+
+In addition to linearizing the second Piola-Kirchhoff stress vector, we also need to linearize the remaining parts of the governing equation.
+Inserting the expression for the linearized second Piola-Kirchhoff stress vector in (ref{heart_eq:S_expanded_2}) and the deformation gradient matrix in (ref{heart_eq:F}) (after inserting the decomposition in (ref{heart_eq:disp_decomp})) into the weak form (ref{heart_eq:governing_weak_2}), yields
+
+!bt
+
+!bt
+\begin{align}
+label{heart_eq:governing_constitutive}
+\int_{\Omega}\mathbfx{B}^T\left [\left (\mathbfx{H} + \mathbfx{\partial \hat{u}^{\ell-1}\over\partial X}_F + \mathbfx{\partial \Delta u\over\partial X}_F\right ) \left \{ \mathbfx{S}^{\ell-1} + \mathbfx{D}\left [ \left(\mathbfx{H}^T + \mathbfx{\partial \hat{u}^{\ell-1}\over\partial {X}}_E \right ) \mathbfx{\partial^v \Delta{u}\over\partial {X}} + \mathbfx{\partial \Delta {u}\over\partial {X}}_E \mathbfx{\partial^v \hat{u}^{\ell-1}\over\partial {X}} \right ]\right \} \right ]dV&& \nonumber \\
+=\int_{\partial\Omega_{\sigma}}\mathbfx{N}^T\mathbfx{T}dS .&&
+\end{align}
+!et
+!et
