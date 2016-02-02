@@ -1,0 +1,78 @@
+# #ifdef LATEX2DOCONCE
+This is the result of the doconce latex2doconce program.
+The translation from LaTeX is just a helper. The text must
+be carefully examined! (Be prepared that some text might also
+be lost in the translation - in seldom cases.)
+
+
+## search for CHECK to see if auto editing was correct
+
+# #endif
+========= Introduction to non-linear solid mechanics (appr. 40 p) =========
+A compact introduction to the necessary theory. Start the chapter with
+a brief ouline of its purpose, that we want to employ the laws of
+Newton to arrive at dynamic and static balance laws governing the
+relation between forces and deformation. Ths brief introduction will
+motivate the concepts of strain and stress to be introduced through
+the chapter.
+======= Kinematics =======
+
+Introduce the necessary framework for describing movement and
+deformation of soft tissues:
+
+  * Introduce the displacement field and mapping between the   reference and undeformed configuration, also briefly mentioning the   generalization to intermediate configurations as used in growth   models and active strain models of contraction. Introduce the   deformation gradient.
+
+  * Describe the distinction between Lagrangian and Eulerian   description of field quantities.
+
+
+
+======= The concept of strain =======
+
+  * Describe the purpose of and general requirements to deformation measures, i.e. the need for a precise measure of local deformations, excluding rigid body motion. Explain why neither the displacement field nor the deformation gradient are suitable measures of deformation.
+
+  * Introduce the most widely used deformation and strain tensors,   including the linear strain tensor (for familiarity), the   Green-Lagrange strain tensor, the left Cauchy-Green tensor. Possibly   a couple more, but most likely just list these and cite other   sources for details.
+
+  * Describe the concept of frame invariance, and introduce the   primary strain invariants.
+
+
+
+======= The concept of stress =======
+
+  * Basic intriduction to the stress vector and (Cauchy) stress tensor
+
+  * Explain the problems of using the Cauchy stress in large   deformation mechanics
+
+  * Introduce the most commonly used stress tensors in soft tissue   mechanics, i.e. the first and second Piola-Kirckhoff stress tensors.
+
+  * List alternative, potentially relevant stress tensors, cite   other sources for details.
+
+
+
+======= Balance equations =======
+
+Present a compact derivation of the fundamental laws of motion, based
+on conservation of linear momentum.
+
+  * Euler description, Cauchy stress
+
+  * Lagrange description, Piola-Kirchoff stress
+
+  * Discuss the relative significance of the terms, motivate the   quasi-static approach and the neglection of body forces
+
+  * Discuss the general nature of the equation, and relate this to   the mismatch between number of equations and unknowns. This   motivates the need for constitutive models.
+
+
+
+======= Modeling material behavior =======
+
+Give a general introduction to constitutive modeling, explicitly
+neglecting the complex behavior of the heart muscle and other soft
+tissues. For completeness and to increase the understanding of the
+balance equations presented above, describe the general behavior of
+fluids and solids, briefly list models for ``advanced'' solids
+(visco-elasticity, plasticity etc), and proceed to describe simpler
+elastic and hyperelastic models. This section has two purposes; (1)
+to give a soft introduction to material modeling before diving into
+the more complex and realistic case, and (2) to arrive at some fairly
+compact model problems that will be used to introduce the
+computational techniques in the next chapter.

@@ -1,7 +1,15 @@
-The purpose of this ``book'' is to demonstrate a minimalistic setup
-for making books in the DocOnce format. The setup contains several
-useful features:
+The purpose of this book is to introduce students and researchers to the 
+principles of computational soft tissue mechanics, and provide them with the 
+necessary background to use, understand and potentially build computational 
+software for heart mechanics. A brief general introduction to nonlinear 
+solid mechanics is given, but the reader is referred to other books for a 
+more detailed explanation of these topics. Obtaining one of these books is highly
+recommended, since the present tex is compact and may be difficult to read without
+any background in continuum mechanics. The book will include a number of 
+relevant examples that give the reader both an idea of what the models can 
+be used for, and a collection of “recipes” for using and solving the models. 
 
+From the doconce book setup:
  o Chapters can exist as stand-alone documents in different formats:
    * traditional LaTeX-style PDF report,
    * web pages with various fancy stylings (e.g., Sphinx, Bootstrap)

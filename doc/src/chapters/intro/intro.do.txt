@@ -1,0 +1,95 @@
+# #ifdef LATEX2DOCONCE
+This is the result of the doconce latex2doconce program.
+The translation from LaTeX is just a helper. The text must
+be carefully examined! (Be prepared that some text might also
+be lost in the translation - in seldom cases.)
+
+
+## search for CHECK to see if auto editing was correct
+
+# #endif
+========= Introduction and motivation (appr. 10-15 pages) =========
+label{chap1}
+
+======= Structure of the heart and cardiac muscle =======
+
+===== Heart anatomy and mechanical function =====
+
+Overview of heart anatomy and structure, focusing on the mechanical function
+
+===== Structure of cardiac muscle tissue =====
+label{ch1:tissue_struct}
+
+Outline of muscle tissue organization;
+
+  * Overview of tissue structure
+
+  * Overview of cardiomyocyte structure, introducing the contractile   proteins
+
+  * The extracellular matrix
+
+
+
+======= The mechanics of heart contraction =======
+label{ch1:mech_contr}
+
+Brief overview of the pumping function of the heart viewed as a
+mechanical multi-scale problem. A top-down view may be most
+illustrative, linking the different phases of the heart cycle
+(PV-loop, Wiggers diagram) to the mechanics of the tissue, the
+myocyte, and the sub-cellular structures. 
+
+
+
+
+======= Computational mechanics challenges =======
+
+From a viewpoint of computational mechanics, outline the most
+important challenges of modeling heart mechanics. 
+
+===== Computational challenges of multiscale problems =====
+
+Referring to the outline of heart mechanics as a multiscale problem in
+Section ref{ch1:mech_contr}, outline current modeling paradigm and
+the general computational challenges related to solving multiscale,
+multiphysics problems. 
+
+===== Mechanics of soft tissues =====
+
+Outline classical aspects known to be challenging in continuum
+mechanics, and describe how they are present in models of passive
+muscle tissue:
+
+  * large deformations
+
+  * Non-linear material behavior
+
+  * Incompressibility and related numerical problems
+
+  * High anisotropy
+
+  * Uncertainty and variability in material parameters
+
+
+
+
+
+======= Heart disease and mechanical dysfunction =======
+
+Some re-organization is possible here, maybe placing this part before
+the outline of the mechanical problem. 
+
+
+  * Brief summary of heart disease in general
+
+  * Outline selected heart problems where mechanical dysfunction of the   heart muscle is an important factor. Of course, the distinction is   not entire clear, but this would exclude severe arrhytmia and direct   effects of valve   dysfunction, but include heart failure and remodeling driven by load imbalance   caused by electrical dyssynchrony or valve problems.
+
+
+
+
+
+======= Outline and scope of the book =======
+
+Should possibly (probably) be moved to a preface. Outline the book's
+content, focus and intended audience, and, most importantly, list the
+many important topics that will not be covered by the book.

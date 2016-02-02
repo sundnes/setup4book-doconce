@@ -1,8 +1,9 @@
 # Note on the Springer T4 style: here we use the modifications
 # introduced in t4do.sty and svmonodo.sty (both are bundled with DocOnce).
 
-TITLE:  How to Use DocOnce to Write Books
-AUTHOR: Hans Petter Langtangen at Center for Biomedical Computing, Simula Research Laboratory & Department of Informatics, University of Oslo
+TITLE:  Computational heart mechanics
+AUTHOR: Joakim Sundnes at Simula Research Laboratory & Department of Informatics, University of Oslo
+AUTHOR: Andrew D. McCulloch at Bioengineering Department, University of California, San Diego
 DATE: today
 
 ## Handy mako variables and functions for the preprocessing step
@@ -19,17 +20,32 @@ label{ch:preface}
 TOC: on
 
 !split
-========= Directory and file structure =========
+========= Introduction and Motivation =========
 label{ch:structure}
 
-# #include "../chapters/rules/rules.do.txt"
-
-# #include "../chapters/rules/features.do.txt"
-
+# #include "../chapters/intro/intro.do.txt"
 
 !split
-========= Appendix: Use of Mako to aid book writing =========
-label{ch:mako}
+========= Introduction to Non-Linear Solid Mechanics =========
+
+# #include "../chapters/mech_intro/mech_intro.do.txt"
+
+!split
+========= Computational techniques for elasticity =========
+
+!split
+========= Constitutive laws for passive heart tissue =========
+
+!split
+========= Modeling cell and tissue contraction =========
+
+!split
+========= Boundary conditions and whole heart models =========
+
+!split
+========= Open problems in cardiac mechanics =========
+
+
 
 __Remark.__
 Documents that contain raw Mako code in verbatim code blocks cannot
