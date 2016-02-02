@@ -1,0 +1,43 @@
+# #ifdef LATEX2DOCONCE
+This is the result of the doconce latex2doconce program.
+The translation from LaTeX is just a helper. The text must
+be carefully examined! (Be prepared that some text might also
+be lost in the translation - in seldom cases.)
+
+
+## search for CHECK to see if auto editing was correct
+
+# #endif
+========= Modeling cell and tissue contraction (  30 p) =========
+In terms of limiting the scope, this may be the most difficult chapter.  Clearly, covering all aspects of cell mechano-biology is not possible. My first thoughts are to ignore all electrophysiology, and carefully outline the scope and limitations at the start of the chapter. Then something like this: 
+
+======= Cardiomyocyte force development =======
+
+  * Expand on the general introduction given in Chapter ref{chap1} , to give a more detailed desription of how myocytes develop force.
+
+  * Describe important features that should be captured by a realistic model, including the cooperativity of the force-Ca relation, and the force-length and force-velocity relations. Focus on biophysical details and modelign issues, and briefly mention computational and numerical difficulties arising from these aspects.
+
+  * Present a model for force-development based on a cross bridge distortion model, in a relatively simple form, and illustrate how the model captures the features listed above.
+
+  * Possibly include a phenomenological model, i.e. based on the ideas introduced by the HMT model, as a model of substantially simplified computational complexity.
+
+
+
+======= Cell to tissue coupling =======
+
+  * Describe coupling of single cell contraction to tissue mechanics, in terms of the standard active stress approach
+
+  * Possibly mention the active strain and hybrid approaches as alternatives to the standard form.
+
+  * Comment on computational and biophysical aspects of the two approaches
+
+
+
+======= Computational models of active mechanics =======
+
+  * Expand the computational models introduced in Chapter ref{chap4}, to include the actively contracting muscle.
+
+  * Illustrate the challenges of strongly coupled simulations, and discuss suitable computational techniques.
+
+
+

@@ -22,28 +22,37 @@ TOC: on
 !split
 ========= Introduction and Motivation =========
 label{ch:structure}
-
 # #include "../chapters/intro/intro.do.txt"
 
 !split
 ========= Introduction to Non-Linear Solid Mechanics =========
-
+label{ch:mech_intro}
 # #include "../chapters/mech_intro/mech_intro.do.txt"
 
 !split
 ========= Computational techniques for elasticity =========
+label{ch:comp_elast}
+# #include "../chapters/comp_mech/comp_mech.do.txt"
 
 !split
 ========= Constitutive laws for passive heart tissue =========
+label{ch:passive}
+# #include "../chapters/passive_tissue/passive.do.txt"
 
 !split
 ========= Modeling cell and tissue contraction =========
+label{ch:comp_elast}
+# #include "../chapters/contraction/contraction.do.txt"
 
 !split
 ========= Boundary conditions and whole heart models =========
+label{ch:heart_models}
+# #include "../chapters/heart_models/heart_models.do.txt"
 
 !split
 ========= Open problems in cardiac mechanics =========
+label{ch:open}
+# #include "../chapters/open_problems/open_problems.do.txt"
 
 
 

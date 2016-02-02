@@ -1,0 +1,43 @@
+# #ifdef LATEX2DOCONCE
+This is the result of the doconce latex2doconce program.
+The translation from LaTeX is just a helper. The text must
+be carefully examined! (Be prepared that some text might also
+be lost in the translation - in seldom cases.)
+
+
+## search for CHECK to see if auto editing was correct
+
+# #endif
+========= Computational techniques for elasticity (20-30 p) =========
+label{chap3}
+
+It may be discussed where this chapter is to be put, but most likely
+it is useful to introduce the solution methods before introducing the
+more complex constitutive laws. This may give a fairly compact
+description, and since the methods have already been introduced, the 
+necessary extensions and modifications may be described in 
+subsequent chapters.
+
+======= Numerical methods for PDEs =======
+
+Brief, general discussion of numerical methods for PDE problems,
+referencing the known challenges outlined earlier. Introduce the
+finite element method as the method of choice for spatial
+discretization of the mechanics problem. 
+
+======= Outline of the finite element method =======
+
+Brief introduction to the finite element method for PDEs, using the standard
+Poisson problem as model equation.
+
+======= FEM for linear and non-linear elasticity =======
+
+  * FEM for linear elasticity (Navier's equation)
+
+  * FEM for non-linear hyperelasticity, derived in the standard   form, but with notes on equivalent concepts such as the principle of   virtual work and principle of stationary potential energy.
+
+  * Linearization techniquez for FE equations arising from   non-linear hyperelasticity
+
+  * Element choices, incompressibility and locking
+
+

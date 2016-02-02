@@ -1,0 +1,61 @@
+# #ifdef LATEX2DOCONCE
+This is the result of the doconce latex2doconce program.
+The translation from LaTeX is just a helper. The text must
+be carefully examined! (Be prepared that some text might also
+be lost in the translation - in seldom cases.)
+
+
+## search for CHECK to see if auto editing was correct
+
+# #endif
+========= Constitutive laws for passive heart tissue (20-30 p) =========
+label{chap4}
+
+To limit the scope, and keep the focus on commonly used models, the focus should probably be on hyper-elasticity. Still, some justification of why we disregard visco-elastic effects should probably be included. 
+
+======= Modeling soft tissues =======
+
+  * Brief description of the exponential stress-strain behavior characteristic of soft tissues
+
+  * Simple constitutive laws based on strain components and strain invariants
+
+
+
+======= Cardiac microstructure and anisotropy =======
+(Possibly split this section in two, one covering standard anisotropic
+continuum models, and one focusing on the microstructure and related
+models.)
+
+
+  * Recapture and expand the description of cardiac microstructure   from Chapter ref{ch1:tissue_struct}, and how this affects cardiac   mechanical properties.
+
+  * Describe the necessary expansions of the models above to describe orthotropic and transversely isotropic material behavior, including examples of constitutive laws based on strain components and strain (pseudo-)invariants.
+
+  * Introduce the idea of a local (fiber) coordinate system, and how this enters the strain component based constitutive laws.
+
+  * Similar notes on spatially varying material directions for   invariant-based models.
+
+  * Referring back to the first item above, introduce models that   explicitly describe the cardiac microstructure, and discuss the   fundamental differences from the continuum models.
+
+
+
+======= Fitting material parameters =======
+
+The purpose of this section is to give the readers a very brief
+introduction to how experiments are used to select the material
+parameters, and in particular to illustrate the difficulty and
+uncertainty associated with this part of the modeling.
+
+  * Brief review of experimental techniques to characterize passive   material response, i.e. uniaxial and biaxial tests, shear tests   etc. Not intended to be a complete presentation or discussion of   experimental techniques, but discuss the different setups with   respect to their ability to characterize anisotropic behavior.
+
+  * Brief review of material parameters encountered in the   litterature, to illustrate variability
+
+  * Promises and limitations of image based techniques, for patient   specific parameter fitting.
+
+
+
+======= Computational techniques for passive muscle tissue =======
+
+Present the necessary extensions of the solution methods from Chapter ref{chap3}, in
+order to solve the equations of anisotropic hyeprelastic models with
+spatially varying material directions. 

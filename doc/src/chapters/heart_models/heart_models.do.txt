@@ -1,0 +1,38 @@
+# #ifdef LATEX2DOCONCE
+This is the result of the doconce latex2doconce program.
+The translation from LaTeX is just a helper. The text must
+be carefully examined! (Be prepared that some text might also
+be lost in the translation - in seldom cases.)
+
+
+## search for CHECK to see if auto editing was correct
+
+# #endif
+========= Boundary conditions and whole heart models (20-30 p) =========
+In the interest of saving space, this should probably not cover whole heart models, but rather a simplified LV model. This choice will allow the description of most of the general features and challenges of whole heart models, without including too much detail. Possible contents will include:
+======= The cardiac cycle revisited =======
+
+  * Recapture the phases of the cardiac cycle introduced in Chapter ref{chap1}, and describe how these are connected to valvular events and the mechanics of the circulatory system.
+
+  * Introduce the concept of ventricular BCs by considering passive filling with a prescribed pressure
+
+
+
+
+======= Models for the circulatory system =======
+
+  * Introduce a simple closed loop model for the hemodynamic boundary conditions,
+
+  * Comment on limitations and possible extensions of the simple model, but refer to other sources for actual models
+
+
+
+======= Computational models of the beating heart =======
+
+  * Comment on implications for solution methods, and present extensions of previously derived methods to describe the full dynamic problem
+
+  * Examples of interesting simulation cases
+
+  * Possible discussion of limitations and possible extensions
+
+  * Biventricular models, either discussed as a possible extension or included in the form of a simple example

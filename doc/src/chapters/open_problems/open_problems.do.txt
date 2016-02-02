@@ -1,0 +1,19 @@
+# #ifdef LATEX2DOCONCE
+This is the result of the doconce latex2doconce program.
+The translation from LaTeX is just a helper. The text must
+be carefully examined! (Be prepared that some text might also
+be lost in the translation - in seldom cases.)
+
+
+## search for CHECK to see if auto editing was correct
+
+# #endif
+========= Open problems in cardiac mechanics =========
+
+Describe open problems and unsolved challenges in cardiac mechanics modeling. This is still fairly open, but possible candidate sections include:
+
+  * The clinical perspective. What are the unsolved clinical challenges where (improved) mechanics models are promising tools?
+
+  * Understanding myocyte contraction, and the multiscale aspects of this process. While the microscopic scale of cell contraction may be well understood, there are unresolved questions in how the microscopic behavior can be properly incorporated into organ-scale models.
+
+  * Variability of material properties. Even for passive mechanics, the variability in reported material properties and parameters does not inspire confidence in model predictions. Should be discussed in view of the current modeling paradigm and the in vitro and in vivo techniques used for parameter fitting.
