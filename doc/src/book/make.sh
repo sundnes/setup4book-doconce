@@ -34,15 +34,15 @@ fi
 
 # No spellchecking of local files here since book.do.txt just includes files.
 # Spellcheck all *.do.txt files in each chapter.
-if [ "$spellcheck" != 'nospell' ]; then
-python -c 'import scripts; scripts.spellcheck()'
-fi
+#if [ "$spellcheck" != 'nospell' ]; then
+#python -c 'import scripts; scripts.spellcheck()'
+#fi
 
 preprocess -DFORMAT=pdflatex ../chapters/newcommands.p.tex > newcommands_keep.tex
 
 opt="CHAPTER=$CHAPTER BOOK=$BOOK APPENDIX=$APPENDIX"
 
-system doconce format pdflatex $name $opt $encoding --device=paper --exercise_numbering=chapter   --latex_style=Springer_sv --latex_title_layout=std --latex_list_of_exercises=none --latex_admon=mdfbox --latex_admon_color=1,1,1 --latex_table_format=left --latex_admon_title_no_period --latex_no_program_footnotelink "--latex_code_style=default:lst[style=blue1]@pypro:lst[style=blue1bar]@dat:lst[style=gray]@sys:vrb[frame=lines,label=\\fbox{{\tiny Terminal}},framesep=2.5mm,framerule=0.7pt]" #--latex_index_in_margin
+system doconce format pdflatex $name $opt $encoding --device=paper --exercise_numbering=chapter   --latex_style=Springer_sv --latex_title_layout=std --latex_list_of_exercises=none --latex_admon=mdfbox --latex_admon_color=1,1,1 --latex_table_format=left --latex_admon_title_no_period --latex_no_program_footnotelink --allow_refs_to_external_docs "--latex_code_style=default:lst[style=blue1]@pypro:lst[style=blue1bar]@dat:lst[style=gray]@sys:vrb[frame=lines,label=\\fbox{{\tiny Terminal}},framesep=2.5mm,framerule=0.7pt]" #--latex_index_in_margin
 
 # Auto edits
 doconce replace 'linecolor=black,' 'linecolor=darkblue,' $name.tex
@@ -51,7 +51,7 @@ doconce subst 'frametitlebackgroundcolor=.*?,' 'frametitlebackgroundcolor=blue!5
 rm -rf $name.aux $name.ind $name.idx $name.bbl $name.toc $name.loe
 
 system pdflatex $name
-system bibtex $name
+#system bibtex $name
 system makeindex $name
 system pdflatex $name
 system pdflatex $name
@@ -62,12 +62,12 @@ system pdflatex $name
 cp book.pdf ../../pub
 
 # index file for book and all chapters
-cd ../chapters
-cp index_files.do.txt index.do.txt
-system doconce format html index --html_style=bootstrap --html_links_in_new_window --html_bootstrap_navbar=off
-cp index.html ../../pub
-rm -f index.*
-cd -
+#cd ../chapters
+#cp index_files.do.txt index.do.txt
+#system doconce format html index --html_style=bootstrap --html_links_in_new_window --html_bootstrap_navbar=off
+#cp index.html ../../pub
+#rm -f index.*
+#cd -
 
 # Report typical problems with the book (too long lines,
 # undefined labels, etc.). Here we report lines that are more than 10pt

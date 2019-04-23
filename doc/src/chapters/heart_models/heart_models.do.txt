@@ -12,7 +12,7 @@ be lost in the translation - in seldom cases.)
 In the interest of saving space, this should probably not cover whole heart models, but rather a simplified LV model. This choice will allow the description of most of the general features and challenges of whole heart models, without including too much detail. Possible contents will include:
 ======= The cardiac cycle revisited =======
 
-  * Recapture the phases of the cardiac cycle introduced in Chapter ref{chap1}, and describe how these are connected to valvular events and the mechanics of the circulatory system.
+  * Recapture the phases of the cardiac cycle introduced in Chapter ref{ch:intro}, and describe how these are connected to valvular events and the mechanics of the circulatory system.
 
   * Introduce the concept of ventricular BCs by considering passive filling with a prescribed pressure
 

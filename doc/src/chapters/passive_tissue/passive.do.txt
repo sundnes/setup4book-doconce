@@ -1,16 +1,3 @@
-# #ifdef LATEX2DOCONCE
-This is the result of the doconce latex2doconce program.
-The translation from LaTeX is just a helper. The text must
-be carefully examined! (Be prepared that some text might also
-be lost in the translation - in seldom cases.)
-
-
-## search for CHECK to see if auto editing was correct
-
-# #endif
-========= Constitutive laws for passive heart tissue (20-30 p) =========
-label{chap4}
-
 To limit the scope, and keep the focus on commonly used models, the focus should probably be on hyper-elasticity. Still, some justification of why we disregard visco-elastic effects should probably be included. 
 
 ======= Modeling soft tissues =======
@@ -56,37 +43,41 @@ uncertainty associated with this part of the modeling.
 
 ======= Computational techniques for passive muscle tissue =======
 
-Present the necessary extensions of the solution methods from Chapter ref{chap3}, in
+Present the necessary extensions of the solution methods from Chapter ref{ch:comp_elast}, in
 order to solve the equations of anisotropic hyeprelastic models with
 spatially varying material directions. 
 
 
 
-The equations derived above, \eqref{heart_eq:DivFS}-\eqref{heart_eq:T_prescribed}
+The equations derived above, (ref{eq:DivFS})-(ref{eq:T_prescribed})
 are completely general, in the sense that tehy apply to all kinds of materials.
 As long as the deformation satisfies the assumptions of negligible acceleration
 term and body force, it can be described by the equations above. Naturally, 
 any deformation will be highly dependent not only on the forces acting 
 on the material of study (which is included in the equations above), but also on
 the mechanical properties of the material involved. The material properties enter
-the equation above through so-called \emph{constitutive laws}, which define
+the equation above through so-called *constitutive laws*, which define
 a relation between the stresses and strains in a material. 
 
 The simplest possible stress-strain relation, which is applicable in a wide
 range of engineering materials and cases is known as Hookes law. It defines a 
 linear relation between stress and strain in a material. In the simple case
-of uniaxial stretch, as illustrated in Figure \ref{fig:hooke}, 
+of uniaxial stretch, as illustrated in Figure xxx.
 Hookes law can be expressed as
-\beq
-\sigma = E \epsilon. \label{hooke1}
-\eeq
+!bt
+\begin{align}
+\sigma &= E \epsilon. label{hooke1}
+\end{align}
+!et
 Here $\epsilon = \Delta L/L$ is a measure of strain, $\sigma = F/A$ is stress,
 and $E$ is a material parameter known as Youngs modulus. In the more general 
 case of 3D deformations, the corresponding relation is Hookes generalized law,
 given by
-\beq
-\sigma_{ij} = C_{ijkl}\epsilon_{kl}. \label{hooke2}
-\eeq
+!bt
+\begin{align}
+\sigma_{ij} &= C_{ijkl}\epsilon_{kl}. label{hooke2}
+\end{align}
+!et
 Since $C_{ijkl}$ has four indices, each running from one to three, this tensor
 in general has 81 entries. However, because of known symmetry properties of
 this tensor it is possible to reduce this number to 21. Furthermore, for
@@ -113,25 +104,30 @@ be expressed by an \textit{elastic potential} or a
 \textit{stored strain energy function} per unit volume, $\Psi$. 
 Moreover, the second Piola-Kirchhoff stress tensor is expressed 
 as the derivative of $\Psi$ with respect to the components of the 
-Green-Lagrange strain tensor $\mathbfx{\mathcal{E}}$ 
-\cite{heart_holzapfel,heart_bonet_wood},
-\beq
-\label{heart_eq:S_Psi_E}
-\mathbfx{\mathcal{S}}(\mathbfx{\mathcal{E}}, \mathbfx{X}) = {\partial\Psi\over\partial\mathbfx{\mathcal{E}}}
-\eeq 
+Green-Lagrange strain tensor $\mathbf{\mathcal{E}}$ 
+cite{holzapfel,bonet_wood},
+
+!bt
+\begin{align}
+label{eq:S_Psi_E}
+\mathbf{\mathcal{S}}(\mathbf{\mathcal{E}}, \mathbf{X}) &= {\partial\Psi\over\partial\mathbf{\mathcal{E}}}
+\end{align} 
+!et
 Along with an expression for the path-independence, 
-(\ref{heart_eq:S_Psi_E}) is often used as the definition of a hyperelastic 
-material \cite{heart_bonet_wood}. 
+(ref{eq:S_Psi_E}) is often used as the definition of a hyperelastic 
+material cite{bonet_wood}. 
 
 The elastic properties of the material can be expressed by a fourth-order 
-elasticity tensor $\mathbfx{\mathcal{C}}$ (not to be confused with $\mathbfx{C}$ 
+elasticity tensor $\mathbf{\mathcal{C}}$ (not to be confused with $\mathbf{C}$ 
 above), which depends on the deformation. It is defined as the derivative of the 
 second Piola-Kirchhoff stress tensor with respect to the components of the 
 Green-Lagrange strain tensor 
+
 \[
-\label{heart_eq:fourth_order_C}
-\mathbfx{\mathcal{C}} = {\partial\mathbfx{\mathcal{S}}\over\partial {\mathbfx{\mathcal{E}}}}= {\partial\Psi\over\partial\mathbfx{\mathcal{E}}\partial{\mathbfx{\mathcal{E}}}} = 4{\partial\Psi\over\partial\mathbfx{C}\partial\mathbfx{C}}.
+label{eq:fourth_order_C}
+\mathbf{\mathcal{C}} = {\partial\mathbf{\mathcal{S}}\over\partial {\mathbf{\mathcal{E}}}}= {\partial\Psi\over\partial\mathbf{\mathcal{E}}\partial{\mathbf{\mathcal{E}}}} = 4{\partial\Psi\over\partial\mathbf{C}\partial\mathbf{C}}.
 \]
+
 This tensor is similar to the tensor introduced in Hookes generalized law above,
 in that it generally has 81 components that can be reduced to 21 because of 
 symmetry. The tensor can be interpreted as an instantanous elasticity tensor 
@@ -153,43 +149,54 @@ a short introduction to non-linearly elastic constitutive laws in general, and
 then describe som of the more influential models for heart muscle behavior, both
 passive and active. 
 
-(A more complete overview of cardiac tissue models in particular, may be found in, e.g., \cite{heart_sachse2004}.)
+(A more complete overview of cardiac tissue models in particular, may be found in, e.g., cite{sachse2004}.)
 
 
 
 
 \subsubsection{The ``Pole-Zero'' Cardiac Tissue Model}
-A well established material model for cardiac tissue is the so-called ``pole-zero'' model, see, e.g., \cite{heart_nash_hunter2000}. The strain energy function is given by
-\begin{eqnarray}
-\Psi &=&  k_{ff}\frac{\mathcal{E}_{ff}^2}{|a_{ff}-\mathcal{E}_{ff}|^{b_{ff}}} + k_{ss}\frac{\mathcal{E}_{ss}^2}{|a_{ss}-\mathcal{E}_{ss}|^{b_{ss}}} + k_{nn}\frac{\mathcal{E}_{nn}^2}{|a_{nn}-\mathcal{E}_{nn}|^{b_{nn}}} \nonumber \\
-&& + k_{fs}\frac{\mathcal{E}_{fs}^2}{|a_{fs}-\mathcal{E}_{fs}|^{b_{fs}}} + k_{fn}\frac{\mathcal{E}_{fn}^2}{|a_{fn}-\mathcal{E}_{fn}|^{b_{fn}}} + k_{sn}\frac{\mathcal{E}_{sn}^2}{|a_{sn}-\mathcal{E}_{sn}|^{b_{sn}}}. \nonumber
-\end{eqnarray}
-Here, ${\mathcal{E}}_{ij}$ are components of the Green-Lagrange strain tensor referred to the local fiber direction ($f$), the fiber sheet direction ($s$), which is normal to the fiber direction, and the fiber normal direction ($n$).
+A well established material model for cardiac tissue is the so-called ``pole-zero'' model, see, e.g., cite{nash_hunter2000}. The strain energy function is given by
+!bt
+\begin{align}
+\Psi &=  k_{ff}\frac{\mathcal{E}_{ff}^2}{|a_{ff}-\mathcal{E}_{ff}|^{b_{ff}}} + k_{ss}\frac{\mathcal{E}_{ss}^2}{|a_{ss}-\mathcal{E}_{ss}|^{b_{ss}}} + k_{nn}\frac{\mathcal{E}_{nn}^2}{|a_{nn}-\mathcal{E}_{nn}|^{b_{nn}}} \nonumber \\
+& + k_{fs}\frac{\mathcal{E}_{fs}^2}{|a_{fs}-\mathcal{E}_{fs}|^{b_{fs}}} + k_{fn}\frac{\mathcal{E}_{fn}^2}{|a_{fn}-\mathcal{E}_{fn}|^{b_{fn}}} + k_{sn}\frac{\mathcal{E}_{sn}^2}{|a_{sn}-\mathcal{E}_{sn}|^{b_{sn}}}. \nonumber
+\end{align}
+!et
+Here, $\mathcal{E}_{ij}$ are components of the Green-Lagrange strain tensor referred to the local fiber direction ($f$), the fiber sheet direction ($s$), which is normal to the fiber direction, and the fiber normal direction ($n$).
 Moreover, $k_{ij}$, $a_{ij}$, and $b_{ij}$ are constitutive parameters referred to the local fiber coordinate system. The values of $a_{ij}$ denotes the limiting strains, or poles. An underlying assumption of this model is that the material has an orthotropic behavior.
 
 
 
 \subsubsection{An Exponential Cardiac Tissue Model}
-\label{heart_sec:material_model}
-A set of alternative constitutive laws for the cardiac tissue are expressed as exponential functions. As an example, we consider a non-linear, transversely isotropic, hyperelastic model, which for an almost incompressible material may be written \cite{heart_usyk_mcculloch2003},
-\beq
-\label{heart_eq:psi_displacement}
-\Psi = \frac{1}{2}K(e^{W}-1) + C_{compr}(J \ln J - J +1),
-\eeq
-where 
-\beq
-\label{heart_eq:W_displacement}
-W = b_{ff}{\mathcal{E}}_{ff}^2 + b_{xx}({\mathcal{E}}_{nn}^2+{\mathcal{E}}_{ss}^2+{\mathcal{E}}_{sn}^2 +{\mathcal{E}}_{ns}^2) + b_{fx}({\mathcal{E}}_{fn}^2 + {\mathcal{E}}_{nf}^2 + {\mathcal{E}}_{fs}^2 + {\mathcal{E}}_{sf}^2).
-\eeq
-As for the ``pole-zero'' law, ${\mathcal{E}}_{ij}$ are the components of the Green-Lagrange strain tensor referred to the local fiber ($f$), fiber sheet ($s$), and fiber normal ($n$) axes. Furthermore, $K$, $b_{ff}$, $b_{fx}$, and $b_{xx}$ are material parameters, $J$ is the determinant of the deformation gradient, and $C_{compr}$ represents the empirically observed bulk modulus. The material parameters in (\ref{heart_eq:psi_displacement}) and (\ref{heart_eq:W_displacement}) are typically determined from physical experiments. 
+A set of alternative constitutive laws for the cardiac tissue are expressed as exponential functions. As an example, we consider a non-linear, transversely isotropic, hyperelastic model, which for an almost incompressible material may be written cite{usyk_mcculloch2003},
 
-The strain energy function in (\ref{heart_eq:psi_displacement}) can easily be extended to an orthotropic model. In that case (\ref{heart_eq:W_displacement}) is replaced by 
+!bt
+\begin{align}
+label{eq:psi_displacement}
+\Psi &= \frac{1}{2}K(e^{W}-1) + C_{compr}(J \ln J - J +1),
+\end{align}
+!et
+
+where
+
+!bt 
+\begin{align}
+label{eq:W_displacement}
+W &= b_{ff}{\mathcal{E}}_{ff}^2 + b_{xx}({\mathcal{E}}_{nn}^2+{\mathcal{E}}_{ss}^2+{\mathcal{E}}_{sn}^2 +{\mathcal{E}}_{ns}^2) + b_{fx}({\mathcal{E}}_{fn}^2 + {\mathcal{E}}_{nf}^2 + {\mathcal{E}}_{fs}^2 + {\mathcal{E}}_{sf}^2).
+\end{align}
+!et
+
+As for the pole-zero law, $\mathcal{E}_{ij}$ are the components of the Green-Lagrange strain tensor referred to the local fiber ($f$), fiber sheet ($s$), and fiber normal ($n$) axes. Furthermore, $K$, $b_{ff}$, $b_{fx}$, and $b_{xx}$ are material parameters, $J$ is the determinant of the deformation gradient, and $C_{compr}$ represents the empirically observed bulk modulus. The material parameters in (ref{eq:psi_displacement}) and (ref{eq:W_displacement}) are typically determined from physical experiments. 
+
+The strain energy function in (ref{eq:psi_displacement}) can easily be extended to an orthotropic model. In that case (ref{eq:W_displacement}) is replaced by 
+!bt
 \[
-\label{heart_eq:W_displacement_2}
+label{eq:W_displacement_2}
 W = b_{ff}{\mathcal{E}}_{ff}^2 +  b_{ss}{\mathcal{E}}_{ss}^2 + b_{nn}{\mathcal{E}}_{nn}^2 + b_{fs}({\mathcal{E}}_{fs}^2+{\mathcal{E}}_{sf}^2) + b_{fn}({\mathcal{E}}_{fn}^2+{\mathcal{E}}_{nf}^2) + b_{ns}({\mathcal{E}}_{ns}^2+{\mathcal{E}}_{sn}^2),
 \]
-where $b_{ff}$, $b_{ss}$, $b_{nn}$, $b_{fs}$, $b_{fn}$, and $b_{ns}$ are material parameters, and ${\mathcal{E}}_{ij}$ are the components of the Green-Lagrange strain tensor, as before. 
-The above models have been used for several applications, see, e.g., \cite{heart_usyk_legrice2002,heart_usyk_orthotropic2000}, and  the transversely isotropic version has been applied as a starting point for deriving a suitable strain energy function to be applied in the mixed formulation briefly presented in this report. Details are found in \cite{heart_thorvaldsen2005}.  
+!et
+where $b_{ff}$, $b_{ss}$, $b_{nn}$, $b_{fs}$, $b_{fn}$, and $b_{ns}$ are material parameters, and $\mathcal{E}_{ij}$ are the components of the Green-Lagrange strain tensor, as before. 
+The above models have been used for several applications, see, e.g., cite{usyk_legrice2002,usyk_orthotropic2000}, and  the transversely isotropic version has been applied as a starting point for deriving a suitable strain energy function to be applied in the mixed formulation briefly presented in this report. Details are found in cite{thorvaldsen2005}.  
 
 
  

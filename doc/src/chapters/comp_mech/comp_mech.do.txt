@@ -1,123 +1,239 @@
-# #ifdef LATEX2DOCONCE
-This is the result of the doconce latex2doconce program.
-The translation from LaTeX is just a helper. The text must
-be carefully examined! (Be prepared that some text might also
-be lost in the translation - in seldom cases.)
+Most of the continuum mechanics models derived in the previous section must be
+solved with numerical techniques.
+For the simplest models, typically linear elasticity and very simple geometries and loads,
+it may be possible to derive analytical solutions, and such solutions may be extremely valuable
+for verifying the accuracy of numerical solvers. However, large-deformation mechanics gives rise to
+non-linear equations that cannot be solved analytically, and to compute a solution the equations need to
+be discretized in space (and possibly in time), and the resulting non-linear algebraic equations must
+be solved with an iterative solution method. The standard numerical method for computational heart
+mechanics is the finite element method (FEM), which has a long tradition being the method of choice in solid
+mechanics, and is suitable for representing the complex and irregular geometry of the heart. 
 
 
-## search for CHECK to see if auto editing was correct
+======= FEM for linear elasticity =======
+A detailed discussion of the FEM is outside the scope of this book, and the interested reader is
+referred to one of many excellent introductions to the topic, for instance REFS. Here, we want to briefly
+introduce the method and show how it is applied to solve problems in heart mechanics.
+We start with the quasi-static formulation of the equation of motion, as derived in the previous chapter.
+Neglecting body forces and inertia, the problem can be written as
+!bt
+\begin{align}
+\nabla\cdot \stress & = 0 \mbox{ in }\Omega \label{linear0}\\
+\bfu &= \bfu_0 \mbox{ on }\partial\Omega_d \label{linear_bc1}\\
+\sigma\cdot n &= T_0 \mbox{ on }\partial\Omega_s 
+\label{linear_bc2}\end{align}
+!et
+Here we have used a combination of displacement and stress (load) boundary conditions. 
+The foundation of the finite element method is the weak form of the PDE, which we obtain by multiplying
+(ref{linear}) with a vector-valued test function $v$ and integrating over the domain $\Omega$.
+In the mechanics community, this process is often given a physical interpretation, and is referred to as
+the *principle of virtual work*. The test function $v$ is named a virtual displacement, which when
+multiplied with the stress gives rise a virtual work. The solution method proceeds to find the
+deformation state where this work vanishes for all virtual displacements $\phi$. The typical
+text book in solid mechanics will never use the term *weak form*, and the notation and terminology is often
+quite different from other fields where the FEM is applied. Adding further to the potential for confusion is the fact that the FEM can also be derived as a minimization problem, where we find the deformation that
+minimizes the total (strain) energy of the elastic body. However, all of these derivations are completely
+equivalent and result in the same discretized equations, and in this book we will stick with the
+term weak form and the more "mathematical" tradition of the FEM field.
 
-# #endif
-========= Computational techniques for elasticity (20-30 p) =========
-label{chap3}
+To derive the weak form of the linear elasticity problem, we multiply (ref{linear0}) with a
+vector-valued test function and integrate over $\Omega$;
+!bt
+\begin{align*}
+\int_{\Omega} (\nabla\cdot \stress)\cdot v \dx &= 0 ,
+\end{align*}
+!et
+which is to be satisfied for all test functions $v$. Applying Green's theorem, we get
+!bt
+\begin{align*}
+\int_{\Omega}  \stress : \nabla v\dx - \int_{\partial\Omega} v \cdot \stress\cdot \n \ds &= 0 ,
+\end{align*}
+!et
+and if we apply the boundary condition (ref{linear_bc1}) and choose the space of test functions so that they
+vanish on $\Omega_d$, we get
+!bt
+\begin{align}
+\int_{\Omega}  \stress : \nabla v \dx - \int_{\partial\Omega} v\cdot T_0 \ds &= 0 ,
+\label{weak0}
+\end{align}
+!et
 
-It may be discussed where this chapter is to be put, but most likely
-it is useful to introduce the solution methods before introducing the
-more complex constitutive laws. This may give a fairly compact
-description, and since the methods have already been introduced, the 
-necessary extensions and modifications may be described in 
-subsequent chapters.
+This form of the equation is quite general, and applies both to large- and small-deformation elasticity
+problems, regardless of which constitutive law is used. For this first example we consider linear
+elasticity, and insert the expression for the stress tensor 
+in (ref{weak0}). The final weak form can then be summarized as: find
+$\bfu \in V$ such that:
+!bt
+\begin{align}
+a(u,v) &= L(v) \forall v \in V, \label{elast0_weak}
+\end{align}
+!et
+with
+\begin{align}
+a(u,v) &= \int_{\Omega} \stress(u) : \nabla v \dx, \label{elast0_bi} \\
+\stress(u) &= 2\mu \epsilon +\lambda (\nabla\cdot\bfu) \bfI \label{elast0_stress} \\
+L(v) = \int_{\partial\Omega} T\cdot v \ds . \label{elast0_bc}
+\label{weak0}
+\end{align}
+!et
+An alternative and more common form of (ref{elast0_bi}), which arises from the symmetry of the
+stress tensor, is
+!bt
+\[
+a(u,v) &= \int_{\Omega} \stress(u) : \epsilon(v) \dx,
+\]
+!et
+with
+!bt
+\[
+\epsilon(v) = \frac{1}{2}(\nabla v + \nabla v^T) .
+\]
+!et
+The latter form arises naturally from minimization of the total elastic energy, and is closely linked with
+the Cauchy stress and the small-deformation strain tensor being a work-conjugate pair, as described in
+the previous chapter (REF).
 
-======= Numerical methods for PDEs =======
+To implement a traditional finite element solver based on (ref{elast0_weaK}), one would proceed
+to introduce a finite-dimensional subspace of $\hat{V} \sub V$, and approximate the solution $u$ by a
+weighted sum of basis functions of $\hat{V}$; $\bfu\approx\sum_{i=1}^n c_i \v_i $. The derivation
+can be found in multiple text books on the finite element method, and leads to a linear system of equations
+for the solution coefficients $c_i$. The implementations in this book are based on FEniCS, which automates
+a number of these steps. In the FEniCS code one will simply define appropriate function spaces for
+the solution and the test functions, input the weak form in a language close to the mathematics,
+and call on builtin FEniCS functionality for building and solving the system of linear equations. A complete
+FEniCS code for the linear elasticity problem looks as follows:
 
-Brief, general discussion of numerical methods for PDE problems,
-referencing the known challenges outlined earlier. Introduce the
-finite element method as the method of choice for spatial
-discretization of the mechanics problem. 
 
-======= Outline of the finite element method =======
+CODE BLOCK HERE
 
-Brief introduction to the finite element method for PDEs, using the standard
-Poisson problem as model equation.
 
-======= FEM for linear and non-linear elasticity =======
 
-  * FEM for linear elasticity (Navier's equation)
+======= FEM for non-linear elasticity =======
+Let us now turn to the more relevant non-linear elasticity problem. As noted above, the form (ref{weak0})
+is quite general, and also applies in the large deformation case. However, this problem
+requires integrating over the deformed domain $\Omega$, which for large-deformation problems is unknown.
+It is therefore more convenient to formulate the weak form relative to the undeformed configuration, using
+the appropriate stress and strain measures presented in the previous chapter. We have the equation of motion
+on the form 
 
-  * FEM for non-linear hyperelasticity, derived in the standard   form, but with notes on equivalent concepts such as the principle of   virtual work and principle of stationary potential energy.
+!bt
+\begin{align*}
+\int_{\Omega} (\nabla\cdot \bfP)\cdot v \dx &= 0 .
+\end{align*}
+!et
+Recall the important distinction that the $\nabla$ operator in this case implies differentiation with
+respect to the reference (or material) coordinates, while in (ref{linear0}) we differentiated with respect to
+deformed (or spatial) coordinates. We proceed following the same steps as above, by
+multiplying with a vector test function $v$, integrating by parts (Green's theorem) and using the boundary
+conditions, to get
+!bt
+\begin{align}
+\int_{\Omega_0}  \bfP : \nabla v \dx - \int_{\partial\Omega_0} v\cdot T_0 \ds &= 0 .
+\label{weak_pk1}
+\end{align}
+!et
+As above, we now insert the relevant stress-strain relation, typically defined in the form
+of a strain energy function. Using the neo-Hookean material as an example, we have
+!bt
+\[
+\bfP = \frac{\partial\Phi}{\partial \F} ,
+\]
+!et
+with
+!bt
+\[
+\Phi = c_1 (I_1-3), \mbox{\ \ } I_1 = tr(E).
+\]
+!et
+Although the formulation of the weak form looks the same as for the linear case above, the weak form in
+(ref{weak_pk1}) is non-linear, and the subsequent finite element discretization leads to a set of
+non-linear algebraic equations. These equations need to be solved using Newton's method or a
+similar iterative technique, and the steps to linearize and solve equations of the form
+(ref{weak_pk1}}) is included in many text books on non-linear solid mechanics. Since we will again
+apply the FEniCS framework to solve the problem, the steps of linearizing and solving non-linear equations
+is automated as well as the finite element discretization process. As for the case of linear
+elasticity, it is sufficient to specify the necessary function spaces,
+formulate the appropriate weak form, and call on builtin FEniCS functions to discretize and solve the problem.
+The complete code looks for the simple neo-Hookean elastic solid looks like
 
-  * Linearization techniquez for FE equations arising from   non-linear hyperelasticity
+CODE BLOCK HERE
+
+
+
+
+
+  * Put a "manual" linearization in an appendix 
 
   * Element choices, incompressibility and locking
 
 
-# #ifdef LATEX2DOCONCE
-This is the result of the doconce latex2doconce program.
-The translation from LaTeX is just a helper. The text must
-be carefully examined! (Be prepared that some text might also
-be lost in the translation - in seldom cases.)
-
-
-## search for CHECK to see if auto editing was correct
-
-# #endif
 ===== Finite Element Formulations =====
 label{heart_sec:numerical_methods}
 
-The differential equation in (ref{hearteq:DivFS}) must be solved by applying 
+The differential equation in (ref{eq:DivFS}) must be solved by applying 
 a numerical method. For elasticity problems in general, and the non-linear heart
 mechanics problem in particular, the main method of choice has been the
 finite element method. The finite element method is based on the weak form of 
-(ref{hearteq:DivFS}), which can be established using a variational principle. 
+(ref{eq:DivFS}), which can be established using a variational principle. 
 One approach is to employ the principle of virtual work cite{heart_holzapfel}. 
 Alternatively, we can use the principle of minimum potential energy 
 cite{heart_holzapfel,heart_me355}. In this section we apply what is referred to 
 as Galerkin's method cite{heart_DpBook2}, which is a formulation that is well 
 suited when using the finite element method.
 
-In the finite element method, the continuous displacement field $\mathbfx{u}$ is 
-approximated by a vector of nodal values  $\mathbfx{v}$ and a 
-set of basis functions $\mathbfx{N}$,
+In the finite element method, the continuous displacement field $\mathbf{u}$ is 
+approximated by a vector of nodal values  $\mathbf{v}$ and a 
+set of basis functions $\mathbf{N}$,
 
 !bt
 \begin{equation*}
-\mathbfx{u}\approx\hat{\mathbfx{u}} = \mathbfx{N}\mathbfx{v}.
+\mathbf{u}\approx\hat{\mathbf{u}} = \mathbf{N}\mathbf{v}.
 \end{equation*}
 !et
-The basis functions $\mathbfx{N}$ depend on the reference coordinates 
-$\mathbfx{X}$. Furthermore, the derivatives of the continuous displacements 
+The basis functions $\mathbf{N}$ depend on the reference coordinates 
+$\mathbf{X}$. Furthermore, the derivatives of the continuous displacements 
 may be approximated by
 
 !bt
 \begin{equation}
-label{heart_eq:u_deriv}
-\mathbfx{\partial u\over\partial X}\approx \mathbfx{\partial \hat{u}\over\partial X}= \nabla^T\mathbfx{N}\mathbfx{v} = \mathbfx{B}\mathbfx{v},
+label{eq:u_deriv}
+\mathbf{\frac{\partial u}{\partial X}}\approx \mathbf{\frac{\partial \hat{u}}{\partial X}}= \nabla^T\mathbf{N}\mathbf{v} = \mathbf{B}\mathbf{v},
 \end{equation}
 !et
-where $\mathbfx{B}= \nabla^T\mathbfx{N}$ is a matrix containing derivatives of the basis functions; ${\partial N_i\over\partial X_j}$.
-# Our objective is to compute $\mathbfx{v}$ such that the error $\mathbfx{u} -\hat{\mathbfx{u}}$ is minimized.
+where $\mathbf{B}= \nabla^T\mathbf{N}$ is a matrix containing derivatives of the basis functions; $\frac{\partial N_i}{\partial X_j}$.
+# Our objective is to compute $\mathbf{v}$ such that the error $\mathbf{u} -\hat{\mathbf{u}}$ is minimized.
 
-To establish the weak formulation in the matrix-vector notation, we generally multiply  (ref{heart_eq:DivFS}) by some test (or trial) functions, and integrate over the volume $\Omega$ of the continuum. In Galerkin's method the test functions are equal to the basis functions $\mathbfx{N}$ for the displacement field. Hence, we obtain
+To establish the weak formulation in the matrix-vector notation, we generally multiply  (ref{eq:DivFS}) by some test (or trial) functions, and integrate over the volume $\Omega$ of the continuum. In Galerkin's method the test functions are equal to the basis functions $\mathbf{N}$ for the displacement field. Hence, we obtain
 
 !bt
 \begin{equation*}
-label{heart_eq:governing_weak_1}
-\int_{\Omega}\mathbfx{N}^T\nabla\left (\mathbfx{F}\mathbfx{S}\right )dV = \mathbfx{0}.
+label{eq:governing_weak_1}
+\int_{\Omega}\mathbf{N}^T\nabla\left (\mathbf{F}\mathbf{S}\right )dV = \mathbf{0}.
 \end{equation*}
 !et
-Now, integrating by parts and employing (ref{heart_eq:u_deriv}), we end up with
+Now, integrating by parts and employing (ref{eq:u_deriv}), we end up with
 
 !bt
 \begin{equation}
-label{heart_eq:governing_weak_2}
-\int_{\Omega}\mathbfx{B}^T\mathbfx{F}\mathbfx{S} dV = \int_{\partial\Omega_\sigma}\mathbfx{N}^T{\mathbfx{T}}dS.
+label{eq:governing_weak_2}
+\int_{\Omega}\mathbf{B}^T\mathbf{F}\mathbf{S} dV = \int_{\partial\Omega_\sigma}\mathbf{N}^T{\mathbf{T}}dS.
 \end{equation}
 !et
 # which is our weak formulation.
-One observes that the natural boundary condition for the prescribed traction forces in (ref{heart_eq:T_prescribed}) has been incorporated into the weak form of the equation.   
+One observes that the natural boundary condition for the prescribed traction forces in (ref{eq:T_prescribed}) has been incorporated into the weak form of the equation.   
 
 
 === Solving the Non-Linear Equations ===
 label{heart_sec:displ_NR}
-For the problems of consideration, the weak form in (ref{heart_eq:governing_weak_2}) generally produces a system of non-linear equations to be solved for the unknown displacement field. Hence, iterative solution techniques are needed. We apply a common technique for solving non-linear equations, namely an incremental/iterative method of Newton's type, referred to as Newton-Raphson's method cite{heart_holzapfel,heart_DpBook2}. This technique requires a consistent linearization of all quantities, and results in efficient recurrence update formulas. 
+For the problems of consideration, the weak form in (ref{eq:governing_weak_2}) generally produces a system of non-linear equations to be solved for the unknown displacement field. Hence, iterative solution techniques are needed. We apply a common technique for solving non-linear equations, namely an incremental/iterative method of Newton's type, referred to as Newton-Raphson's method cite{heart_holzapfel,heart_DpBook2}. This technique requires a consistent linearization of all quantities, and results in efficient recurrence update formulas. 
 
 
 
-After linearizing and also including the discrete displacement field $\mathbfx{v}$, we obtain a set of (linear) equations with $\Delta\mathbfx{v}$ as unknowns. For each iteration we solve the linear system of equations, and update the discrete solution $\mathbfx{v}^{\ell}$ by the solution $\Delta\mathbfx{v}$,
+After linearizing and also including the discrete displacement field $\mathbf{v}$, we obtain a set of (linear) equations with $\Delta\mathbf{v}$ as unknowns. For each iteration we solve the linear system of equations, and update the discrete solution $\mathbf{v}^{\ell}$ by the solution $\Delta\mathbf{v}$,
 
 !bt
 \begin{equation*}
-\mathbfx{v}^{\ell} = \mathbfx{v}^{\ell-1} + \omega\Delta\mathbfx{v},
+\mathbf{v}^{\ell} = \mathbf{v}^{\ell-1} + \omega\Delta\mathbf{v},
 \end{equation*}
 !et
 where $\ell$ is the iteration number, and $\omega$ is a relaxation parameter. This iterative process is repeated until some convergence criterion is fulfilled.
@@ -125,43 +241,46 @@ where $\ell$ is the iteration number, and $\omega$ is a relaxation parameter. Th
 === Linearizing the Second Piola-Kirchhoff Stress Vector ===
 label{heart_sec:gov_eq_linearization}
 
-Employing the matrix-vector notation, an incremental decomposition of the second Piola-Kirchhoff stress vector in (ref{heart_eq:S_vector}) may be written
+[JS: This section is to be removed or substantially rewritten. Most likely there is no need to present the 
+matrix-vector notation.]
+Employing the matrix-vector notation, an incremental decomposition of the second Piola-Kirchhoff stress vector in (xxx) may be written
 
 !bt
 \begin{equation}
-label{heart_eq:S_expanded}
-\mathbfx{S}^{\ell} = \mathbfx{S}^{\ell-1} + \Delta \mathbfx{S},
+label{eq:S_expanded}
+\mathbf{S}^{\ell} = \mathbf{S}^{\ell-1} + \Delta \mathbf{S},
 \end{equation}
 !et
-where $\mathbfx{S}^{\ell}$ is the unknown stress vector at iteration $\ell$, $\mathbfx{S}^{\ell-1}$ is the stress vector from the previous iteration, and $\Delta \mathbfx{S}$ is the increment of the stress. 
-# The incremental increase equals the product of the fourth order elasticity tensor $\mathbfx{\mathcal{C}}$ and the incremental Green-Lagrange strain tensor $\Delta\mathbfx{\mathcal{E}}$ cite{holzapfel}. The equivalent expression in the matrix-vector notation is obtained just from rewriting the expressions in the tensor notation. That is, 
+where $\mathbf{S}^{\ell}$ is the unknown stress vector at iteration $\ell$, $\mathbf{S}^{\ell-1}$ is the stress vector from the previous iteration, and $\Delta \mathbf{S}$ is the increment of the stress. 
+# The incremental increase equals the product of the fourth order elasticity tensor $\mathbf{\mathcal{C}}$ and the incremental Green-Lagrange strain tensor $\Delta\mathbf{\mathcal{E}}$ cite{holzapfel}. The equivalent expression in the matrix-vector notation is obtained just from rewriting the expressions in the tensor notation. That is, 
 The increment of the stress can be expressed in terms of the elasticity properties and the strains, as follows
 
 !bt
 \begin{equation}
-label{heart_eq:S_DE}
-\Delta\mathbfx{S}= \mathbfx{D}\Delta\mathbfx{E},
+label{eq:S_DE}
+\Delta\mathbf{S}= \mathbf{D}\Delta\mathbf{E},
 \end{equation}
 !et
-where $\Delta\mathbfx{E}$ is the increment of the Green-Lagrange strain vector. Moreover, the matrix $\mathbfx{D}$ contains components of the elasticity tensor $\mathbfx{\mathcal{C}}$, evaluated at iteration $\ell-1$, yielding cite{heart_bonet_wood}
+where $\Delta\mathbf{E}$ is the increment of the Green-Lagrange strain vector. Moreover, the matrix $\mathbf{D}$ contains components of the elasticity tensor $\mathbf{\mathcal{C}}$, evaluated at iteration $\ell-1$, yielding cite{heart_bonet_wood}
 
 
 
 === Linearization of the Governing Equation on Weak Form ===
 label{heart_sec:gov_eq_linearization_weak}
-# Linearizing the weak form in (ref{heart_eq:governing_weak_2}), and then inserting the linearized second Piola-Kirchhoff stress tensor, results in the same expression as inserting (ref{heart_eq:S_expanded}) into the weak form, and then linearizing. We apply the latter approach, although this procedure may be viewed as less mathematically rigorous compared to first linearizing all involved quantities. 
+# Linearizing the weak form in (ref{eq:governing_weak_2}), and then inserting the linearized second Piola-Kirchhoff stress tensor, results in the same expression as inserting (ref{eq:S_expanded}) into the weak form, and then linearizing. We apply the latter approach, although this procedure may be viewed as less mathematically rigorous compared to first linearizing all involved quantities. 
 
 
 In addition to linearizing the second Piola-Kirchhoff stress vector, we also need to linearize the remaining parts of the governing equation.
-Inserting the expression for the linearized second Piola-Kirchhoff stress vector in (ref{heart_eq:S_expanded_2}) and the deformation gradient matrix in (ref{heart_eq:F}) (after inserting the decomposition in (ref{heart_eq:disp_decomp})) into the weak form (ref{heart_eq:governing_weak_2}), yields
-
-!bt
+#Inserting the expression for the linearized second Piola-Kirchhoff stress 
+#vector in (ref{eq:S_expanded}) and the deformation gradient matrix in (ref{eq:F}) 
+#(after inserting the decomposition in (ref{eq:disp_decomp})) into the weak 
+#form (ref{eq:governing_weak_2}), yields
 
 !bt
 \begin{align}
-label{heart_eq:governing_constitutive}
-\int_{\Omega}\mathbfx{B}^T\left [\left (\mathbfx{H} + \mathbfx{\partial \hat{u}^{\ell-1}\over\partial X}_F + \mathbfx{\partial \Delta u\over\partial X}_F\right ) \left \{ \mathbfx{S}^{\ell-1} + \mathbfx{D}\left [ \left(\mathbfx{H}^T + \mathbfx{\partial \hat{u}^{\ell-1}\over\partial {X}}_E \right ) \mathbfx{\partial^v \Delta{u}\over\partial {X}} + \mathbfx{\partial \Delta {u}\over\partial {X}}_E \mathbfx{\partial^v \hat{u}^{\ell-1}\over\partial {X}} \right ]\right \} \right ]dV&& \nonumber \\
-=\int_{\partial\Omega_{\sigma}}\mathbfx{N}^T\mathbfx{T}dS .&&
+label{eq:governing_constitutive}
+\int_{\Omega}\mathbf{B}^T\left [\left (\mathbf{H} + \mathbf{\partial \hat{u}^{\ell-1}\over\partial X}_F + \mathbf{\partial \Delta u\over\partial X}_F\right ) \left \{ \mathbf{S}^{\ell-1} + \mathbf{D}\left [ \left(\mathbf{H}^T + \mathbf{\partial \hat{u}^{\ell-1}\over\partial {X}}_E \right ) \mathbf{\partial^v \Delta{u}\over\partial {X}} + \mathbf{\partial \Delta {u}\over\partial {X}}_E \mathbf{\partial^v \hat{u}^{\ell-1}\over\partial {X}} \right ]\right \} \right ]dV&& \nonumber \\
+=\int_{\partial\Omega_{\sigma}}\mathbf{N}^T\mathbf{T}dS .&&
 \end{align}
 !et
-!et
+

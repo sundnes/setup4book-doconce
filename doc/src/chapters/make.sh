@@ -40,7 +40,7 @@ function system {
 rm -fr tmp_*
 
 # Perform spell checking
-system doconce spellcheck -d .dict4spell.txt *.do.txt
+#system doconce spellcheck -d .dict4spell.txt *.do.txt
 
 # Copy common newcommands
 system preprocess -DFORMAT=pdflatex ../newcommands.p.tex > newcommands_keep.tex

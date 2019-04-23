@@ -1,24 +1,72 @@
-# #ifdef LATEX2DOCONCE
-This is the result of the doconce latex2doconce program.
-The translation from LaTeX is just a helper. The text must
-be carefully examined! (Be prepared that some text might also
-be lost in the translation - in seldom cases.)
-
-
-## search for CHECK to see if auto editing was correct
-
-# #endif
-========= Introduction and motivation (appr. 10-15 pages) =========
-label{chap1}
+In this chapter we provide a brief introduction to heart anatomy and physiology, 
+to serve both as motivation and background material for the computational models
+presented in subsequent chapters. The description is intentionally kept brief, 
+only introducing the key concepts required to understand the mathematical models. 
+For a more detailed and complete overview of heart physiology, the reader is 
+referred to a text book in the field, for instance cite{Katz}.
 
 ======= Structure of the heart and cardiac muscle =======
-
 ===== Heart anatomy and mechanical function =====
+The heart is a mechanical pump, which serves the single purpose of pumping blood
+through the body. The pumping is achieved by a rhythmic, synchronized contraction 
+of the heart muscle, and represents a tremendous physical effort as well as a fine-tuned 
+interplay of mechanical, electrophysiological and neuro-hormonal factors. 
+The heart is made up of four chambers, illustrated in Figure (xxx). The right and left ventricles
+constitute the main pumping chambers of the heart, while the two atria serve as primer
+pumps that improve the filling and thereby the pumping efficiency of the ventricles. 
+An illustration of the cardiovascular system is shown in Figure xxx. Oxygen-poor blood 
+from the vena cava enters 
+the right atrium, then flows through the tricuspid valves into the right atrium, and is 
+pumped via the pulmonary valve into the pulmonary circulation for oxygenation. After 
+passing through the lungs, the now oxygen-rich blood flows returns to the heart via the
+pulmonary veins, enters the left atrium, and 
+further into the left ventricle via the mitral valve. From the left ventricle the blood flows
+through the aortic valve into the aorta, and after several generations of branching vessels
+reaches the capillaries, where oxygen and nutrients are transferred to the tissues, and 
+flows through the venous system to eventually reach the vena cava and complete the cycle.
 
-Overview of heart anatomy and structure, focusing on the mechanical function
+The pulmonary circulation (lungs) is a low-resistance system that operates under low pressure,
+while a much higher pressure is required to drive the flow through the higher resistance 
+of the systemic circulation. The anatomy of the heart reflects this difference in blood pressure,
+with the left ventricle being thick-walled with a nearly circular cross section, and the more 
+thin-walled right ventricle wrapped around it, see Figure (xxx). 
 
 ===== Structure of cardiac muscle tissue =====
 label{ch1:tissue_struct}
+From a mechanical viewpoint, the heart tissue has two main constituents; the cardiomyocytes
+and the extracellular matrix. The cardiomyocytes make up about xx\% of cardiac tissue,
+and are the muscle cells responsible for active contraction and performing work. The myocytes 
+are roughly cylindrical in shape, with a length of about 100$\mu$m and diameter 10$\mu$m. They 
+have a distinct orientation, which makes both the passive and active mechanical properties of
+the heart tissue highly anisotropic. The muscle cells line up end-to-end to form a fibrous tissue
+structure, although there are no long muscle fibers as seen in skeletal muscle. The orientation of 
+the myocytes varies through the heart, as illustrated in Figure (xxx) for the left and right 
+ventricle. The orientation is roughly helical, with the myocytes being aligned with the 
+endocardial (inner) and epicardial (outer) surfaces, and forming an angle $\alpha$ with the 
+horizontal plane. The angle varies approximately linearly from an endocardial value $\alpha_{endo}$ 
+to the epicardial value $\alpha_{epi}$, with typical values for human 
+
+
+and are held together and supported by the extracellular matrix. The matrix is 
+primarily made up of collagen, and contributes substantially to the passive mechanical properties
+of the tissue. 
+
+The pumping function of the heart is caused by the cyclic stretching and shortening of
+the myocytes, which in turn is driven by mechano-chemical processes in tiny sub-cellular
+structures called sarcomeres. In physical modeling terminology, the mechanics of the heart is 
+truly a multiscale phenomenon. Each sarcomere is approximately xxx $\mu$m long and has a diameter
+of around $\mu$m, and they are connected end-to-end into myofibrils, which are bundled together and
+fill most of the internal volume of the cardiac myocytes, as illustrated in Figure xxx. 
+
+Moving further down in physical scales, the sarcomeres are made up of overlapping thick and 
+thin filaments, see Figure xxx. The thick filaments are made up of the protein xxx
+
+
+
+
+
+extracellular matrix is primarily made up of collagen, 
+
 
 Outline of muscle tissue organization;
 
@@ -43,12 +91,39 @@ myocyte, and the sub-cellular structures.
 
 
 ======= Computational mechanics challenges =======
-
 From a viewpoint of computational mechanics, outline the most
 important challenges of modeling heart mechanics. 
 
 ===== Computational challenges of multiscale problems =====
+As outlined above, the pumping of the heart is a multiscale physical phenomenon, 
+where the macroscale function is directly linked to processes occuring on scales of
+$\mu$m or even nanometers. Defining models of such processes that are suitable for
+solving on a computer is highly non-trivial, as it involves capturing the essential 
+features on one scale that are transfered to the scale above, without fully resolving
+the finer scales. For instance, while it may be possible to build a detailed model of
+of the protein interactions in a single sarcomere, there are thousands of sarcomeres
+in each myocyte, and up to 10 billion myocytes in a human heart. Resolving the fine details
+of each individual sarcomere in a computational model is obviously neither possible nor 
+desirable, as the function of a single sarcomere, or even a few myocytes, 
+will have no impact on the organ-scale pumping function. Rather, we are interested 
+in building models that capture the essential details of the cellular and sub-cellular
+mechanisms, and how they are coupled to function and feedback mechanisms on the larger scales.
 
+To model the effects of micro-scale details on larger scales we will apply a 
+homogenization procedure, which is in principle similar to the approach used in 
+continuum mechanics in order to view fluids and solids as continuous media rather than 
+a large number of individual molecules. We will apply the same principle to view the 
+cardiac tissue as a continuum, neglecting the discrete, cell-based nature of the tissue.
+Physical quantities will be represented as continuous fields, and the net effect of 
+micro-scale physical processes will also be represented in this way. For instance, 
+a continuous field variable may represent the force developed by the sarcomeres, an 
+approximation which hides the fine-scale details but allows (...). 
+
+Although the continuum approach to multiscale modeling is a considerable simplification 
+compared with modeling each individual sarcomere or cell, 
+
+
+models of the pumping heart are true multiscale models, 
 Referring to the outline of heart mechanics as a multiscale problem in
 Section ref{ch1:mech_contr}, outline current modeling paradigm and
 the general computational challenges related to solving multiscale,

@@ -1,54 +1,444 @@
-# #ifdef LATEX2DOCONCE
-This is the result of the doconce latex2doconce program.
-The translation from LaTeX is just a helper. The text must
-be carefully examined! (Be prepared that some text might also
-be lost in the translation - in seldom cases.)
-
-
-## search for CHECK to see if auto editing was correct
-
-# #endif
-========= Introduction to non-linear solid mechanics (appr. 40 p) =========
 A compact introduction to the necessary theory. Start the chapter with
 a brief ouline of its purpose, that we want to employ the laws of
 Newton to arrive at dynamic and static balance laws governing the
 relation between forces and deformation. Ths brief introduction will
 motivate the concepts of strain and stress to be introduced through
 the chapter.
-======= Kinematics =======
 
-Introduce the necessary framework for describing movement and
-deformation of soft tissues:
+===== Fundamental concepts of continuum mechanics =====
+Biological tissue, including cardiac muscle, is a complex mix of cells, fluids, and extracellular
+matrix proteins, and capturing the full details of this tissue composition in a
+computational model would be very challenging. Even if we only focus on representing
+the muscle cells, there are about ten billion of these in a human heart, and representing
+all of them will lead to a computationally expensive model. Fortunatly, we are normally
+not interested in the mechanical properties of a single cell, only in their collective
+mechanical behavior, and in this case classical *continuum mechancis* provides a
+suitable framework for modeling.
 
-  * Introduce the displacement field and mapping between the   reference and undeformed configuration, also briefly mentioning the   generalization to intermediate configurations as used in growth   models and active strain models of contraction. Introduce the   deformation gradient.
+The foundation of continuum mechanics is to view the physical world as continuous media, neglecting
+the discrete atomic and molecular nature of all materials. This approach is of course quite
+intuitive, and matches well with our general perception of the world, but from a theoretical
+viewpoint it involves a number of key assumptions. Consider for instance a fundamental
+physical quantity such as density, which is commonly thought of as a property of a material.
+How can we define the density $\varrho (\modvec{x},t)$ as a continuous field,
+for a material which is mostly void space with some sparsely distributed molecules or atoms?
+The solution is to define $\varrho (\modvec{r},t)$ as an averaged quantity,
+averaged over a volume containing a large number of molecules, as illustrated in Figure XXX. 
+We pick a small volume $\Delta V$, compute its mass $\Delta M$, and define the 
+average density $\varrho^{(a)} = \Delta M /\Delta V$. Then define
+!bt
+  \begin{equation*} \varrho (\modvec{r},t) = \left\lbrace\begin{array}{ll} \lim_{\Delta V\rightarrow 0} \Delta M /\Delta V &  \hbox{(mathematically)}\\ \varrho^{(a)}, \ \modvec{r}\ \hbox{is centroid of }\Delta V & \hbox{(physically)}
+\end{array}\right.
+\end{equation*}
+!et
+So from a theoretical viewpoint $\varrho (\modvec{x},t)$ is the average density in
+a small volume around the point $\modvec{x}$ at time $t$, and this definition is
+implied for all the continuous field quantities introduced in this book.
+This theoretical definition will not have any practical implications for the models
+considere here, but it is worth keeping in mind for all practitioners of computational biology.
+In physics, this process of homogeneization is applicable if the volume $\Delta V$
+contains a large number of molecules, but is also much smaller than the typical scale of
+the phenomenon under study. This condition is usually satisfied in classical continuum mechanics,
+but to be applicable in biology the averaging should be done over a large number of *cells* rather
+than molecules, which may be problematic for some applications. 
 
-  * Describe the distinction between Lagrangian and Eulerian   description of field quantities.
+
+======= Lagrangian and Eulerian description =======
+
+In mechanics, an important distinction is made between a *Eularian* and *Lagrangian* description of
+field quantities. If we consider for instance a velocity field $v(\modvec{x},t)$, the difference between the Lagrangian
+description $v_L(\modvec{X},t)$ and the Eularian description $v_E(\modvec{x},t)$ can be summarized
+as follows:
+
+  * $\bfv_E (\bfx, t)$: The velocity of the continuum *particle* that is located at the spatial point $\bfx$ at time $t$
+  * $\bfv_L (\bfX, t)$: The velocity of the continuum particle that was *initially* located in the point $\bfX$
+  
+Note the important distinction between the spatial coordinates $\bfx$ and the initial (or material) coordinates $\bfX$. The
+$\bfX$ should be interpreted as particle labels, and the Lagrangian description works by tracking these continuum
+particles over time. The Lagrangian coordinates $\bfX$ are often referred to as *material coordinates*, while $\bfx$ are
+the *spatial coordinates*. The difference between the two formulations can be illustrated further by considering the partial derivatives of the
+two fields $\bfv_E (\modvec{x}, t)$ and $\bfv_L (\modvec{X}, t)$. The correct physical interpretation of $\partial \bfv_E /\partial t$
+is as the rate of change in the velocity of particles at a fixed point in space;
+!bt
+\begin{equation*}
+\frac {\partial\bfv_E}{\partial t} = \lim_{\Delta t\rightarrow 0} {\bfv_E(\bfr,t+\Delta t) - \bfv_E(\bfr, t)\over \Delta t} .
+\end{equation*}
+!et
+Here, it is important to note that $\bfv_E(\bfr,t+\Delta t)$ and $\bfv_E(\bfr,t)$ are the velocities of two different particles,
+and although we usually get acceleration as the time-derivative of velovity, in this case we do *not* obatin the acceleration of a physical
+continuum particle. On the other hand, the Lagrangian description $\bfv_L (\bfX, t)$ follows individual particles by
+defnition, so the partial derivative  $\partial\bfv_L /\partial t$ becomes the physical acceleration of an individual continuum particle.
+The distinction is important, in particular in fluid mechanics and large-deformation solid mechanics. As can be inferred from this simple
+example, the Lagrangian formulation is often closer to the intuitive physics, but it will often lead to more complex mathematical
+relations, and for many applications it is not of interest to track all individual particles of a continuum body. 
+
+Of course, the Lagrangian and Eulerian description of a field are supposed to describe the same physical quantity, and we can easily map between the
+two formulations, by expressing the spatial position of a particle as a function of time and its initial position;
+!bt
+\[
+\bfx = \bfx(\bfX,t) .
+\]
+!et
+From this mapping between material and spatial coordinates, we can easily define
+the velocity and acceleration of individual particles in a Lagrangian description;
+!bt
+\[
+\bfv(\bfX,t) = \frac{\partial \bfx}{\partial t} \mbox{\ \ } \bfa(\bfX,t) = \frac{\partial \bfv}{\partial t} .
+\]
+!et
+Similarly, computing the particle acceleration in a Eulerian description requires a coordinate change:
+!bt
+\begin{align*}
+\bfa(\bfx,t) =  \frac{d \bfv(\bfx(\bfX,t),t)}{d t} \\
+& = \frac{\partial \bfv(\bfx,t)}{\partial x}\frac{\partial \bfx(\bfX,t)}{\partial t} + \frac{\partial \bfv(\bfx,t)}{\partial t}
+& = \bfv\cdot \nabla\bfv + \frac{\partial v}{\partial t} .
+\end{align*}
+!et
+We see that this definition of acceleration as the *total derivative* has two components; one is the time rate of change of velocity in a
+spatial point $\bfx$, and the other is the change in velocity as particles move to a position with higher velocity. The formula is
+essential in fluid dynamics, but generally not needed in solid mechanics applications. 
+
+======= Lagrangian formulation for solid mechanics =======
+As noted above, the Lagrangian description is often preferred for solid mechanics applications. In a typical solid mechanics problem we
+know the original shape and position of a continuum body, apply some static or dynamic loads, and then want to compute the resulting
+shape, deformation, and internal forces (stresses) in the body. The shape of the deformed body at any given time is given by
+the spatial coordinates $\bfx(\bfX,t)$, so this field is typically the central variable of interest. However, instead of solving
+for the spatial coordinates directly, it is common to define the displacement field $\bfu$ as the primary unknown variable. The
+displacement is given by
+!bt
+\[
+\bfu = \bfx(\bfX,t) -\bfX,
+\]
+!et
+and simply describes how much a given point $\bfX$ in the original configuration has moved. The motivation for introducing the
+displacement field is that we want to introduce measures of *deformation*, because we will later define material laws that
+link deformation with internal forces (stresses) acting on the material. Since $\bfu$ describes how much each point $\bfX$ is displaced,
+it is a good starting point for defining a measure of deformation, but it is still not quite what we need. The reason is that we want
+to define a quantity that can be related to internal forces, and the displacement field contains *rigid body motion* that
+do not give rise to internal forces in the material. This can be illustrated intutively by a body subject to a constant
+displacement field, for instance $\bfu = (1,0,0)$, i.e., moving the entire body one length unit along the $x$-axis. Such a translation
+will obviously not introduce any internal forces in a body, and the discplacement field itself is therefore not a good
+candidate for relating deformation to internal forces. To obtain a variable free of rigid body translation, we can simply
+take the gradient of the displacement field with respect to the material coordinates $\bfX$, to define
+!bt
+\[
+\F = \frac{\partial\bfu}{\partial\bfX} = \nabla\bfu .
+\]
+!et
+The new quantity $\F$ is called the *deformation gradient*, and is a central quantity in large-deformation solid mechanics. It serves
+both as a measure of deformation, quantifying the change of shape as a body deforms, and also to map infitesimal quantities back and
+forth between the reference and deformed configuration. We will come back to the latter use of $\F$ later, for now we focus on its role
+as a measure of deformation.
+
+Clearly, a displacement field that is constant in space has a zero gradient, implying that all linear, rigid translational
+motion components have been eliminated from $\F$. As such, it is a better measure of change of shape than the actual displacement field,
+but it is still not quite what we need. The reason can be illustrated by a displacement field representing a *rigid body rotation*, which
+is obviously not constant in space, so the gradient $\F=\nabla\bfu$ is in general not zero. However, rotating a rigid body around a point in
+space does not change its shape either, and does not give rise to internal forces in the body. Recall that our goal is to
+find a measure of deformation that represents pure shape change, as this will be the most convenient to use in laws relating
+deformation with internal forces. The deformation gradient contains change of shape, but also rigid body rotation, so we
+need to take additional steps. One way to achieve this is via the *polar decomposition theorem* (reference), which
+enables us to exclude the rotational components of $\F$ through the following decomposition:
+!bt
+\[
+\F = \R\U = \bfv\R .
+\]
+!et
+Here, $\U,\bfv$ are symmetric tensors, $\U = \U^T$, and $\R$ is an orthogonal *pure rotation tensor*, which contains all the rotational
+components of $\F$. Since $\R$ is orthogonal, we have
+!bt
+\[
+\F^T\F = (\R\U)^T(\R\U) = \U^T\R^T\R\U = \U^T\U ,
+\]
+!et
+and we see that by multiplying $\F$ with its transpose we have eliminated all the rotational components. The resulting tensor $\C = \F^T\F$
+is called the *right Cauchy-Green tensor*, and is a commonly used measure of deformation in large-deformation solid mechanics.
+
+======= Mapping the reference to the undeformed configuration =======
+As noted above, a central use of the deformation gradient tensor in large-deformation mechanics
+is to map back and forth between the undeformed and deformed configuration of a continuum. For the
+applications considered in this book, we will need to map
+infinitesimal *line segments*, *surface elements*, and *volumes* between the reference and the deformed condfiguration. 
+By using the definition
+of $\F$ as the gradient of the mapping $\varphi(\bfX,t)$, it can be shown that an infinitesimal
+line segment $d\bfX$ in the reference configuration is mapped to the line segment
+!bt
+\beq
+d\bfx = \F d\bfX
+\label{map_line}
+\eeq
+!et
+after the
+deformation. Later, we will also be interested in mapping infinitesimal area segments, and in particular
+area segments with an orientation, i.e., a *surface element* $d\S = dS\N$, where $dS$ is the area and $\N$ its surface normal.
+The mapping of such surface elements between the reference and deformed state is according to Nanson's formula:
+!bt
+\beq
+d\bfs = J \F^{-T} d\S,
+\label{map_area}
+\eeq
+!et
+where $d\bfs = ds\n$ is the deformed surface element, with area $ds$ and unit normal $\n$, and $J = \det{F}$ is the determinant of $\F$.
+Finally, volumes are mapped according to
+!bt
+\beq
+dv = J dV
+\label{map_vol}
+\eeq
+!et
+The formulas (ref{map_line})-(ref{map_volume}) will be used extensively throughout this book. For a detailed derivation of the formulas we
+refer to a text book on continuum mechancis, for instance cite{Holzapfel2000}. 
+
+With the mapping (ref{map_line}) at hand, we can introduce an alternative derivation of $\C$, which makes it more evident that
+it represents a change of shape. Consideran infinitesimal line segment $d\bfX$ in
+the reference configuration, which deforms to a line segment $d\bfx$ after the deformation. A measure of shape change can be
+derived by quantifying the *length change* of such a line segment as the body deforms, since for a pure
+rotation we will have $||d\bfx || = ||d\bfX ||$. We have
+!bt
+\begin{align*} 
+||d\bfx ||^2 - ||d\bfX ||^2 &= d\bfx^Td\bfx - d\bfX^Td\bfX \\
+&= ( (\F d\bfX)^T\F dX - d\bfX^Td\bfX) = ((d\bfX)^T C dX - d\bfX^Td\bfX) \\
+&= (\C-\bfI ) d\bfX^Td\bfX, 
+\end{align*}
+!et
+which shows that all the information to compute the length change of $d\bfX$ is held in $\C$. From
+this derivation we can also motivate an alternative measure of deformation, the so-called
+*Green-Lagrange strain tensor*, defined by
+!bt
+\beq
+\E = \frac{1}{2}(\C-\bfI) .
+\label{green-lagrange}
+\eeq
+!et
+Both $\C$ and $\E$ are widely used in material laws describing large-deformation solid mechanics. One difference between them
+is that $\E$ is an actual $strain$, while $\C$ is a measure of deformation but not really a strain. The distinction is not
+of importance for the topics in this book, but a strain is defined as a quantity which is zero when there is no deformation.
+When there is no deformation we have $\C = \bfI$, so the right Cauchy-Green tensor is by definition not a strain, although it is
+a precise measure of change of shape that is suitable for use in material laws relating deformation to internal forces. 
+
+Many will be familiar with the small-deformation strain tensor, typically defined as
+!bt
+\[
+\epsilon_{ij} = \frac{1}{2}(\frac{\partial u_i}{\partial x_j} + \frac{\partial u_j}{\partial x_i}),
+\]
+!et
+or in the notation used so far in this chapter;
+!bt
+\[
+\epsilon = \frac{1}{2}(\nabla u + \nabla u^T)
+\]
+!et
+If we expand the Green-Lagrange strain tensor using the index notation, we get
+!bt
+\[
+E_{ij} = \frac{1}{2}\left( \frac{du_i}{dX_j} +  \frac{du_j}{dX_i} +  \frac{du_i}{dX_j}\frac{du_j}{dX_i} \right) ,
+\]
+!et
+which follows directly from from the (ref{green-lagrange}) and the definition of $\C$ and $\F$. Now, if the deformations are
+small the linear terms dominate the quadratic ones, so we can set $\frac{du_i}{dX_j}\frac{du_j}{dX_i} \approx 0$. Furthermore,
+for small deformations the distinction between $\bfX$ and $\bfx$ becomes insignificant, so the Green-Lagrange strain reduces to
+the familiar small-deformation strain tensor. This similarity also helps to explain the factor $1/2$ appearing in the the
+Green-Lagrange strain, as it makes it more closely resemble the small-strain tensor and makes the physical interpretation of
+its components more intuitive.
 
 
 
-======= The concept of strain =======
 
-  * Describe the purpose of and general requirements to deformation measures, i.e. the need for a precise measure of local deformations, excluding rigid body motion. Explain why neither the displacement field nor the deformation gradient are suitable measures of deformation.
+===== The concept of stress =====
+So far, we have introduce a precise mathematical description of deformation, and arrived at quantities that
+are precise measures of change of shape. The motivation for introducing these quantities was to use them in
+laws material laws that relate deformation to internal forces in the continuum, but we have so far not provided
+a precise definition of these internal forces. To introduce this topic, we fist consider two types of forces that
+can act on a continuum body; body forces and surface forces. Body forces are *distant* forces that act on each
+point of the body. The most obvious example is gravity, but other examples include
+centrifugal and magnetic forces. For a body force $\mathbf{b}$ acting on a body $\modvec{B}$, the total force is
+!bt
+\[
+\modvec{B} = \int\limits_{\hbox{body}} \mathbf{b} dV
+\]
+!et
 
-  * Introduce the most widely used deformation and strain tensors,   including the linear strain tensor (for familiarity), the   Green-Lagrange strain tensor, the left Cauchy-Green tensor. Possibly   a couple more, but most likely just list these and cite other   sources for details.
+As a simple illustrating example, consider the total gravity force on a brick with dimensions
+$W\times H\times D$.
+!bt
+\begin{align*}
+\modvec{B} &= 
+\int_V \varrho\modvec{g} dV = \varrho\modvec{g}\int_V dV = \varrho\modvec{g}  
+WHD\\
+&= M\modvec{g},\quad M = \varrho WHD .
+\end{align*}
+!et
 
-  * Describe the concept of frame invariance, and introduce the   primary strain invariants.
+The other type of force, surface forces, act on the surface of a body or on the imaginary surface of a part of a body. These forces
+are conveniently quantified by the *stress* $\modvec{s}(\bfx ,t)$, which is a vector quantity defined as force per area. The total surface
+force acting on a body is given by
+!bt
+\[
+\modvec{S}(\bfx,t) = \int\limits_{\hbox{surface}} \modvec{s}(\bfx ,t) dA .
+\]
+!et
+
+Continuing the simple example from above, consider the total surface force on a brick immersed in a fluid. The surface is
+subjected to a pressure, which is a force acting normal to the surface. The total force is
+!bt
+\[
+\modvec{S} = \int\limits_{\hbox{surface}} p(-\n )dA ,
+\]
+!et
+with the pressure being a function of the depth; $p(h) = p_0 -\varrho h$, where $p_0$ is a reference pressure, $\varrho$ the density of the
+fluid, and $h$ the height of the point in consideration. 
+
+The pressure force on the brick becomes
+!bt
+\begin{equation*} \modvec{S} = \sum_{k=1}^6\int\limits_{s_k} p(-\n )dA  = -WDp_0\mathbf{n}_3+
+WD\mathbf{n}_3(p_0+ \varrho H ) = \varrho WDH\mathbf{n}_3 \end{equation*}
+!et 
+
+
+As noted above, stress is force per unit area, and is a vector quantity having the same direction as the force. However, it is important to
+remark that the stress vector depends on the orientation of the area considered. That is, the stress at a point on a surface
+depends on the location of the point (on the surface) and on the orientation of the surface at that point. As a simple illustration,
+consider the stress in a rod subject to a stretching force $F$, see Figure ref{fig:rodstress}. From simple equilibrium assumptions,
+the stress vector on a cross-sectional surface must have magnitude $F/A$, and direction along the length of the rod. On a surface
+parallel to the length of the rod, the stress vector will be zero, since no forces act in the transverse direction. In general, we need
+to know the surface orientation, the surface normal $\n$, to compute the stress vector. 
+
+FIGURE:[figs/rodstress, width=600 frac=0.8] Illustration of stress resulting from a stretching force $F$ applied to a rod. The stress vector in the bullet point will be different depending on the orientation of the surface we are looking at. label{fig:rodstress}
+
+For the stress vectors and the surface orientation considered in this simple example, all the stress vectors acted perpendicular to the
+surface considered. However, this is not always the case, and in general we will have forces acting parallel or tangential to the surface
+of interest. In the example in Figure ref{fig:rodstress}, this would be the case if we for instance considered a surface at a 45 degree
+angle to the length direction of the rod. In this more general case, we distinguish between *normal stress* $s_N$ and *shear stress* $s_T$:
+
+  * Normal stress: $s_N = \modvec{s}\cdot\modvec{n}\ \  (= \modvec{n}\cdot\stress\cdot\modvec{n})$
+
+  * Normal stress vector: $\modvec{N} = \sigma_N\modvec{n} = (\modvec{s}\cdot\modvec{n})\modvec{n}$
+
+  * Tangential/shear stress vector: $\modvec{T} = \modvec{s} - \modvec{N}$
+
+  * Tangential/shear stress: $\sigma_T = ||\modvec{T}||$
+
+
+FIGURE:[figs/stressvec, width=600 frac=0.8]
+
+
+So far we have merely shown that the stress in a point on a surface depends on the surface orientation, without considering
+*how* it depends. Fortunately, the dependence is quite simple, as stated by a famous theorem known as Cauchy's first law,
+or Cauchy's stress theorem:
+!bt
+\begin{equation*} s_i (\modvec{r},t;\modvec{n}) = n_j(\modvec{r},t)\sigma_{ji} (\modvec{r},t) ,
+\end{equation*}
+!et
+or
+!bt
+\begin{equation*} \modvec{s} (\modvec{r},t;\modvec{n}) = \modvec{n}(\modvec{r},t)\cdot
+\stress(\modvec{r},t) . \end{equation*}
+!et
+This law states that $\modvec{s}$ has a simple (linear) dependence on $\n$, and is of crucial importance in the derivation of the
+fundamental equations of mechanics. The new quantity $\stress$ or $\sigma_{ij}$ in Cauchy's 1. law is called the stress tensor, and has
+nine entries:
+!bt
+\begin{equation*}
+\stress = \left(\begin{array}{ccc} \sigma_{xx} & \sigma_{xy} & \sigma_{xz}\\ \sigma_{yx} & \sigma_{yy} & \sigma_{yz}\\ \sigma_{zx} & \sigma_{zy} & \sigma_{zz} \end{array}\right) 
+\end{equation*}
+!et
+The entries have a physical interpretation, but represent mainly ingredients in a tool (Cauchy's 1. law) for computing the stress
+vector at an arbitrary surface. The physical interpretation is as follows:
+
+  * [$\Rightarrow$] $\sigma_{xx}$ is normal stress on a plane $x=\hbox{const}$
+  * [$\Rightarrow$] $\sigma_{xy}$ is shear stress in $y$ direction
+on a plane $x=\hbox{const}$
+  * [$\Rightarrow$] $\sigma_{xz}$ is shear stress in $z$ direction
+on a plane $x=\hbox{const}$
+
+
+#FIGURE:[figs/rod, width=600 frac=0.8]
+
+To revisit the simple example of stretching a rod above, how can we find the stress tensor in this case? Usually, computing the
+stress tensor involves solving a PDE with associsated boundary conditions, but in this simple case we mauy use
+physical reasoning to guess at a stress tensor.
+
+Cutting the body along coordinate planes ($x=\hbox{const}$, $y=\hbox{const}$, $z=\hbox{const}$) 
+!bt
+\begin{equation*}
+\stress = \left(\begin{array}{ccc} F/A & 0 & 0\\ 0 & 0 & 0\\ 0 & 0 & 0
+\end{array}\right) .
+\end{equation*}
+!et
+How can we know that this guess is correct? Physical reasoning indicates such a stress tensor, and we can
+compute the resulting stress vector on cross-sectional and longitudinal surfaces to verify that we get what we expect. 
+However, in general only the solution of a full model for elastic deformation can tell if our assumption of $\stress$ is correct.
+In classical mechanics, before computers dominated the field, guesses based on physical
+reasoning were  required to treat the problem analytically, and even today, such guesses remain
+crucial to assess whether numerical results are reasonable. 
+
+Through Cauchy's first law, the stress tensor $\sigma_{ij}$ is all the information we need to find the
+stress on an arbitrary surface. 
+
+  * Derivation of Cauchy's 1. law: Study the *force*  equilibrium of a tetrahedron
+
+  * Cauchy's 2. law:
+!bt
+\begin{equation*} \sigma_{ij} = \sigma_{ji} \quad\hbox{(symmetric tensor)} \end{equation*}
+!et
+derived from *moment* equilibrium of an arbitrary volume
+  * With the 2. law, we can rewrite the 1. law:
+!bt
+\begin{equation*}
+s_i = n_j\sigma_{ji} = \sigma_{ij}n_j \quad\hbox{or}\quad \modvec{s} = \modvec{n}\cdot\stress = \stress\cdot\modvec{n}
+\end{equation*}
+!et
+
+======= Large-deformation stress tensors =======
+The stress tensor introduced above is called the Cauchy stress tensor, sometimes referred to as the *true stress*, and is the most
+important physical quantity describing internal forces in a continuum. However, in the context of large-deformation solid mechanics
+it has some limitations, which have motivated the introduction of alternative stress tensor. We recall that stress is a vector
+quantity defined as force divided by area, but in a deformed body we don't know this area. In the case of small deformations the distinction
+is not important, since the area does not change much from the reference configuration, but when deformations are large the
+area can change significantly. As an illustration, think of the uni-axial stretch of the rod above, which will get slightly longer as we
+apply the force, and intuitively it will also get a little thinner. If it is a steel rod that you pull with your hands,
+it will be very difficult to notice any change in length or diameter, but if the rod is a rubber band you can easily see that it gets
+thinner as it is stretched. The cross-sectional area changes significantly, and to get correct stress calculations in large-deformation
+problems we need to account for this change. The challenge is that we don't know the deformed geometry until we have solved the problem,
+but in order to solve the problem we need to be able to calculate the stress. Iterative solution processes may be applied, where a problem
+is formulated in terms of the Cauchy stress and the geometry is iteratively updated. However, it is usually more convenient to
+reformulate the problem relative to the reference configuration, and this is why we need alternative stress tensors. One intuitive way to
+define a stress tensor without knowing the deformed geometry is to compute the force acting on an arbitrary surface using
+the Cauchy stress tensor, map the surface it works on back to the reference geometry, and require that the resulting force is identical.
+Using (ref{map_area}), we have
+!bt
+\[
+\f = \stress\n a = \stress J \F^{-T} \N A = \P \N A,
+\]
+!et
+where $a,\n$ and $A,\N$ are the area and surface normal of the deformed and undeformed surface, respectivly. The new quantity $\P$, defined
+as
+!bt
+\[
+\P = J\stress \F^{-T}
+\]
+!et
+is called the *first Piola-Kirchhoff stress tensor*, and is a commonly used stress measure in large-deformation solid mechanics. It is
+important to note, however, that the Cauchy stress is still the quantity that describes the *actual* stress state in the
+deformed body, and this is usually the most important quantity of interest. On the other hand, the Piola-Kirchhoff stress is simply
+a convenient tool to formulate and solve the mechanics problem, since it is enables a consistent formulation of the
+stress without knowing the deformed configuration of the body. Unlike the Cauchy stress, the first Piola-Kirchhoff stress is not symmetric,
+since $\F$ is not symmetric. An alternative stress tensor can be achieved by mapping the resulting force $\f$  back
+to the reference configuration using (ref{map_line}). We get
+!bt
+\[
+\f_0 = \F^{-1} \f = \F^{-1} \stress\n a = \F^{-1} \stress J \F^{-T} \N A = \bfS\N A .
+\]
+!et
+The new quantity $\bfS = \F^{-1} P = J\F^{-1}\stress \F^{-T}$ is called the *second Piola-Kirchhoff stress tensor*. This tensor is symmetric,
+which is convenient for many purposes. Although a number of  alternative stress measures have been introduced for large-deformation
+solid mechanics, the first and second Piola-Kirchhoff stresses are probably the most widely used. They will both be used extensively
+throughpout this book.
 
 
 
-======= The concept of stress =======
 
-  * Basic intriduction to the stress vector and (Cauchy) stress tensor
-
-  * Explain the problems of using the Cauchy stress in large   deformation mechanics
-
-  * Introduce the most commonly used stress tensors in soft tissue   mechanics, i.e. the first and second Piola-Kirckhoff stress tensors.
-
-  * List alternative, potentially relevant stress tensors, cite   other sources for details.
-
-
-
-======= Balance equations =======
+===== Balance equations =====
 
 Present a compact derivation of the fundamental laws of motion, based
 on conservation of linear momentum.
@@ -60,6 +450,90 @@ on conservation of linear momentum.
   * Discuss the relative significance of the terms, motivate the   quasi-static approach and the neglection of body forces
 
   * Discuss the general nature of the equation, and relate this to   the mismatch between number of equations and unknowns. This   motivates the need for constitutive models.
+
+
+
+The three fundamental laws 
+
+  * Conservation of mass
+  * Conservation of momentum (Newton's second law)
+  * Conservation of energy (The first law of thermodynamics)
+
+
+
+
+
+Expressions of the fundamental laws 
+
+We shall express the three fundamental laws mathematically in three forms
+
+  * Integral form
+  * Conservative differential form
+  * Simplest (standard) differential form
+
+
+We will mainly apply the standard differential form, but the others
+are used in derivations. 
+
+
+
+
+
+Structure of derivations
+
+  * State the law with words
+
+  * Express the law for a *material volume*
+
+  * Use Reynolds' transport theorem to remove time-dependent integration domains
+
+  * [$\Rightarrow$] Integral form
+  * Transform surface integrals to volume integrals by Gauss' theorem
+
+  * [$\Rightarrow$] Conservative differential form
+  * Expand terms and simplify
+
+  * [$\Rightarrow$] Simplest (standard) differential form
+
+
+
+
+The equation of motion
+
+Newton's 2nd law:
+!bt
+\begin{equation*}
+{d\modten{I}\over dt} = \modten{F}
+\end{equation*}
+!et
+where $\modten{I}$ is momentum:
+!bt
+\begin{equation*}
+\modten{I}=\int_V \varrho\v dV
+\end{equation*}
+!et
+$\modten{F}$ is the total external force: surface forces + body forces
+
+
+Two types of forces
+
+  * surface forces
+!bt
+\begin{equation*}
+\int\limits_{\partial V} \stress\cdot\modvec{n}dS
+\end{equation*}
+!et
+  * body forces (e.g. gravity)
+!bt
+\begin{equation*} \int\limits_{V} \varrho\modvec{b}dV
+\end{equation*}
+!et
+
+
+
+
+
+
 
 
 
@@ -91,7 +565,7 @@ be lost in the translation - in seldom cases.)
 
 For continuums undergoing small deformations linear theory is usually applicable. 
 In linear continuum mechanics the main quantities are the Cauchy stress tensor 
-$\mathbfx{\sigma}$ and the tensor for infinitesimal strains $\mathbfx{\varepsilon}$.
+$\mathbf{\sigma}$ and the tensor for infinitesimal strains $\mathbf{\varepsilon}$.
 These are related through a linear constitutive relation such as Hooke's law, which
 will be described in more detail below. The most important simplifying concept in
 linear solid mechanics is that the deformations are so small that they need
@@ -102,68 +576,68 @@ In problems of large deformations, for example the deformation of a tire on a mo
 Thus, fully non-linear continuum mechanics theory should be applied. 
 # An example where linear models are not accurate enough is the deformation of .
 
-In non-linear problems the Cauchy stress tensor $\mathbfx{\sigma}$ is still applicable. However, the stress tensor must then be related to the deformed geometry, which is generally unknown. Hence, it might be desirable to introduce a stress measure that is related to the undeformed state, often referred to as the \textit{reference} or the \textit{material configuration} cite{heart_holzapfel}. (In this report we use both terms.) Referring all quantities to the undeformed configuration is known as the total Lagrangian formulation cite{heart_sussman_bathe1987}. 
+In non-linear problems the Cauchy stress tensor $\mathbf{\sigma}$ is still applicable. However, the stress tensor must then be related to the deformed geometry, which is generally unknown. Hence, it might be desirable to introduce a stress measure that is related to the undeformed state, often referred to as the \textit{reference} or the \textit{material configuration} cite{Holzapfel2000}. (In this report we use both terms.) Referring all quantities to the undeformed configuration is known as the total Lagrangian formulation cite{sussman_bathe1987}. 
 # In this first section basic non-linear continuum mechanics theory is summarized.
 
 A stress measure referred to the material configuration is offered by the 
-first Piola-Kirchhoff stress tensor $\mathbfx{\mathcal{P}}$, which is 
+first Piola-Kirchhoff stress tensor $\mathbf{\mathcal{P}}$, which is 
 related to the Cauchy stress tensor through
 
 !bt
 \begin{equation*}
-\mathbfx{\mathcal{P}} = J\mathbfx{\sigma}\mathbfx{\mathcal{F}}^{-T},
+\mathbf{\mathcal{P}} = J\mathbf{\sigma}\mathbf{\mathcal{F}}^{-T},
 \end{equation*}
 !et
-where $J$ is the determinant of the deformation gradient $\mathbfx{\mathcal{F}}$, and the superscript $T$ denotes the transpose. The deformation gradient relates the coordinates of the deformed configuration $\mathbfx{x}$ to the reference coordinate system $\mathbfx{X}$,
+where $J$ is the determinant of the deformation gradient $\mathbf{\mathcal{F}}$, and the superscript $T$ denotes the transpose. The deformation gradient relates the coordinates of the deformed configuration $\mathbf{x}$ to the reference coordinate system $\mathbf{X}$,
 # ( _PROBLEM: footnote_ in the middle of a sentence must be rewritten) (In this paper we use boldface capital calligraphic letters for tensors, and boldface letters for vectors and matrices.)
 
 !bt
 \begin{equation}
-label{heart_eq:F_tensor}
-{\mathcal{F}}_{ij} = {\partial x_i\over\partial X_j} = \delta_{ij} + {\partial u_i\over\partial X_j},
+label{eq:F_tensor}
+{\mathcal{F}}_{ij} = \frac{\partial x_i}{\partial X_j} = \delta_{ij} + \frac{\partial u_i}{\partial X_j},
 \end{equation}
 !et
-where $\delta_{ij}$ is the Kronecker delta, and $u_i$ is the $i$th component of the displacement vector field $\mathbfx{u}$.
-However, the first Piola-Kirchhoff stress tensor is not symmetric. Therefore, the second Piola-Kirchhoff stress tensor $\mathbfx{\mathcal{S}}$, which also refers to the material configuration, is introduced. The first Piola-Kirchhoff stress tensor may be expressed as the tensor product of the deformation gradient and the second Piola-Kirchhoff stress tensor,
+where $\delta_{ij}$ is the Kronecker delta, and $u_i$ is the $i$th component of the displacement vector field $\mathbf{u}$.
+However, the first Piola-Kirchhoff stress tensor is not symmetric. Therefore, the second Piola-Kirchhoff stress tensor $\mathbf{\mathcal{S}}$, which also refers to the material configuration, is introduced. The first Piola-Kirchhoff stress tensor may be expressed as the tensor product of the deformation gradient and the second Piola-Kirchhoff stress tensor,
 
 !bt
 \begin{equation}
-label{heart_eq:P_FS}
-\mathbfx{\mathcal{P}} = \mathbfx{\mathcal{F}\mathcal{S}}.
-# \nonumber
+label{eq:P_FS}
+\mathbf{\mathcal{P}} = \mathbf{\mathcal{F}\mathcal{S}}.
+\nonumber
 \end{equation}
 !et
-The second Piola-Kirchhoff stress tensor is symmetric and work conjugate with the Green-Lagrange strain tensor cite{heart_holzapfel}, defined as
+The second Piola-Kirchhoff stress tensor is symmetric and work conjugate with the Green-Lagrange strain tensor cite{Holzapfel2000}, defined as
 
 !bt
 \begin{equation}
-label{heart_eq:E_tensor}
-\mathbfx{\mathcal{E}} = \frac{1}{2}\left (\mathbfx{\mathcal{F}}^{T}\mathbfx{\mathcal{F}}- \mathbfx{I} \right ) = \frac{1}{2}\left (\mathbfx{C} - \mathbfx{I} \right ).
+label{eq:E_tensor}
+\mathbf{\mathcal{E}} = \frac{1}{2}\left (\mathbf{\mathcal{F}}^{T}\mathbf{\mathcal{F}}- \mathbf{I} \right ) = \frac{1}{2}\left (\mathbf{C} - \mathbf{I} \right ).
 \end{equation}
 !et
-Here $\mathbfx{I}$ is the identity matrix. 
+Here $\mathbf{I}$ is the identity matrix. 
 Moreover, the second Piola-Kirchhoff stress tensor is related to the Cauchy stresses through
 
 !bt
 \begin{equation*}
-\mathbfx{\sigma} = J^{-1}\mathbfx{\mathcal{F}\mathcal{S}}\mathbfx{\mathcal{F}}^T.
+\mathbf{\sigma} = J^{-1}\mathbf{\mathcal{F}\mathcal{S}}\mathbf{\mathcal{F}}^T.
 \nonumber
 \end{equation*}
 !et
 Remark that the second Piola-Kirchhoff stress tensor does not have a simple physical interpretation (like the Cauchy and the first Piola-Kirchhoff stress tensors). Hence, it mainly serves as a mathematical quantity for computing stresses and strains in finite deformation cases. 
 
 ===== The Boundary Value Problem =====
-label{heart_sec:boundary_value_problem}
+label{sec:boundary_value_problem}
 
-A suitable starting point when modeling the deformation of a continuum, is Cauchy's first equation of motion, which may be expressed as cite{heart_holzapfel}
+A suitable starting point when modeling the deformation of a continuum, is Cauchy's first equation of motion, which may be expressed as cite{Holzapfel2000}
 
 !bt
 \begin{equation*}
-label{heart_eq:cauchy_deformed}
-\nabla\cdot\mathbfx{\sigma} + \mathbfx{b} - \varrho\mathbfx{\ddot{u}} = \mathbfx{0}.
+label{eq:cauchy_deformed}
+\nabla\cdot\mathbf{\sigma} + \mathbf{b} - \varrho\mathbf{\ddot{u}} = \mathbf{0}.
 \end{equation*}
 !et
-Here, $\mathbfx{\sigma}$ is the Cauchy stress tensor, $\mathbfx{b}$ is a vector representing the body forces per unit volume, $\varrho$ is the density, and $-\varrho\mathbfx{\ddot{u}}$ characterizes the inertia force per unit volume. In this equation all terms refer to the deformed configuration. We remark that the Cauchy stress tensor is symmetric, i.e. $\mathbfx{\sigma}^T = \mathbfx{\sigma}$, resulting in a maximum of six independent stress components in the general three-dimensional (3D) case cite{heart_holzapfel}. 
+Here, $\mathbf{\sigma}$ is the Cauchy stress tensor, $\mathbf{b}$ is a vector representing the body forces per unit volume, $\varrho$ is the density, and $-\varrho\mathbf{\ddot{u}}$ characterizes the inertia force per unit volume. In this equation all terms refer to the deformed configuration. We remark that the Cauchy stress tensor is symmetric, i.e. $\mathbf{\sigma}^T = \mathbf{\sigma}$, resulting in a maximum of six independent stress components in the general three-dimensional (3D) case cite{Holzapfel2000}. 
 # This property is often referred to as Cauchy's second equation of motion cite{holzapfel}. 
 
 One of the goals of the present work is to model the mechanics of the heart muscle. Then, the contributions from body forces and the inertia term are believed to be much smaller than the contribution from the term containing internal stresses. Hence, the body force and the inertia terms may be neglected, yielding 
@@ -171,100 +645,200 @@ One of the goals of the present work is to model the mechanics of the heart musc
 
 !bt
 \begin{equation}
-label{heart_eq:del_sigma_zero}
-\nabla\cdot\mathbfx{\sigma} = \mathbfx{0}.
+label{eq:del_sigma_zero}
+\nabla\cdot\mathbf{\sigma} = \mathbf{0}.
 \end{equation}
 !et
 For this problem, a proper set of boundary conditions
 # , referred to the deformed configuration, 
-is cite{heart_holzapfel}
-
-!bt
+is cite{holzapfel}
 
 !bt
 \begin{align}
-label{heart_eq:u_prescribed_def}
-\mathbfx{u} &= \bar{\mathbfx{u}}, \hspace{8mm} \mbox{on} \hspace{2mm} {\partial\Omega_u}, \\
-label{heart_eq:t_prescribed_def}
-\mathbfx{t} &= \bar{\mathbfx{\sigma}}\cdot\mathbfx{n}, \hspace {2mm} \mbox{on} \hspace{2mm} {\partial\Omega_\sigma}.
+label{eq:u_prescribed_def}
+\mathbf{u} &= \bar{\mathbf{u}}, \hspace{8mm} \mbox{on} \hspace{2mm} {\partial\Omega_u}, \\
+label{eq:t_prescribed_def}
+\mathbf{t} &= \bar{\mathbf{\sigma}}\cdot\mathbf{n}, \hspace {2mm} \mbox{on} \hspace{2mm} {\partial\Omega_\sigma}.
 \end{align}
 !et
-!et
-Here, $\bar{\mathbfx{u}}$ represents prescribed displacement components on the part of the boundary ${\partial\Omega_u}$, and $\bar{\mathbfx{\sigma}}$ is a prescribed Cauchy stress tensor on the boundary part ${\partial\Omega_\sigma}$, with an outward unit normal vector $\mathbfx{n}$. The two boundary parts are non-overlapping and complete, that is, ${\partial\Omega_u}\cap{\partial\Omega_\sigma} = \emptyset$, and ${\partial\Omega_u}\cup{\partial\Omega_\sigma}={\partial\Omega}$.
-In this report we introduce the restriction that traction forces have to be normal stresses on the surface of the continuum. This means that the stress loads on ${\partial\Omega_\sigma}$ can be expressed by a diagonal tensor,
+
+Here, $\bar{\mathbf{u}}$ represents prescribed displacement components on the part of the boundary $\partial\Omega_u$, and $\bar{\mathbf{\sigma}}$ is a prescribed Cauchy stress tensor on the boundary part $\partial\Omega_\sigma$, with an outward unit normal vector $\mathbf{n}$. The two boundary parts are non-overlapping and complete, that is, $\partial\Omega_u\cap\partial\Omega_\sigma = \emptyset$, and $\partial\Omega_u\cup\partial\Omega_\sigma=\partial\Omega$.
+In this report we introduce the restriction that traction forces have to be normal stresses on the surface of the continuum. This means that the stress loads on $\partial\Omega_\sigma$ can be expressed by a diagonal tensor,
 
 !bt
 \begin{equation*}
-\bar{\mathbfx{\sigma}} = \sigma_0\mathbfx{I},
+\bar{\mathbf{\sigma}} = \sigma_0\mathbf{I},
 \end{equation*}
 !et
 where $\sigma_0$ generally is a time-varying scalar value. 
 
 
-In Section ref{heart_sec:basic_quantities} we argued that it 
+In Section xxx we argued that it 
 is convenient to refer all quantities to a reference configuration.
 In this configuration the simplified equation of motion 
-(ref{heart_eq:del_sigma_zero}) has the following equivalent counterpart,
+(ref{eq:del_sigma_zero}) has the following equivalent counterpart,
 
 !bt
 \begin{equation}
-label{heart_eq:del_P}
-\nabla_0\cdot\mathbfx{\mathcal{P}} = \mathbfx{0},
+label{eq:del_P}
+\nabla_0\cdot\mathbf{\mathcal{P}} = \mathbf{0},
 \end{equation}
 !et
-where $\nabla_0$ is the differentiation operator with respect to the undeformed configuration. Furthermore, the first Piola-Kirchhoff stress tensor in (ref{heart_eq:del_P}) can be replaced by the tensor product in (ref{heart_eq:P_FS}), which gives
+where $\nabla_0$ is the differentiation operator with respect to the undeformed configuration. Furthermore, the first Piola-Kirchhoff stress tensor in (ref{eq:del_P}) can be replaced by the tensor product in (ref{eq:P_FS}), which gives
 
 !bt
 \begin{equation*}
-\nabla_0\cdot(\mathbfx{\mathcal{FS}}) = \mathbfx{0}.
+\nabla_0\cdot(\mathbf{\mathcal{FS}}) = \mathbf{0}.
 \end{equation*}
 !et
-Similarly, the natural boundary condition (ref{heart_eq:t_prescribed_def}) may be expressed by the equivalent traction force in the reference configuration,
+Similarly, the natural boundary condition (ref{eq:t_prescribed_def}) may be expressed by the equivalent traction force in the reference configuration,
 
 !bt
 \begin{equation}
-label{heart_eq:traction_reference}
-\mathbfx{T}  = \bar{\mathbfx{\mathcal{P}}}\cdot\mathbfx{\eta} = \mathbfx{\mathcal{F}} \bar{\mathbfx{\mathcal{S}}}\cdot\mathbfx{\eta} = \mathbfx{\mathcal{F}} J \mathbfx{\mathcal{F}}^{-1} \bar{\mathbfx{\sigma}} \mathbfx{\mathcal{F}}^{-T}\cdot\mathbfx{\eta} = J \bar{\mathbfx{\sigma}} \mathbfx{\mathcal{F}}^{-T} \cdot\mathbfx{\eta}.
+label{eq:traction_reference}
+\mathbf{T}  = \bar{\mathbf{\mathcal{P}}}\cdot\mathbf{\eta} = \mathbf{\mathcal{F}} \bar{\mathbf{\mathcal{S}}}\cdot\mathbf{\eta} = \mathbf{\mathcal{F}} J \mathbf{\mathcal{F}}^{-1} \bar{\mathbf{\sigma}} \mathbf{\mathcal{F}}^{-T}\cdot\mathbf{\eta} = J \bar{\mathbf{\sigma}} \mathbf{\mathcal{F}}^{-T} \cdot\mathbf{\eta}.
 \end{equation}
 !et
 # when referred to the material configuration.
-Here, $\mathbfx{\eta}$ is the outward unit normal vector with respect to the reference configuration. The rest of the involved quantities have been defined above.
+Here, $\mathbf{\eta}$ is the outward unit normal vector with respect to the reference configuration. The rest of the involved quantities have been defined above.
  
-The traction forces in the two configurations, (ref{heart_eq:t_prescribed_def}) and (ref{heart_eq:traction_reference}), are closely related. From Nanson's formula cite{heart_holzapfel}, we have that
+The traction forces in the two configurations, (ref{eq:t_prescribed_def}) and (ref{eq:traction_reference}), are closely related. From Nanson's formula cite{holzapfel}, we have that
 
 !bt
 \begin{equation*}
-\mathbfx{\eta}dS = J^{-1}\mathbfx{\mathcal{F}}^{T}\cdot\mathbfx{n}ds,
+\mathbf{\eta}dS = J^{-1}\mathbf{\mathcal{F}}^{T}\cdot\mathbf{n}ds,
 \end{equation*}
 !et
 where $dS$ is an infinitesimal area in the reference configuration and $ds$ is the corresponding area in the deformed configuration. 
-# The normal vector referred to the material configuration is known, and the normal vector referred to the deformed configuration, $\mathbfx{n}$, can hence be computed from this relation.
+# The normal vector referred to the material configuration is known, and the normal vector referred to the deformed configuration, $\mathbf{n}$, can hence be computed from this relation.
 Thus, the traction force on the area $dS$ becomes
 
 !bt
 \begin{equation}
-label{heart_eq:traction_expression}
-\mathbfx{T}dS = J \mathbfx{\sigma} \mathbfx{\mathcal{F}}^{-T} \cdot\mathbfx{\eta}dS = J \mathbfx{\sigma} \mathbfx{\mathcal{F}}^{-T}J^{-1}\mathbfx{\mathcal{F}}^{T}\cdot\mathbfx{n}ds = \mathbfx{\sigma}\cdot\mathbfx{n} ds = \mathbfx{t}ds.
+label{eq:traction_expression}
+\mathbf{T}dS = J \mathbf{\sigma} \mathbf{\mathcal{F}}^{-T} \cdot\mathbf{\eta}dS = J \mathbf{\sigma} \mathbf{\mathcal{F}}^{-T}J^{-1}\mathbf{\mathcal{F}}^{T}\cdot\mathbf{n}ds = \mathbf{\sigma}\cdot\mathbf{n} ds = \mathbf{t}ds.
 \end{equation}
 !et
-From (ref{heart_eq:traction_expression}), we observe that the traction vectors in the material and deformed configurations are pointing in the same direction, but that the absolute values generally differ.
+From (ref{eq:traction_expression}), we observe that the traction vectors in the material and deformed configurations are pointing in the same direction, but that the absolute values generally differ.
 
 
 Summing up, we have the complete boundary value problem in the material configuration:
 
 !bt
-
-!bt
 \begin{align}
-label{heart_eq:DivFS}
-\nabla_0\cdot(\mathbfx{\mathcal{F}\mathcal{S}}) &= \mathbfx{0}, \hspace{20mm} \mbox{on} \hspace{2mm} {\Omega}, \\
-label{heart_eq:u_prescribed}
-\mathbfx{u} &= \bar{\mathbfx{u}}, \hspace{20mm} \mbox{on} \hspace{2mm} {\partial\Omega_u}, \\
-label{heart_eq:T_prescribed}
-\mathbfx{T}  &= J \sigma_0 \mathbfx{\mathcal{F}}^{-T} \cdot\mathbfx{\eta}, \hspace {2mm} \mbox{on} \hspace{2mm} {\partial\Omega_\sigma}.
+label{eq:DivFS}
+\nabla_0\cdot(\mathbf{\mathcal{F}\mathcal{S}}) &= \mathbf{0}, \hspace{20mm} \mbox{on} \hspace{2mm} {\Omega}, \\
+label{eq:u_prescribed}
+\mathbf{u} &= \bar{\mathbf{u}}, \hspace{20mm} \mbox{on} \hspace{2mm} {\partial\Omega_u}, \\
+label{eq:T_prescribed}
+\mathbf{T}  &= J \sigma_0 \mathbf{\mathcal{F}}^{-T} \cdot\mathbf{\eta}, \hspace {2mm} \mbox{on} \hspace{2mm} {\partial\Omega_\sigma}.
 \end{align}
 !et
-!et
 In order to completely describe the problem under consideration, we need to define some material properties. 
-# Deformation and stiffness characteristics are quite different in, for example, concrete and rubber. 
-Equation (ref{heart_eq:DivFS}) is expressed by the deformation gradient and stresses. Stresses are related to strains, and the stress-strain relation defines the constitutive law for the material. This will be the main theme of the next section.
+Equation (ref{eq:DivFS}) is expressed by the deformation gradient and stresses. Stresses are related to
+strains, and the stress-strain relation defines the constitutive law for the material. Simple constitutive laws will be the
+topic of the next section, while the more complex models to describe actively contracting heart tissue are introduced in chapters ref{ch:passive} and ref{ch:contraction}.
+
+
+=== Hyper-elasticity ===
+Although it is clearly an approximation of the more complex reality, heart muscle and other soft
+tissues are usually modeled as *hyper-elastic* materials. A hyper-elastic material is simply as
+a material where the relation between stress and strain can be derived from a strain energy function,
+which is a function describing the elastic energy stored in the material. Hyper-elasticity is a generalization
+of the famous Hooke's law, which is applied in the small-deformation case and gives a linear relation between
+stress and strain. Hooke's law exists in many forms, but for isotropic elastic materials one of the more well known
+formulations is
+!bt
+\[
+\stress = \lambda tr(\epsilon)\mathbf{I}+2\mu \epsilon ,
+\]
+!et
+where $\lambda,\mu$ are the Lamé constants. In its most general form, the *generalized Hooke's law* gives the
+relation between stress and strain as
+!bt
+\beq
+\stress = \mathbb(C)\epsilon ,
+\label{gen_hooke}\eeq
+!et
+where $\mathbb(C)$ is a fourth-order tensor. In index notation, the law is expressed as
+!bt
+\[
+\sigma_{ij} = C_{ijkl}\epsilon_{kl} ,
+\]
+!et
+and since the indices run from 1 to 3, the tensor $\mathbb{C}$ can have at most 81 entries. Symmetry requirements reduce the
+number of independent constants to 21 in the most general case, and down to two in the case of isotropic materials.
+Linear elasticity is probably the most well-studied (and useful) branch of continuum mechanics, but is not the focus of
+this book, and we refer to for instance REF for a more detailed discussion.
+
+The concept of hyperelasticity is usually not applied for small deformations, but  a strain energy corresponding
+to the generalized Hooke's law can be expressed as
+!bt
+\beq
+\Psi(\epsilon) = \frac{1}{2}\mathbb(C)\epsilon^2 .
+\label{energy0}\eeq
+!et
+We see that we recover the stress-strain relation (ref{gen_hooke}) by differentiating the strain energy with
+respect to the strain;
+!bt
+\beq
+\stress = \frac{\partial \Psi}{\partial \epsilon} .
+\label{stress0}\eeq
+!et
+This is an important characteristic of strain energy functions and hyper-elastic materials. The quantities of interest
+are usually the stresses and strains, not the strain energy, and the stress-strain relation is the most concrete and
+applicable characterization of material behavior. However, the strain energy is a convenient and compact way to
+express the material behavior of a hyper-elastic material, from which we can easily derive the relevant stress-strain
+relation from (ref{stress0}).
+
+A simple material model for large-deformation hyper-elasticity can be obtained by a simple extension of Hooke's laws to the
+large-deformation regime. Simply replacing the small-deformation strain tensor in (ref{energy0}) with the Green-Lagrange
+strain, we have 
+!bt
+\beq
+\Psi(E) = \frac{1}{2}\mathbb(C)E^2 ,
+\label{energy1}\eeq
+!et
+and the second Piola-Kirchhoff stress is obtained by differentiation with respect to $E$;
+!bt
+\[
+S = \frac{\partial \Psi}{\partial E} = \mathbb(C) E .
+\]
+!et
+Observant readers new to large-deformation mechanics may question why we get exactly
+the second Piola-Kirchoff stress by differentiating with respect to $E$. The reason is that the second Piola-Kirchoff
+stress is *work-conjugate* with the Green-Lagrange strain. As noted above, a number of alternative stress tensors
+have been proposed in large-deformation mechanics, and there are also many work-conjugate pairs of stress and strain tensors.
+For instance, the first Piola-Kirchhoff stress is work conjugate to the deformation gradient $F$. We refer to
+cite{Holzapfel2000} for a more detailed discussion of work-conjugate pairs and their physical interpretation. In the isotropic
+case, (ref{energy1}) reduces to so-called Saint Venant-Kirchhoff material model,
+!bt
+\[
+\Psi(E) = \frac{\lambda}{2} (tr(E))^2 + \mu tr (E^2) .
+\]
+!et
+Differentiating with respect to $E$ gives the stress-strain relation
+!bt
+\[
+S = \lambda tr(E) I + 2\mu E,
+\]
+!et
+which is just Hooke's law from above with a different set of stress and strain tensors. The Saint Venant-Kirchhoff model
+is not a very relevant model for soft tissue mechanics, but its simplicity makes it convenient for illustrating general
+properties of the models, equations and solution process. It will be revisited in Chapter ref{comp_mech} to present
+finite element solvers for large-deformation solid mechancis.
+
+As we will see in Chapter ref{passive_tissue} it is often convenient to formulate material laws in terms of the strain
+invariants rather than the strain tensor components directly. One simple example is the so-called
+neo-Hookean model, which is typically formulated as
+!bt
+\[
+\psi = c_1(I_1-3)
+\]
+!et
+where $c_1$ is a material parameter.
+
+TODO: Introduce the distinction between compressible and incompressible materials. Add Mooney-Rivilin material model
+
+
+

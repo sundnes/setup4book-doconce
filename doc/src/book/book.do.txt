@@ -9,7 +9,7 @@ DATE: today
 ## Handy mako variables and functions for the preprocessing step
 # #include "../chapters/mako_code.txt"
 
-# Externaldocuments: ../chapters/fake/main_fake
+## Externaldocuments: ../chapters/fake/main_fake
 
 !split
 ========= Preface  =========
@@ -21,7 +21,7 @@ TOC: on
 
 !split
 ========= Introduction and Motivation =========
-label{ch:structure}
+label{ch:intro}
 # #include "../chapters/intro/intro.do.txt"
 
 !split
