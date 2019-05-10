@@ -54,7 +54,6 @@ vanish on $\Omega_d$, we get
 !bt
 \begin{align}
 \int_{\Omega}  \stress : \nabla v \dx - \int_{\partial\Omega} v\cdot T_0 \ds &= 0 ,
-\label{weak0}
 \end{align}
 !et
 
@@ -69,18 +68,18 @@ a(u,v) &= L(v) \forall v \in V, \label{elast0_weak}
 \end{align}
 !et
 with
+!bt
 \begin{align}
 a(u,v) &= \int_{\Omega} \stress(u) : \nabla v \dx, \label{elast0_bi} \\
 \stress(u) &= 2\mu \epsilon +\lambda (\nabla\cdot\bfu) \bfI \label{elast0_stress} \\
-L(v) = \int_{\partial\Omega} T\cdot v \ds . \label{elast0_bc}
-\label{weak0}
+L(v) &= \int_{\partial\Omega} T\cdot v \ds . \label{elast0_bc}
 \end{align}
 !et
 An alternative and more common form of (ref{elast0_bi}), which arises from the symmetry of the
 stress tensor, is
 !bt
 \[
-a(u,v) &= \int_{\Omega} \stress(u) : \epsilon(v) \dx,
+a(u,v) = \int_{\Omega} \stress(u) : \epsilon(v) \dx,
 \]
 !et
 with
@@ -94,8 +93,8 @@ the Cauchy stress and the small-deformation strain tensor being a work-conjugate
 the previous chapter (REF).
 
 To implement a traditional finite element solver based on (ref{elast0_weaK}), one would proceed
-to introduce a finite-dimensional subspace of $\hat{V} \sub V$, and approximate the solution $u$ by a
-weighted sum of basis functions of $\hat{V}$; $\bfu\approx\sum_{i=1}^n c_i \v_i $. The derivation
+to introduce a finite-dimensional subspace of $\hat{V} \subset V$, and approximate the solution $\bfu$ by a
+weighted sum of basis functions of $\hat{V}$; $\bfu\approx\sum_{i=1}^n c_i v_i$. The derivation
 can be found in multiple text books on the finite element method, and leads to a linear system of equations
 for the solution coefficients $c_i$. The implementations in this book are based on FEniCS, which automates
 a number of these steps. In the FEniCS code one will simply define appropriate function spaces for
@@ -149,7 +148,7 @@ Although the formulation of the weak form looks the same as for the linear case 
 (ref{weak_pk1}) is non-linear, and the subsequent finite element discretization leads to a set of
 non-linear algebraic equations. These equations need to be solved using Newton's method or a
 similar iterative technique, and the steps to linearize and solve equations of the form
-(ref{weak_pk1}}) is included in many text books on non-linear solid mechanics. Since we will again
+(ref{weak_pk1}) is included in many text books on non-linear solid mechanics. Since we will again
 apply the FEniCS framework to solve the problem, the steps of linearizing and solving non-linear equations
 is automated as well as the finite element discretization process. As for the case of linear
 elasticity, it is sufficient to specify the necessary function spaces,

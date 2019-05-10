@@ -7,7 +7,8 @@ referred to a text book in the field, for instance cite{Katz}.
 
 ======= Structure of the heart and cardiac muscle =======
 ===== Heart anatomy and mechanical function =====
-The heart is a mechanical pump, which serves the single purpose of pumping blood
+The heart is a mechanical pump, which, in spite of its many associations to human emotions, 
+serves the single purpose of pumping blood
 through the body. The pumping is achieved by a rhythmic, synchronized contraction 
 of the heart muscle, and represents a tremendous physical effort as well as a fine-tuned 
 interplay of mechanical, electrophysiological and neuro-hormonal factors. 
@@ -18,12 +19,14 @@ An illustration of the cardiovascular system is shown in Figure xxx. Oxygen-poor
 from the vena cava enters 
 the right atrium, then flows through the tricuspid valves into the right atrium, and is 
 pumped via the pulmonary valve into the pulmonary circulation for oxygenation. After 
-passing through the lungs, the now oxygen-rich blood flows returns to the heart via the
+passing through the lungs, the now oxygen-rich blood returns to the heart via the
 pulmonary veins, enters the left atrium, and 
 further into the left ventricle via the mitral valve. From the left ventricle the blood flows
 through the aortic valve into the aorta, and after several generations of branching vessels
-reaches the capillaries, where oxygen and nutrients are transferred to the tissues, and 
-flows through the venous system to eventually reach the vena cava and complete the cycle.
+it reaches the capillaries, where oxygen, nutrients and waste products are exchanged with the
+tissues. On the downstream side the capillaries merge into venules, which in turn are merged
+into larger and larger veins. Finally, the blood reaches the vena cava and flows back to the right
+ventricle to complete the cycle.
 
 The pulmonary circulation (lungs) is a low-resistance system that operates under low pressure,
 while a much higher pressure is required to drive the flow through the higher resistance 
@@ -43,19 +46,17 @@ structure, although there are no long muscle fibers as seen in skeletal muscle. 
 the myocytes varies through the heart, as illustrated in Figure (xxx) for the left and right 
 ventricle. The orientation is roughly helical, with the myocytes being aligned with the 
 endocardial (inner) and epicardial (outer) surfaces, and forming an angle $\alpha$ with the 
-horizontal plane. The angle varies approximately linearly from an endocardial value $\alpha_{endo}$ 
-to the epicardial value $\alpha_{epi}$, with typical values for human 
-
-
-and are held together and supported by the extracellular matrix. The matrix is 
+cross-sectional plane. The angle varies approximately linearly from an endocardial value $\alpha_{endo}$ 
+to the epicardial value $\alpha_{epi}$, with typical values for human being XX and XX degrees, respectively. 
+The cardiomyocytes are held together and supported by the extracellular matrix. The matrix is 
 primarily made up of collagen, and contributes substantially to the passive mechanical properties
 of the tissue. 
 
 The pumping function of the heart is caused by the cyclic stretching and shortening of
 the myocytes, which in turn is driven by mechano-chemical processes in tiny sub-cellular
 structures called sarcomeres. In physical modeling terminology, the mechanics of the heart is 
-truly a multiscale phenomenon. Each sarcomere is approximately xxx $\mu$m long and has a diameter
-of around $\mu$m, and they are connected end-to-end into myofibrils, which are bundled together and
+truly a multiscale phenomenon. Each sarcomere is approximately XX $\mu$m long and has a diameter
+of around XX $\mu$m, and they are connected end-to-end into myofibrils, which are bundled together and
 fill most of the internal volume of the cardiac myocytes, as illustrated in Figure xxx. 
 
 Moving further down in physical scales, the sarcomeres are made up of overlapping thick and 
@@ -65,7 +66,7 @@ thin filaments, see Figure xxx. The thick filaments are made up of the protein x
 
 
 
-extracellular matrix is primarily made up of collagen, 
+The extracellular matrix is primarily made up of collagen, 
 
 
 Outline of muscle tissue organization;
