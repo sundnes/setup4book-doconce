@@ -1,0 +1,2853 @@
+running preprocess -DFORMAT=pdflatex -DDEVICE=paper -DCHAPTER="chapter" -DBOOK="book" -DAPPENDIX="appendix" book.do.txt > tmp_preprocess__book.do.txt
+running mako on tmp_preprocess__book.do.txt to make tmp_mako__book.do.txt
+mako variables: {'FORMAT': 'pdflatex', 'DEVICE': 'paper', 'CHAPTER': 'chapter', 'BOOK': 'book', 'APPENDIX': 'appendix'}
+translating doconce text in tmp_mako__book.do.txt to pdflatex
+open file with encoding utf-8
+*** error: reference to equation label "eq:S_Psi_E" is without parentheses
+    the equation reference should be typeset as (ref{eq:S_Psi_E})
+... ath-independence, 
+( \ref{eq:S_Psi_E}) is often used as the definiti ...
+running preprocess -DFORMAT=pdflatex -DDEVICE=paper -DCHAPTER="chapter" -DBOOK="book" -DAPPENDIX="appendix" book.do.txt > tmp_preprocess__book.do.txt
+running mako on tmp_preprocess__book.do.txt to make tmp_mako__book.do.txt
+mako variables: {'FORMAT': 'pdflatex', 'DEVICE': 'paper', 'CHAPTER': 'chapter', 'BOOK': 'book', 'APPENDIX': 'appendix'}
+translating doconce text in tmp_mako__book.do.txt to pdflatex
+open file with encoding utf-8
+*** error: reference ref{ch:comp_mech} to non-defined label
+    run the generated script tmp_missing_labels.sh
+    to search for these missing labels!
+running preprocess -DFORMAT=pdflatex -DDEVICE=paper -DCHAPTER="chapter" -DBOOK="book" -DAPPENDIX="appendix" book.do.txt > tmp_preprocess__book.do.txt
+running mako on tmp_preprocess__book.do.txt to make tmp_mako__book.do.txt
+mako variables: {'FORMAT': 'pdflatex', 'DEVICE': 'paper', 'CHAPTER': 'chapter', 'BOOK': 'book', 'APPENDIX': 'appendix'}
+translating doconce text in tmp_mako__book.do.txt to pdflatex
+open file with encoding utf-8
+*** error: reference ref{ch:comp_mech} to non-defined label
+    run the generated script tmp_missing_labels.sh
+    to search for these missing labels!
+
+exporting publish database ../chapters/papers.pub to ../chapters/papers.bib:
+
+*** warning: need external file ../chapters/fake/main_fake.aux for external references,
+    but it does not exist (compile latex/pdflatex!)
+output in book.tex
+running preprocess -DFORMAT=pdflatex -DDEVICE=paper -DCHAPTER="chapter" -DBOOK="book" -DAPPENDIX="appendix" book.do.txt > tmp_preprocess__book.do.txt
+*** error: potential problem with the math formula
+           ${\partial\bfv_E /\partial t}$
+    since ${ can confuse Mako - rewrite or make a newcommand
+running preprocess -DFORMAT=pdflatex -DDEVICE=paper -DCHAPTER="chapter" -DBOOK="book" -DAPPENDIX="appendix" book.do.txt > tmp_preprocess__book.do.txt
+*** error: potential problem with the math formula
+           ${\partial\bfv_L /\partial t}$
+    since ${ can confuse Mako - rewrite or make a newcommand
+running preprocess -DFORMAT=pdflatex -DDEVICE=paper -DCHAPTER="chapter" -DBOOK="book" -DAPPENDIX="appendix" book.do.txt > tmp_preprocess__book.do.txt
+running mako on tmp_preprocess__book.do.txt to make tmp_mako__book.do.txt
+mako variables: {'FORMAT': 'pdflatex', 'DEVICE': 'paper', 'CHAPTER': 'chapter', 'BOOK': 'book', 'APPENDIX': 'appendix'}
+translating doconce text in tmp_mako__book.do.txt to pdflatex
+open file with encoding utf-8
+
+*** error: !bt is not at the beginning of a line
+    surrounding text:
+ mass $\Delta M$, and define the 
+average density $\varrho^{(a)} = \Delta M /\Delta V$. Then define
+  !bt
+  \begin{equation*} \varrho (\modvec{r},t) = \left\lbrace\begin{array}{ll} \lim_{\Delta V\rightarro
+
+set !bt at the beginning of the line
+running preprocess -DFORMAT=pdflatex -DDEVICE=paper -DCHAPTER="chapter" -DBOOK="book" -DAPPENDIX="appendix" book.do.txt > tmp_preprocess__book.do.txt
+*** error: double !bt or !et in latex block:
+\[
+\F = \R\U = \bfv\R .
+\]
+\et
+Here, $\U,\bfv$ are symmetric tensors, $\U = \U^T$, and $\R$ is an orthogonal *pure rotation tensor*, which contains all the rotational
+components of $\F$. Since $\R$ is orthogonal, we have
+!bt
+\[
+\F^T\F = (\R\U)^T(\R\U) = \U^T\R^T\R\U = \U^T\U ,
+\]
+!bt
+and we see that by multiplying $\F$ with its transpose we have eliminated all the rotational components. The resulting tensor $\C = \F^T\F$
+is called the *right Cauchy-Green tensor*, and is a commonly used measure of deformation in large-deformation solid mechanics.
+======= Mapping the reference to the undeformed configuration =======
+As noted above, a central use of the deformation gradient tensor in large-deformation mechanics
+is to map back and forth between the undeformed and deformed configuration of a continuum. For the
+applications considered in this book, we will need to map
+infinitesimal *line segments*, *surface elements*, and *volumes* between the reference and the deformed condfiguration. 
+By using the definition
+of $\F$ as the gradient of the mapping $\varphi(\bfX,t)$, it can be shown that an infinitesimal
+line segment $d\X$ in the reference configuration is mapped to the line segment
+!bt
+\beq
+$d\x = \F d\X$
+\label{map_line}
+\eeq
+
+running preprocess -DFORMAT=pdflatex -DDEVICE=paper -DCHAPTER="chapter" -DBOOK="book" -DAPPENDIX="appendix" book.do.txt > tmp_preprocess__book.do.txt
+running mako on tmp_preprocess__book.do.txt to make tmp_mako__book.do.txt
+mako variables: {'FORMAT': 'pdflatex', 'DEVICE': 'paper', 'CHAPTER': 'chapter', 'BOOK': 'book', 'APPENDIX': 'appendix'}
+translating doconce text in tmp_mako__book.do.txt to pdflatex
+open file with encoding utf-8
+
+*** warning: found multi-line caption for figs/rodstress
+
+ Illustration of stress resulting from a stretching force $F$ applied to a rod. The stress vector
+in the bullet point will be different depending on the orientation of the surface we are looking at. label{fig:rodstress}
+
+    fix: collected this text to one single line (right?)
+
+*** warning: the total of 1 fixes above should be manually edited in the file!
+    (also note: some of these automatic fixes may not be what you want)
+
+
+*** error: !bt is not at the beginning of a line
+    surrounding text:
+ mass $\Delta M$, and define the 
+average density $\varrho^{(a)} = \Delta M /\Delta V$. Then define
+  !bt
+  \begin{equation*} \varrho (\modvec{r},t) = \left\lbrace\begin{array}{ll} \lim_{\Delta V\rightarro
+
+set !bt at the beginning of the line
+running preprocess -DFORMAT=pdflatex -DDEVICE=paper -DCHAPTER="chapter" -DBOOK="book" -DAPPENDIX="appendix" book.do.txt > tmp_preprocess__book.do.txt
+running mako on tmp_preprocess__book.do.txt to make tmp_mako__book.do.txt
+mako variables: {'FORMAT': 'pdflatex', 'DEVICE': 'paper', 'CHAPTER': 'chapter', 'BOOK': 'book', 'APPENDIX': 'appendix'}
+translating doconce text in tmp_mako__book.do.txt to pdflatex
+open file with encoding utf-8
+
+*** error: !bt is not at the beginning of a line
+    surrounding text:
+rary surface. 
+
+  * Derivation of Cauchy's 1. law: Study the *force*  equilibrium of a tetrahedron
+
+  * Cauchy's 2. law:  !bt \begin{equation*} \sigma_{ij} = \sigma_{ji} \quad\hbox{(symmetric tensor)}
+
+\end{equation*}
+!et
+der
+
+did you mean to write `!bt` in some sentence?
+running preprocess -DFORMAT=pdflatex -DDEVICE=paper -DCHAPTER="chapter" -DBOOK="book" -DAPPENDIX="appendix" book.do.txt > tmp_preprocess__book.do.txt
+running mako on tmp_preprocess__book.do.txt to make tmp_mako__book.do.txt
+mako variables: {'FORMAT': 'pdflatex', 'DEVICE': 'paper', 'CHAPTER': 'chapter', 'BOOK': 'book', 'APPENDIX': 'appendix'}
+translating doconce text in tmp_mako__book.do.txt to pdflatex
+open file with encoding utf-8
+
+*** error: !bt is not at the beginning of a line
+    surrounding text:
+ox{(symmetric tensor)} \end{equation*}
+!et
+derived from *moment* equilibrium of an arbitrary volume
+  * With the 2. law, we can rewrite the 1. law:  !bt \begin{equation*} s_i = n_j\sigma_{ji} = \sigma_{ij}n_j \quad\hbox{or}\quad \modvec{s} = \modvec{n}
+
+did you mean to write `!bt` in some sentence?
+running preprocess -DFORMAT=pdflatex -DDEVICE=paper -DCHAPTER="chapter" -DBOOK="book" -DAPPENDIX="appendix" book.do.txt > tmp_preprocess__book.do.txt
+running mako on tmp_preprocess__book.do.txt to make tmp_mako__book.do.txt
+mako variables: {'FORMAT': 'pdflatex', 'DEVICE': 'paper', 'CHAPTER': 'chapter', 'BOOK': 'book', 'APPENDIX': 'appendix'}
+translating doconce text in tmp_mako__book.do.txt to pdflatex
+open file with encoding utf-8
+
+*** error: !bt is not at the beginning of a line
+    surrounding text:
+}
+!et
+$\modten{F}$ is the total external force: surface forces + body forces
+
+
+Two types of forces
+
+  * surface forces   !bt \begin{equation*} \int\limits_{\partial V} \stress\cdot\modvec{n}dS
+
+\end{equation*}
+!et
+  * body f
+
+did you mean to write `!bt` in some sentence?
+running preprocess -DFORMAT=pdflatex -DDEVICE=paper -DCHAPTER="chapter" -DBOOK="book" -DAPPENDIX="appendix" book.do.txt > tmp_preprocess__book.do.txt
+running mako on tmp_preprocess__book.do.txt to make tmp_mako__book.do.txt
+mako variables: {'FORMAT': 'pdflatex', 'DEVICE': 'paper', 'CHAPTER': 'chapter', 'BOOK': 'book', 'APPENDIX': 'appendix'}
+translating doconce text in tmp_mako__book.do.txt to pdflatex
+open file with encoding utf-8
+
+*** error: !bt is not at the beginning of a line
+    surrounding text:
+V} \varrho\modvec{b}dV
+\end{equation*}
+!et
+
+
+
+======= Applying Reynolds' transport theorem =======
+
+  * $d _I_/dt = _F_$ gives  !bt \begin{equation*} {d\over dt}\int\limits_V \varrho\v dV = \int\limits_{\partial V} \stress\cdot\mod
+
+did you mean to write `!bt` in some sentence?
+running preprocess -DFORMAT=pdflatex -DDEVICE=paper -DCHAPTER="chapter" -DBOOK="book" -DAPPENDIX="appendix" book.do.txt > tmp_preprocess__book.do.txt
+running mako on tmp_preprocess__book.do.txt to make tmp_mako__book.do.txt
+mako variables: {'FORMAT': 'pdflatex', 'DEVICE': 'paper', 'CHAPTER': 'chapter', 'BOOK': 'book', 'APPENDIX': 'appendix'}
+translating doconce text in tmp_mako__book.do.txt to pdflatex
+open file with encoding utf-8
+*** error: reference to equation label "green-lagrange" is without parentheses
+    the equation reference should be typeset as (ref{green-lagrange})
+... ectly from from the  (ref{green-lagrange} and the definition of $\C$ and ...
+running preprocess -DFORMAT=pdflatex -DDEVICE=paper -DCHAPTER="chapter" -DBOOK="book" -DAPPENDIX="appendix" book.do.txt > tmp_preprocess__book.do.txt
+running mako on tmp_preprocess__book.do.txt to make tmp_mako__book.do.txt
+mako variables: {'FORMAT': 'pdflatex', 'DEVICE': 'paper', 'CHAPTER': 'chapter', 'BOOK': 'book', 'APPENDIX': 'appendix'}
+translating doconce text in tmp_mako__book.do.txt to pdflatex
+open file with encoding utf-8
+*** error: reference to equation label "green-lagrange" is without parentheses
+    the equation reference should be typeset as (ref{green-lagrange})
+... ectly from from the  (ref{green-lagrange} and the definition of $\C$ and ...
+running preprocess -DFORMAT=pdflatex -DDEVICE=paper -DCHAPTER="chapter" -DBOOK="book" -DAPPENDIX="appendix" book.do.txt > tmp_preprocess__book.do.txt
+running mako on tmp_preprocess__book.do.txt to make tmp_mako__book.do.txt
+mako variables: {'FORMAT': 'pdflatex', 'DEVICE': 'paper', 'CHAPTER': 'chapter', 'BOOK': 'book', 'APPENDIX': 'appendix'}
+translating doconce text in tmp_mako__book.do.txt to pdflatex
+open file with encoding utf-8
+*** error: reference to equation label "green-lagrange" is without parentheses
+    the equation reference should be typeset as (ref{green-lagrange})
+... ectly from from the  (ref{green-lagrange} and the definition of $\C$ and ...
+running preprocess -DFORMAT=pdflatex -DDEVICE=paper -DCHAPTER="chapter" -DBOOK="book" -DAPPENDIX="appendix" book.do.txt > tmp_preprocess__book.do.txt
+running mako on tmp_preprocess__book.do.txt to make tmp_mako__book.do.txt
+mako variables: {'FORMAT': 'pdflatex', 'DEVICE': 'paper', 'CHAPTER': 'chapter', 'BOOK': 'book', 'APPENDIX': 'appendix'}
+translating doconce text in tmp_mako__book.do.txt to pdflatex
+open file with encoding utf-8
+*** error: reference ref{map_volume} to non-defined label
+*** error: reference ref{ch:comp_mech} to non-defined label
+    run the generated script tmp_missing_labels.sh
+    to search for these missing labels!
+*** error: figure file "figs/rodstress" does not exist!
+running preprocess -DFORMAT=pdflatex -DDEVICE=paper -DCHAPTER="chapter" -DBOOK="book" -DAPPENDIX="appendix" book.do.txt > tmp_preprocess__book.do.txt
+running mako on tmp_preprocess__book.do.txt to make tmp_mako__book.do.txt
+mako variables: {'FORMAT': 'pdflatex', 'DEVICE': 'paper', 'CHAPTER': 'chapter', 'BOOK': 'book', 'APPENDIX': 'appendix'}
+translating doconce text in tmp_mako__book.do.txt to pdflatex
+open file with encoding utf-8
+*** error: reference ref{map_volume} to non-defined label
+*** error: reference ref{ch:comp_mech} to non-defined label
+    run the generated script tmp_missing_labels.sh
+    to search for these missing labels!
+found figs/rodstress.eps
+figure figs/rodstress.eps must have extension(s) .pgf, .tikz, .pdf, .png, .jpg, .jpeg
+....image conversion: ps2pdf -dEPSCrop figs/rodstress.eps figs/rodstress.pdf
+found figs/stressvec.eps
+figure figs/stressvec.eps must have extension(s) .pgf, .tikz, .pdf, .png, .jpg, .jpeg
+....image conversion: ps2pdf -dEPSCrop figs/stressvec.eps figs/stressvec.pdf
+
+exporting publish database ../chapters/papers.pub to ../chapters/papers.bib:
+
+*** warning: need external file ../chapters/fake/main_fake.aux for external references,
+    but it does not exist (compile latex/pdflatex!)
+*** error: could not translate environment: !bt \begin{equation*}
+s called the stress tensor, and has
+nine entries:
+!bt \begin{equation*}
+\stress = \left(\begin{array}{ccc} \sigma_{xx} & 
+running preprocess -DFORMAT=pdflatex -DDEVICE=paper -DCHAPTER="chapter" -DBOOK="book" -DAPPENDIX="appendix" book.do.txt > tmp_preprocess__book.do.txt
+running mako on tmp_preprocess__book.do.txt to make tmp_mako__book.do.txt
+mako variables: {'FORMAT': 'pdflatex', 'DEVICE': 'paper', 'CHAPTER': 'chapter', 'BOOK': 'book', 'APPENDIX': 'appendix'}
+translating doconce text in tmp_mako__book.do.txt to pdflatex
+open file with encoding utf-8
+*** error: reference ref{map_volume} to non-defined label
+*** error: reference ref{ch:comp_mech} to non-defined label
+    run the generated script tmp_missing_labels.sh
+    to search for these missing labels!
+figure file figs/stressvec:
+    can use figs/stressvec.pdf for format pdflatex
+figure file figs/rodstress:
+    can use figs/rodstress.pdf for format pdflatex
+
+exporting publish database ../chapters/papers.pub to ../chapters/papers.bib:
+*** error: could not translate environment: !bt \begin{equation*}
+s called the stress tensor, and has
+nine entries:
+!bt \begin{equation*}
+\stress = \left(\begin{array}{ccc} \sigma_{xx} & 
+running preprocess -DFORMAT=pdflatex -DDEVICE=paper -DCHAPTER="chapter" -DBOOK="book" -DAPPENDIX="appendix" book.do.txt > tmp_preprocess__book.do.txt
+running mako on tmp_preprocess__book.do.txt to make tmp_mako__book.do.txt
+mako variables: {'FORMAT': 'pdflatex', 'DEVICE': 'paper', 'CHAPTER': 'chapter', 'BOOK': 'book', 'APPENDIX': 'appendix'}
+translating doconce text in tmp_mako__book.do.txt to pdflatex
+open file with encoding utf-8
+*** error: reference ref{map_volume} to non-defined label
+*** error: reference ref{ch:comp_mech} to non-defined label
+    run the generated script tmp_missing_labels.sh
+    to search for these missing labels!
+figure file figs/rodstress:
+    can use figs/rodstress.pdf for format pdflatex
+figure file figs/stressvec:
+    can use figs/stressvec.pdf for format pdflatex
+
+exporting publish database ../chapters/papers.pub to ../chapters/papers.bib:
+*** error: could not translate environment: !bt \begin{equation*}
+cs[width=0.4\linewidth]{figs/rodstress}} suggests
+!bt \begin{equation*}
+\stress = \left(\begin{array}{ccc} F/A {\&} 0 & 0
+running preprocess -DFORMAT=pdflatex -DDEVICE=paper -DCHAPTER="chapter" -DBOOK="book" -DAPPENDIX="appendix" book.do.txt > tmp_preprocess__book.do.txt
+running mako on tmp_preprocess__book.do.txt to make tmp_mako__book.do.txt
+mako variables: {'FORMAT': 'pdflatex', 'DEVICE': 'paper', 'CHAPTER': 'chapter', 'BOOK': 'book', 'APPENDIX': 'appendix'}
+translating doconce text in tmp_mako__book.do.txt to pdflatex
+open file with encoding utf-8
+*** error: reference ref{map_volume} to non-defined label
+*** error: reference ref{ch:comp_mech} to non-defined label
+    run the generated script tmp_missing_labels.sh
+    to search for these missing labels!
+figure file figs/stressvec:
+    can use figs/stressvec.pdf for format pdflatex
+figure file figs/rodstress:
+    can use figs/rodstress.pdf for format pdflatex
+
+exporting publish database ../chapters/papers.pub to ../chapters/papers.bib:
+*** error: could not translate environment: !bt \begin{equation*}
+cs[width=0.4\linewidth]{figs/rodstress}} suggests
+!bt \begin{equation*}
+\stress = \left(\begin{array}{ccc} F/A {\&} 0 & 0
+running preprocess -DFORMAT=pdflatex -DDEVICE=paper -DCHAPTER="chapter" -DBOOK="book" -DAPPENDIX="appendix" book.do.txt > tmp_preprocess__book.do.txt
+running mako on tmp_preprocess__book.do.txt to make tmp_mako__book.do.txt
+mako variables: {'FORMAT': 'pdflatex', 'DEVICE': 'paper', 'CHAPTER': 'chapter', 'BOOK': 'book', 'APPENDIX': 'appendix'}
+translating doconce text in tmp_mako__book.do.txt to pdflatex
+open file with encoding utf-8
+*** error: reference ref{map_volume} to non-defined label
+*** error: reference ref{ch:comp_mech} to non-defined label
+    run the generated script tmp_missing_labels.sh
+    to search for these missing labels!
+figure file figs/rodstress:
+    can use figs/rodstress.pdf for format pdflatex
+figure file figs/stressvec:
+    can use figs/stressvec.pdf for format pdflatex
+
+exporting publish database ../chapters/papers.pub to ../chapters/papers.bib:
+output in book.tex
+running preprocess -DFORMAT=pdflatex -DDEVICE=paper -DCHAPTER="chapter" -DBOOK="book" -DAPPENDIX="appendix" book.do.txt > tmp_preprocess__book.do.txt
+running mako on tmp_preprocess__book.do.txt to make tmp_mako__book.do.txt
+mako variables: {'FORMAT': 'pdflatex', 'DEVICE': 'paper', 'CHAPTER': 'chapter', 'BOOK': 'book', 'APPENDIX': 'appendix'}
+translating doconce text in tmp_mako__book.do.txt to pdflatex
+open file with encoding utf-8
+*** error: reference ref{map_volume} to non-defined label
+*** error: reference ref{ch:comp_mech} to non-defined label
+    run the generated script tmp_missing_labels.sh
+    to search for these missing labels!
+figure file figs/rodstress:
+    can use figs/rodstress.pdf for format pdflatex
+figure file figs/stressvec:
+    can use figs/stressvec.pdf for format pdflatex
+
+exporting publish database ../chapters/papers.pub to ../chapters/papers.bib:
+output in book.tex
+running preprocess -DFORMAT=pdflatex -DDEVICE=paper -DCHAPTER="chapter" -DBOOK="book" -DAPPENDIX="appendix" book.do.txt > tmp_preprocess__book.do.txt
+running mako on tmp_preprocess__book.do.txt to make tmp_mako__book.do.txt
+mako variables: {'FORMAT': 'pdflatex', 'DEVICE': 'paper', 'CHAPTER': 'chapter', 'BOOK': 'book', 'APPENDIX': 'appendix'}
+translating doconce text in tmp_mako__book.do.txt to pdflatex
+open file with encoding utf-8
+*** error: reference ref{map_volume} to non-defined label
+*** error: reference ref{ch:comp_mech} to non-defined label
+    run the generated script tmp_missing_labels.sh
+    to search for these missing labels!
+figure file figs/rodstress:
+    can use figs/rodstress.pdf for format pdflatex
+figure file figs/stressvec:
+    can use figs/stressvec.pdf for format pdflatex
+
+exporting publish database ../chapters/papers.pub to ../chapters/papers.bib:
+output in book.tex
+running preprocess -DFORMAT=pdflatex -DDEVICE=paper -DCHAPTER="chapter" -DBOOK="book" -DAPPENDIX="appendix" book.do.txt > tmp_preprocess__book.do.txt
+running mako on tmp_preprocess__book.do.txt to make tmp_mako__book.do.txt
+mako variables: {'FORMAT': 'pdflatex', 'DEVICE': 'paper', 'CHAPTER': 'chapter', 'BOOK': 'book', 'APPENDIX': 'appendix'}
+translating doconce text in tmp_mako__book.do.txt to pdflatex
+open file with encoding utf-8
+*** error: reference ref{map_volume} to non-defined label
+*** error: reference ref{comp_mech} to non-defined label
+*** error: reference ref{passive_tissue} to non-defined label
+*** error: reference ref{ch:comp_mech} to non-defined label
+    run the generated script tmp_missing_labels.sh
+    to search for these missing labels!
+figure file figs/stressvec:
+    can use figs/stressvec.pdf for format pdflatex
+figure file figs/rodstress:
+    can use figs/rodstress.pdf for format pdflatex
+
+exporting publish database ../chapters/papers.pub to ../chapters/papers.bib:
+output in book.tex
+running preprocess -DFORMAT=pdflatex -DDEVICE=paper -DCHAPTER="chapter" -DBOOK="book" -DAPPENDIX="appendix" book.do.txt > tmp_preprocess__book.do.txt
+running mako on tmp_preprocess__book.do.txt to make tmp_mako__book.do.txt
+mako variables: {'FORMAT': 'pdflatex', 'DEVICE': 'paper', 'CHAPTER': 'chapter', 'BOOK': 'book', 'APPENDIX': 'appendix'}
+translating doconce text in tmp_mako__book.do.txt to pdflatex
+open file with encoding utf-8
+*** error: reference ref{map_volume} to non-defined label
+*** error: reference ref{comp_mech} to non-defined label
+*** error: reference ref{passive_tissue} to non-defined label
+*** error: reference ref{ch:comp_mech} to non-defined label
+    run the generated script tmp_missing_labels.sh
+    to search for these missing labels!
+figure file figs/rodstress:
+    can use figs/rodstress.pdf for format pdflatex
+figure file figs/stressvec:
+    can use figs/stressvec.pdf for format pdflatex
+
+exporting publish database ../chapters/papers.pub to ../chapters/papers.bib:
+output in book.tex
+running preprocess -DFORMAT=pdflatex -DDEVICE=paper -DCHAPTER="chapter" -DBOOK="book" -DAPPENDIX="appendix" book.do.txt > tmp_preprocess__book.do.txt
+running mako on tmp_preprocess__book.do.txt to make tmp_mako__book.do.txt
+mako variables: {'FORMAT': 'pdflatex', 'DEVICE': 'paper', 'CHAPTER': 'chapter', 'BOOK': 'book', 'APPENDIX': 'appendix'}
+translating doconce text in tmp_mako__book.do.txt to pdflatex
+open file with encoding utf-8
+*** error: reference ref{map_volume} to non-defined label
+*** error: reference ref{comp_mech} to non-defined label
+*** error: reference ref{passive_tissue} to non-defined label
+*** error: reference ref{ch:comp_mech} to non-defined label
+    run the generated script tmp_missing_labels.sh
+    to search for these missing labels!
+figure file figs/stressvec:
+    can use figs/stressvec.pdf for format pdflatex
+figure file figs/rodstress:
+    can use figs/rodstress.pdf for format pdflatex
+
+exporting publish database ../chapters/papers.pub to ../chapters/papers.bib:
+output in book.tex
+running preprocess -DFORMAT=pdflatex -DDEVICE=paper -DCHAPTER="chapter" -DBOOK="book" -DAPPENDIX="appendix" book.do.txt > tmp_preprocess__book.do.txt
+running mako on tmp_preprocess__book.do.txt to make tmp_mako__book.do.txt
+mako variables: {'FORMAT': 'pdflatex', 'DEVICE': 'paper', 'CHAPTER': 'chapter', 'BOOK': 'book', 'APPENDIX': 'appendix'}
+translating doconce text in tmp_mako__book.do.txt to pdflatex
+open file with encoding utf-8
+*** error: reference ref{map_volume} to non-defined label
+*** error: reference ref{comp_mech} to non-defined label
+*** error: reference ref{passive_tissue} to non-defined label
+*** error: reference ref{ch:comp_mech} to non-defined label
+    run the generated script tmp_missing_labels.sh
+    to search for these missing labels!
+*** warning: latex format will have problem with words
+    containing underscores (this warning is very uncertain, might be wrong too):
+
+p_0
+
+    typeset these words with `inline verbatim` or escape with backslash
+    First word appears here:
+\modvec{B}W\times H\times D\modvec{s}(\x ,t)p(h) = p_0 -\varrho hp_0\varrhohn_1-n_1-n_2n_2-n_3n_3FF/A\nFs_Ns_T
+figure file figs/stressvec:
+    can use figs/stressvec.pdf for format pdflatex
+figure file figs/rodstress:
+    can use figs/rodstress.pdf for format pdflatex
+
+exporting publish database ../chapters/papers.pub to ../chapters/papers.bib:
+output in book.tex
+running preprocess -DFORMAT=pdflatex -DDEVICE=paper -DCHAPTER="chapter" -DBOOK="book" -DAPPENDIX="appendix" book.do.txt > tmp_preprocess__book.do.txt
+running mako on tmp_preprocess__book.do.txt to make tmp_mako__book.do.txt
+mako variables: {'FORMAT': 'pdflatex', 'DEVICE': 'paper', 'CHAPTER': 'chapter', 'BOOK': 'book', 'APPENDIX': 'appendix'}
+translating doconce text in tmp_mako__book.do.txt to pdflatex
+open file with encoding utf-8
+*** error: reference ref{map_volume} to non-defined label
+*** error: reference ref{comp_mech} to non-defined label
+*** error: reference ref{passive_tissue} to non-defined label
+*** error: reference ref{ch:comp_mech} to non-defined label
+    run the generated script tmp_missing_labels.sh
+    to search for these missing labels!
+figure file figs/rodstress:
+    can use figs/rodstress.pdf for format pdflatex
+figure file figs/stressvec:
+    can use figs/stressvec.pdf for format pdflatex
+
+exporting publish database ../chapters/papers.pub to ../chapters/papers.bib:
+output in book.tex
+running preprocess -DFORMAT=pdflatex -DDEVICE=paper -DCHAPTER="chapter" -DBOOK="book" -DAPPENDIX="appendix" book.do.txt > tmp_preprocess__book.do.txt
+running mako on tmp_preprocess__book.do.txt to make tmp_mako__book.do.txt
+mako variables: {'FORMAT': 'pdflatex', 'DEVICE': 'paper', 'CHAPTER': 'chapter', 'BOOK': 'book', 'APPENDIX': 'appendix'}
+translating doconce text in tmp_mako__book.do.txt to pdflatex
+open file with encoding utf-8
+*** error: reference ref{map_volume} to non-defined label
+*** error: reference ref{comp_mech} to non-defined label
+*** error: reference ref{passive_tissue} to non-defined label
+*** error: reference ref{ch:comp_mech} to non-defined label
+    run the generated script tmp_missing_labels.sh
+    to search for these missing labels!
+figure file figs/stressvec:
+    can use figs/stressvec.pdf for format pdflatex
+figure file figs/rodstress:
+    can use figs/rodstress.pdf for format pdflatex
+
+exporting publish database ../chapters/papers.pub to ../chapters/papers.bib:
+output in book.tex
+running preprocess -DFORMAT=pdflatex -DDEVICE=paper -DCHAPTER="chapter" -DBOOK="book" -DAPPENDIX="appendix" book.do.txt > tmp_preprocess__book.do.txt
+running mako on tmp_preprocess__book.do.txt to make tmp_mako__book.do.txt
+mako variables: {'FORMAT': 'pdflatex', 'DEVICE': 'paper', 'CHAPTER': 'chapter', 'BOOK': 'book', 'APPENDIX': 'appendix'}
+translating doconce text in tmp_mako__book.do.txt to pdflatex
+open file with encoding utf-8
+*** error: reference ref{map_volume} to non-defined label
+*** error: reference ref{comp_mech} to non-defined label
+*** error: reference ref{passive_tissue} to non-defined label
+*** error: reference ref{ch:comp_mech} to non-defined label
+    run the generated script tmp_missing_labels.sh
+    to search for these missing labels!
+figure file figs/rodstress:
+    can use figs/rodstress.pdf for format pdflatex
+figure file figs/stressvec:
+    can use figs/stressvec.pdf for format pdflatex
+
+exporting publish database ../chapters/papers.pub to ../chapters/papers.bib:
+output in book.tex
+running preprocess -DFORMAT=pdflatex -DDEVICE=paper -DCHAPTER="chapter" -DBOOK="book" -DAPPENDIX="appendix" book.do.txt > tmp_preprocess__book.do.txt
+running mako on tmp_preprocess__book.do.txt to make tmp_mako__book.do.txt
+mako variables: {'FORMAT': 'pdflatex', 'DEVICE': 'paper', 'CHAPTER': 'chapter', 'BOOK': 'book', 'APPENDIX': 'appendix'}
+translating doconce text in tmp_mako__book.do.txt to pdflatex
+open file with encoding utf-8
+*** error: reference ref{map_volume} to non-defined label
+*** error: reference ref{comp_mech} to non-defined label
+*** error: reference ref{passive_tissue} to non-defined label
+*** error: reference ref{ch:comp_mech} to non-defined label
+    run the generated script tmp_missing_labels.sh
+    to search for these missing labels!
+figure file figs/rodstress:
+    can use figs/rodstress.pdf for format pdflatex
+figure file figs/stressvec:
+    can use figs/stressvec.pdf for format pdflatex
+
+exporting publish database ../chapters/papers.pub to ../chapters/papers.bib:
+output in book.tex
+running preprocess -DFORMAT=pdflatex -DDEVICE=paper -DCHAPTER="chapter" -DBOOK="book" -DAPPENDIX="appendix" book.do.txt > tmp_preprocess__book.do.txt
+running mako on tmp_preprocess__book.do.txt to make tmp_mako__book.do.txt
+mako variables: {'FORMAT': 'pdflatex', 'DEVICE': 'paper', 'CHAPTER': 'chapter', 'BOOK': 'book', 'APPENDIX': 'appendix'}
+translating doconce text in tmp_mako__book.do.txt to pdflatex
+open file with encoding utf-8
+*** error: reference ref{map_volume} to non-defined label
+*** error: reference ref{comp_mech} to non-defined label
+*** error: reference ref{passive_tissue} to non-defined label
+*** error: reference ref{ch:comp_mech} to non-defined label
+    run the generated script tmp_missing_labels.sh
+    to search for these missing labels!
+figure file figs/stressvec:
+    can use figs/stressvec.pdf for format pdflatex
+figure file figs/rodstress:
+    can use figs/rodstress.pdf for format pdflatex
+
+exporting publish database ../chapters/papers.pub to ../chapters/papers.bib:
+output in book.tex
+running preprocess -DFORMAT=pdflatex -DDEVICE=paper -DCHAPTER="chapter" -DBOOK="book" -DAPPENDIX="appendix" book.do.txt > tmp_preprocess__book.do.txt
+running mako on tmp_preprocess__book.do.txt to make tmp_mako__book.do.txt
+mako variables: {'FORMAT': 'pdflatex', 'DEVICE': 'paper', 'CHAPTER': 'chapter', 'BOOK': 'book', 'APPENDIX': 'appendix'}
+translating doconce text in tmp_mako__book.do.txt to pdflatex
+open file with encoding utf-8
+*** error: reference ref{map_volume} to non-defined label
+*** error: reference ref{comp_mech} to non-defined label
+*** error: reference ref{passive_tissue} to non-defined label
+*** error: reference ref{ch:comp_mech} to non-defined label
+    run the generated script tmp_missing_labels.sh
+    to search for these missing labels!
+figure file figs/stressvec:
+    can use figs/stressvec.pdf for format pdflatex
+figure file figs/rodstress:
+    can use figs/rodstress.pdf for format pdflatex
+
+exporting publish database ../chapters/papers.pub to ../chapters/papers.bib:
+output in book.tex
+running preprocess -DFORMAT=pdflatex -DDEVICE=paper -DCHAPTER="chapter" -DBOOK="book" -DAPPENDIX="appendix" book.do.txt > tmp_preprocess__book.do.txt
+running mako on tmp_preprocess__book.do.txt to make tmp_mako__book.do.txt
+mako variables: {'FORMAT': 'pdflatex', 'DEVICE': 'paper', 'CHAPTER': 'chapter', 'BOOK': 'book', 'APPENDIX': 'appendix'}
+translating doconce text in tmp_mako__book.do.txt to pdflatex
+open file with encoding utf-8
+*** error: reference ref{map_volume} to non-defined label
+*** error: reference ref{comp_mech} to non-defined label
+*** error: reference ref{passive_tissue} to non-defined label
+*** error: reference ref{ch:comp_mech} to non-defined label
+    run the generated script tmp_missing_labels.sh
+    to search for these missing labels!
+figure file figs/stressvec:
+    can use figs/stressvec.pdf for format pdflatex
+figure file figs/rodstress:
+    can use figs/rodstress.pdf for format pdflatex
+
+exporting publish database ../chapters/papers.pub to ../chapters/papers.bib:
+output in book.tex
+running preprocess -DFORMAT=pdflatex -DDEVICE=paper -DCHAPTER="chapter" -DBOOK="book" -DAPPENDIX="appendix" book.do.txt > tmp_preprocess__book.do.txt
+running mako on tmp_preprocess__book.do.txt to make tmp_mako__book.do.txt
+mako variables: {'FORMAT': 'pdflatex', 'DEVICE': 'paper', 'CHAPTER': 'chapter', 'BOOK': 'book', 'APPENDIX': 'appendix'}
+translating doconce text in tmp_mako__book.do.txt to pdflatex
+open file with encoding utf-8
+*** error: reference ref{map_volume} to non-defined label
+*** error: reference ref{comp_mech} to non-defined label
+*** error: reference ref{passive_tissue} to non-defined label
+*** error: reference ref{ch:comp_mech} to non-defined label
+    run the generated script tmp_missing_labels.sh
+    to search for these missing labels!
+figure file figs/stressvec:
+    can use figs/stressvec.pdf for format pdflatex
+figure file figs/rodstress:
+    can use figs/rodstress.pdf for format pdflatex
+
+exporting publish database ../chapters/papers.pub to ../chapters/papers.bib:
+output in book.tex
+running preprocess -DFORMAT=pdflatex -DDEVICE=paper -DCHAPTER="chapter" -DBOOK="book" -DAPPENDIX="appendix" book.do.txt > tmp_preprocess__book.do.txt
+running mako on tmp_preprocess__book.do.txt to make tmp_mako__book.do.txt
+mako variables: {'FORMAT': 'pdflatex', 'DEVICE': 'paper', 'CHAPTER': 'chapter', 'BOOK': 'book', 'APPENDIX': 'appendix'}
+translating doconce text in tmp_mako__book.do.txt to pdflatex
+open file with encoding utf-8
+*** error: reference ref{map_volume} to non-defined label
+*** error: reference ref{comp_mech} to non-defined label
+*** error: reference ref{passive_tissue} to non-defined label
+*** error: reference ref{ch:comp_mech} to non-defined label
+    run the generated script tmp_missing_labels.sh
+    to search for these missing labels!
+figure file figs/rodstress:
+    can use figs/rodstress.pdf for format pdflatex
+figure file figs/stressvec:
+    can use figs/stressvec.pdf for format pdflatex
+
+exporting publish database ../chapters/papers.pub to ../chapters/papers.bib:
+output in book.tex
+running preprocess -DFORMAT=pdflatex -DDEVICE=paper -DCHAPTER="chapter" -DBOOK="book" -DAPPENDIX="appendix" book.do.txt > tmp_preprocess__book.do.txt
+running mako on tmp_preprocess__book.do.txt to make tmp_mako__book.do.txt
+mako variables: {'FORMAT': 'pdflatex', 'DEVICE': 'paper', 'CHAPTER': 'chapter', 'BOOK': 'book', 'APPENDIX': 'appendix'}
+translating doconce text in tmp_mako__book.do.txt to pdflatex
+open file with encoding utf-8
+*** error: reference ref{map_volume} to non-defined label
+*** error: reference ref{comp_mech} to non-defined label
+*** error: reference ref{passive_tissue} to non-defined label
+*** error: reference ref{ch:comp_mech} to non-defined label
+    run the generated script tmp_missing_labels.sh
+    to search for these missing labels!
+figure file figs/rodstress:
+    can use figs/rodstress.pdf for format pdflatex
+figure file figs/stressvec:
+    can use figs/stressvec.pdf for format pdflatex
+
+exporting publish database ../chapters/papers.pub to ../chapters/papers.bib:
+output in book.tex
+running preprocess -DFORMAT=pdflatex -DDEVICE=paper -DCHAPTER="chapter" -DBOOK="book" -DAPPENDIX="appendix" book.do.txt > tmp_preprocess__book.do.txt
+running mako on tmp_preprocess__book.do.txt to make tmp_mako__book.do.txt
+mako variables: {'FORMAT': 'pdflatex', 'DEVICE': 'paper', 'CHAPTER': 'chapter', 'BOOK': 'book', 'APPENDIX': 'appendix'}
+translating doconce text in tmp_mako__book.do.txt to pdflatex
+open file with encoding utf-8
+*** error: reference ref{map_volume} to non-defined label
+*** error: reference ref{comp_mech} to non-defined label
+*** error: reference ref{passive_tissue} to non-defined label
+*** error: reference ref{ch:comp_mech} to non-defined label
+    run the generated script tmp_missing_labels.sh
+    to search for these missing labels!
+figure file figs/rodstress:
+    can use figs/rodstress.pdf for format pdflatex
+figure file figs/stressvec:
+    can use figs/stressvec.pdf for format pdflatex
+
+exporting publish database ../chapters/papers.pub to ../chapters/papers.bib:
+output in book.tex
+running preprocess -DFORMAT=pdflatex -DDEVICE=paper -DCHAPTER="chapter" -DBOOK="book" -DAPPENDIX="appendix" book.do.txt > tmp_preprocess__book.do.txt
+running mako on tmp_preprocess__book.do.txt to make tmp_mako__book.do.txt
+mako variables: {'FORMAT': 'pdflatex', 'DEVICE': 'paper', 'CHAPTER': 'chapter', 'BOOK': 'book', 'APPENDIX': 'appendix'}
+translating doconce text in tmp_mako__book.do.txt to pdflatex
+open file with encoding utf-8
+*** error: reference ref{map_volume} to non-defined label
+*** error: reference ref{comp_mech} to non-defined label
+*** error: reference ref{passive_tissue} to non-defined label
+*** error: reference ref{ch:comp_mech} to non-defined label
+    run the generated script tmp_missing_labels.sh
+    to search for these missing labels!
+figure file figs/rodstress:
+    can use figs/rodstress.pdf for format pdflatex
+figure file figs/stressvec:
+    can use figs/stressvec.pdf for format pdflatex
+
+exporting publish database ../chapters/papers.pub to ../chapters/papers.bib:
+output in book.tex
+running preprocess -DFORMAT=pdflatex -DDEVICE=paper -DCHAPTER="chapter" -DBOOK="book" -DAPPENDIX="appendix" book.do.txt > tmp_preprocess__book.do.txt
+running mako on tmp_preprocess__book.do.txt to make tmp_mako__book.do.txt
+mako variables: {'FORMAT': 'pdflatex', 'DEVICE': 'paper', 'CHAPTER': 'chapter', 'BOOK': 'book', 'APPENDIX': 'appendix'}
+translating doconce text in tmp_mako__book.do.txt to pdflatex
+open file with encoding utf-8
+*** error: reference ref{map_volume} to non-defined label
+*** error: reference ref{comp_mech} to non-defined label
+*** error: reference ref{passive_tissue} to non-defined label
+*** error: reference ref{ch:comp_mech} to non-defined label
+    run the generated script tmp_missing_labels.sh
+    to search for these missing labels!
+figure file figs/rodstress:
+    can use figs/rodstress.pdf for format pdflatex
+figure file figs/stressvec:
+    can use figs/stressvec.pdf for format pdflatex
+
+exporting publish database ../chapters/papers.pub to ../chapters/papers.bib:
+output in book.tex
+running preprocess -DFORMAT=pdflatex -DDEVICE=paper -DCHAPTER="chapter" -DBOOK="book" -DAPPENDIX="appendix" book.do.txt > tmp_preprocess__book.do.txt
+running mako on tmp_preprocess__book.do.txt to make tmp_mako__book.do.txt
+mako variables: {'FORMAT': 'pdflatex', 'DEVICE': 'paper', 'CHAPTER': 'chapter', 'BOOK': 'book', 'APPENDIX': 'appendix'}
+translating doconce text in tmp_mako__book.do.txt to pdflatex
+open file with encoding utf-8
+*** error: reference ref{map_volume} to non-defined label
+*** error: reference ref{comp_mech} to non-defined label
+*** error: reference ref{passive_tissue} to non-defined label
+*** error: reference ref{ch:comp_mech} to non-defined label
+    run the generated script tmp_missing_labels.sh
+    to search for these missing labels!
+figure file figs/rodstress:
+    can use figs/rodstress.pdf for format pdflatex
+figure file figs/stressvec:
+    can use figs/stressvec.pdf for format pdflatex
+
+exporting publish database ../chapters/papers.pub to ../chapters/papers.bib:
+output in book.tex
+running preprocess -DFORMAT=pdflatex -DDEVICE=paper -DCHAPTER="chapter" -DBOOK="book" -DAPPENDIX="appendix" book.do.txt > tmp_preprocess__book.do.txt
+running mako on tmp_preprocess__book.do.txt to make tmp_mako__book.do.txt
+mako variables: {'FORMAT': 'pdflatex', 'DEVICE': 'paper', 'CHAPTER': 'chapter', 'BOOK': 'book', 'APPENDIX': 'appendix'}
+translating doconce text in tmp_mako__book.do.txt to pdflatex
+open file with encoding utf-8
+*** error: reference ref{map_volume} to non-defined label
+*** error: reference ref{comp_mech} to non-defined label
+*** error: reference ref{passive_tissue} to non-defined label
+*** error: reference ref{ch:comp_mech} to non-defined label
+    run the generated script tmp_missing_labels.sh
+    to search for these missing labels!
+figure file figs/rodstress:
+    can use figs/rodstress.pdf for format pdflatex
+figure file figs/stressvec:
+    can use figs/stressvec.pdf for format pdflatex
+
+exporting publish database ../chapters/papers.pub to ../chapters/papers.bib:
+output in book.tex
+running preprocess -DFORMAT=pdflatex -DDEVICE=paper -DCHAPTER="chapter" -DBOOK="book" -DAPPENDIX="appendix" book.do.txt > tmp_preprocess__book.do.txt
+running mako on tmp_preprocess__book.do.txt to make tmp_mako__book.do.txt
+mako variables: {'FORMAT': 'pdflatex', 'DEVICE': 'paper', 'CHAPTER': 'chapter', 'BOOK': 'book', 'APPENDIX': 'appendix'}
+translating doconce text in tmp_mako__book.do.txt to pdflatex
+open file with encoding utf-8
+*** error: reference ref{map_volume} to non-defined label
+*** error: reference ref{comp_mech} to non-defined label
+*** error: reference ref{passive_tissue} to non-defined label
+*** error: reference ref{ch:comp_mech} to non-defined label
+    run the generated script tmp_missing_labels.sh
+    to search for these missing labels!
+figure file figs/rodstress:
+    can use figs/rodstress.pdf for format pdflatex
+figure file figs/stressvec:
+    can use figs/stressvec.pdf for format pdflatex
+
+exporting publish database ../chapters/papers.pub to ../chapters/papers.bib:
+output in book.tex
+running preprocess -DFORMAT=pdflatex -DDEVICE=paper -DCHAPTER="chapter" -DBOOK="book" -DAPPENDIX="appendix" book.do.txt > tmp_preprocess__book.do.txt
+running mako on tmp_preprocess__book.do.txt to make tmp_mako__book.do.txt
+mako variables: {'FORMAT': 'pdflatex', 'DEVICE': 'paper', 'CHAPTER': 'chapter', 'BOOK': 'book', 'APPENDIX': 'appendix'}
+translating doconce text in tmp_mako__book.do.txt to pdflatex
+open file with encoding utf-8
+*** error: reference ref{map_volume} to non-defined label
+*** error: reference ref{comp_mech} to non-defined label
+*** error: reference ref{passive_tissue} to non-defined label
+*** error: reference ref{ch:comp_mech} to non-defined label
+    run the generated script tmp_missing_labels.sh
+    to search for these missing labels!
+figure file figs/stressvec:
+    can use figs/stressvec.pdf for format pdflatex
+figure file figs/rodstress:
+    can use figs/rodstress.pdf for format pdflatex
+
+exporting publish database ../chapters/papers.pub to ../chapters/papers.bib:
+output in book.tex
+running preprocess -DFORMAT=pdflatex -DDEVICE=paper -DCHAPTER="chapter" -DBOOK="book" -DAPPENDIX="appendix" book.do.txt > tmp_preprocess__book.do.txt
+running mako on tmp_preprocess__book.do.txt to make tmp_mako__book.do.txt
+mako variables: {'FORMAT': 'pdflatex', 'DEVICE': 'paper', 'CHAPTER': 'chapter', 'BOOK': 'book', 'APPENDIX': 'appendix'}
+translating doconce text in tmp_mako__book.do.txt to pdflatex
+open file with encoding utf-8
+*** error: reference ref{map_volume} to non-defined label
+*** error: reference ref{comp_mech} to non-defined label
+*** error: reference ref{passive_tissue} to non-defined label
+*** error: reference ref{ch:comp_mech} to non-defined label
+    run the generated script tmp_missing_labels.sh
+    to search for these missing labels!
+figure file figs/rodstress:
+    can use figs/rodstress.pdf for format pdflatex
+figure file figs/stressvec:
+    can use figs/stressvec.pdf for format pdflatex
+
+exporting publish database ../chapters/papers.pub to ../chapters/papers.bib:
+output in book.tex
+running preprocess -DFORMAT=pdflatex -DDEVICE=paper -DCHAPTER="chapter" -DBOOK="book" -DAPPENDIX="appendix" book.do.txt > tmp_preprocess__book.do.txt
+running mako on tmp_preprocess__book.do.txt to make tmp_mako__book.do.txt
+mako variables: {'FORMAT': 'pdflatex', 'DEVICE': 'paper', 'CHAPTER': 'chapter', 'BOOK': 'book', 'APPENDIX': 'appendix'}
+translating doconce text in tmp_mako__book.do.txt to pdflatex
+open file with encoding utf-8
+*** error: reference ref{map_volume} to non-defined label
+*** error: reference ref{comp_mech} to non-defined label
+*** error: reference ref{passive_tissue} to non-defined label
+*** error: reference ref{ch:comp_mech} to non-defined label
+    run the generated script tmp_missing_labels.sh
+    to search for these missing labels!
+figure file figs/rodstress:
+    can use figs/rodstress.pdf for format pdflatex
+figure file figs/stressvec:
+    can use figs/stressvec.pdf for format pdflatex
+
+exporting publish database ../chapters/papers.pub to ../chapters/papers.bib:
+output in book.tex
+running preprocess -DFORMAT=pdflatex -DDEVICE=paper -DCHAPTER="chapter" -DBOOK="book" -DAPPENDIX="appendix" book.do.txt > tmp_preprocess__book.do.txt
+running mako on tmp_preprocess__book.do.txt to make tmp_mako__book.do.txt
+mako variables: {'FORMAT': 'pdflatex', 'DEVICE': 'paper', 'CHAPTER': 'chapter', 'BOOK': 'book', 'APPENDIX': 'appendix'}
+translating doconce text in tmp_mako__book.do.txt to pdflatex
+open file with encoding utf-8
+*** error: reference ref{map_volume} to non-defined label
+*** error: reference ref{comp_mech} to non-defined label
+*** error: reference ref{passive_tissue} to non-defined label
+*** error: reference ref{ch:comp_mech} to non-defined label
+    run the generated script tmp_missing_labels.sh
+    to search for these missing labels!
+figure file figs/stressvec:
+    can use figs/stressvec.pdf for format pdflatex
+figure file figs/rodstress:
+    can use figs/rodstress.pdf for format pdflatex
+
+exporting publish database ../chapters/papers.pub to ../chapters/papers.bib:
+output in book.tex
+running preprocess -DFORMAT=pdflatex -DDEVICE=paper -DCHAPTER="chapter" -DBOOK="book" -DAPPENDIX="appendix" book.do.txt > tmp_preprocess__book.do.txt
+running mako on tmp_preprocess__book.do.txt to make tmp_mako__book.do.txt
+mako variables: {'FORMAT': 'pdflatex', 'DEVICE': 'paper', 'CHAPTER': 'chapter', 'BOOK': 'book', 'APPENDIX': 'appendix'}
+translating doconce text in tmp_mako__book.do.txt to pdflatex
+open file with encoding utf-8
+*** error: reference ref{map_volume} to non-defined label
+*** error: reference ref{comp_mech} to non-defined label
+*** error: reference ref{passive_tissue} to non-defined label
+*** error: reference ref{ch:comp_mech} to non-defined label
+    run the generated script tmp_missing_labels.sh
+    to search for these missing labels!
+figure file figs/rodstress:
+    can use figs/rodstress.pdf for format pdflatex
+figure file figs/stressvec:
+    can use figs/stressvec.pdf for format pdflatex
+
+exporting publish database ../chapters/papers.pub to ../chapters/papers.bib:
+output in book.tex
+running preprocess -DFORMAT=pdflatex -DDEVICE=paper -DCHAPTER="chapter" -DBOOK="book" -DAPPENDIX="appendix" book.do.txt > tmp_preprocess__book.do.txt
+running mako on tmp_preprocess__book.do.txt to make tmp_mako__book.do.txt
+mako variables: {'FORMAT': 'pdflatex', 'DEVICE': 'paper', 'CHAPTER': 'chapter', 'BOOK': 'book', 'APPENDIX': 'appendix'}
+translating doconce text in tmp_mako__book.do.txt to pdflatex
+open file with encoding utf-8
+*** error: reference ref{map_volume} to non-defined label
+*** error: reference ref{comp_mech} to non-defined label
+*** error: reference ref{passive_tissue} to non-defined label
+*** error: reference ref{ch:comp_mech} to non-defined label
+    run the generated script tmp_missing_labels.sh
+    to search for these missing labels!
+figure file figs/stressvec:
+    can use figs/stressvec.pdf for format pdflatex
+figure file figs/rodstress:
+    can use figs/rodstress.pdf for format pdflatex
+
+exporting publish database ../chapters/papers.pub to ../chapters/papers.bib:
+output in book.tex
+running preprocess -DFORMAT=pdflatex -DDEVICE=paper -DCHAPTER="chapter" -DBOOK="book" -DAPPENDIX="appendix" book.do.txt > tmp_preprocess__book.do.txt
+running mako on tmp_preprocess__book.do.txt to make tmp_mako__book.do.txt
+mako variables: {'FORMAT': 'pdflatex', 'DEVICE': 'paper', 'CHAPTER': 'chapter', 'BOOK': 'book', 'APPENDIX': 'appendix'}
+translating doconce text in tmp_mako__book.do.txt to pdflatex
+open file with encoding utf-8
+*** error: reference ref{map_volume} to non-defined label
+*** error: reference ref{comp_mech} to non-defined label
+*** error: reference ref{passive_tissue} to non-defined label
+*** error: reference ref{ch:comp_mech} to non-defined label
+    run the generated script tmp_missing_labels.sh
+    to search for these missing labels!
+figure file figs/rodstress:
+    can use figs/rodstress.pdf for format pdflatex
+figure file figs/stressvec:
+    can use figs/stressvec.pdf for format pdflatex
+
+exporting publish database ../chapters/papers.pub to ../chapters/papers.bib:
+output in book.tex
+running preprocess -DFORMAT=pdflatex -DDEVICE=paper -DCHAPTER="chapter" -DBOOK="book" -DAPPENDIX="appendix" book.do.txt > tmp_preprocess__book.do.txt
+running mako on tmp_preprocess__book.do.txt to make tmp_mako__book.do.txt
+mako variables: {'FORMAT': 'pdflatex', 'DEVICE': 'paper', 'CHAPTER': 'chapter', 'BOOK': 'book', 'APPENDIX': 'appendix'}
+translating doconce text in tmp_mako__book.do.txt to pdflatex
+open file with encoding utf-8
+*** error: reference ref{map_volume} to non-defined label
+*** error: reference ref{comp_mech} to non-defined label
+*** error: reference ref{passive_tissue} to non-defined label
+*** error: reference ref{ch:comp_mech} to non-defined label
+    run the generated script tmp_missing_labels.sh
+    to search for these missing labels!
+figure file figs/rodstress:
+    can use figs/rodstress.pdf for format pdflatex
+figure file figs/stressvec:
+    can use figs/stressvec.pdf for format pdflatex
+
+exporting publish database ../chapters/papers.pub to ../chapters/papers.bib:
+output in book.tex
+running preprocess -DFORMAT=pdflatex -DDEVICE=paper -DCHAPTER="chapter" -DBOOK="book" -DAPPENDIX="appendix" book.do.txt > tmp_preprocess__book.do.txt
+*** error: double !bt or !et in latex block:
+\begin{align*}
+\int_{\Omega} (\nabla\cdot \stress)\phi dx &= 0 ,
+\end{align*}
+which is to be satisfied for all test functions $\phi$. Applying Green's theorem, we get
+!bt
+\begin{align}
+\int_{\Omega}  \stress\cdot\nabla \phi dx - \int_{\partial\Omega} \phi\cdot \stress\cdot n &= 0 .
+\label{weak0} \end{align}
+
+running preprocess -DFORMAT=pdflatex -DDEVICE=paper -DCHAPTER="chapter" -DBOOK="book" -DAPPENDIX="appendix" book.do.txt > tmp_preprocess__book.do.txt
+running mako on tmp_preprocess__book.do.txt to make tmp_mako__book.do.txt
+mako variables: {'FORMAT': 'pdflatex', 'DEVICE': 'paper', 'CHAPTER': 'chapter', 'BOOK': 'book', 'APPENDIX': 'appendix'}
+translating doconce text in tmp_mako__book.do.txt to pdflatex
+open file with encoding utf-8
+*** error: reference ref{map_volume} to non-defined label
+*** error: reference ref{comp_mech} to non-defined label
+*** error: reference ref{passive_tissue} to non-defined label
+*** error: reference ref{linear} to non-defined label
+*** error: reference ref{ch:comp_mech} to non-defined label
+    run the generated script tmp_missing_labels.sh
+    to search for these missing labels!
+figure file figs/rodstress:
+    can use figs/rodstress.pdf for format pdflatex
+figure file figs/stressvec:
+    can use figs/stressvec.pdf for format pdflatex
+
+exporting publish database ../chapters/papers.pub to ../chapters/papers.bib:
+output in book.tex
+running preprocess -DFORMAT=pdflatex -DDEVICE=paper -DCHAPTER="chapter" -DBOOK="book" -DAPPENDIX="appendix" book.do.txt > tmp_preprocess__book.do.txt
+running mako on tmp_preprocess__book.do.txt to make tmp_mako__book.do.txt
+mako variables: {'FORMAT': 'pdflatex', 'DEVICE': 'paper', 'CHAPTER': 'chapter', 'BOOK': 'book', 'APPENDIX': 'appendix'}
+translating doconce text in tmp_mako__book.do.txt to pdflatex
+open file with encoding utf-8
+*** error: reference ref{map_volume} to non-defined label
+*** error: reference ref{comp_mech} to non-defined label
+*** error: reference ref{passive_tissue} to non-defined label
+*** error: reference ref{linear} to non-defined label
+*** error: reference ref{ch:comp_mech} to non-defined label
+    run the generated script tmp_missing_labels.sh
+    to search for these missing labels!
+figure file figs/rodstress:
+    can use figs/rodstress.pdf for format pdflatex
+figure file figs/stressvec:
+    can use figs/stressvec.pdf for format pdflatex
+
+exporting publish database ../chapters/papers.pub to ../chapters/papers.bib:
+output in book.tex
+running preprocess -DFORMAT=pdflatex -DDEVICE=paper -DCHAPTER="chapter" -DBOOK="book" -DAPPENDIX="appendix" book.do.txt > tmp_preprocess__book.do.txt
+running mako on tmp_preprocess__book.do.txt to make tmp_mako__book.do.txt
+mako variables: {'FORMAT': 'pdflatex', 'DEVICE': 'paper', 'CHAPTER': 'chapter', 'BOOK': 'book', 'APPENDIX': 'appendix'}
+translating doconce text in tmp_mako__book.do.txt to pdflatex
+open file with encoding utf-8
+*** error: reference ref{map_volume} to non-defined label
+*** error: reference ref{comp_mech} to non-defined label
+*** error: reference ref{passive_tissue} to non-defined label
+*** error: reference ref{linear} to non-defined label
+*** error: reference ref{ch:comp_mech} to non-defined label
+    run the generated script tmp_missing_labels.sh
+    to search for these missing labels!
+figure file figs/rodstress:
+    can use figs/rodstress.pdf for format pdflatex
+figure file figs/stressvec:
+    can use figs/stressvec.pdf for format pdflatex
+
+exporting publish database ../chapters/papers.pub to ../chapters/papers.bib:
+output in book.tex
+running preprocess -DFORMAT=pdflatex -DDEVICE=paper -DCHAPTER="chapter" -DBOOK="book" -DAPPENDIX="appendix" book.do.txt > tmp_preprocess__book.do.txt
+running mako on tmp_preprocess__book.do.txt to make tmp_mako__book.do.txt
+mako variables: {'FORMAT': 'pdflatex', 'DEVICE': 'paper', 'CHAPTER': 'chapter', 'BOOK': 'book', 'APPENDIX': 'appendix'}
+translating doconce text in tmp_mako__book.do.txt to pdflatex
+open file with encoding utf-8
+*** error: reference ref{map_volume} to non-defined label
+*** error: reference ref{comp_mech} to non-defined label
+*** error: reference ref{passive_tissue} to non-defined label
+*** error: reference ref{linear} to non-defined label
+*** error: reference ref{ch:comp_mech} to non-defined label
+    run the generated script tmp_missing_labels.sh
+    to search for these missing labels!
+figure file figs/stressvec:
+    can use figs/stressvec.pdf for format pdflatex
+figure file figs/rodstress:
+    can use figs/rodstress.pdf for format pdflatex
+
+exporting publish database ../chapters/papers.pub to ../chapters/papers.bib:
+output in book.tex
+running preprocess -DFORMAT=pdflatex -DDEVICE=paper -DCHAPTER="chapter" -DBOOK="book" -DAPPENDIX="appendix" book.do.txt > tmp_preprocess__book.do.txt
+running mako on tmp_preprocess__book.do.txt to make tmp_mako__book.do.txt
+mako variables: {'FORMAT': 'pdflatex', 'DEVICE': 'paper', 'CHAPTER': 'chapter', 'BOOK': 'book', 'APPENDIX': 'appendix'}
+translating doconce text in tmp_mako__book.do.txt to pdflatex
+open file with encoding utf-8
+*** error: reference ref{map_volume} to non-defined label
+*** error: reference ref{comp_mech} to non-defined label
+*** error: reference ref{passive_tissue} to non-defined label
+*** error: reference ref{linear} to non-defined label
+*** error: reference ref{ch:comp_mech} to non-defined label
+    run the generated script tmp_missing_labels.sh
+    to search for these missing labels!
+figure file figs/stressvec:
+    can use figs/stressvec.pdf for format pdflatex
+figure file figs/rodstress:
+    can use figs/rodstress.pdf for format pdflatex
+
+exporting publish database ../chapters/papers.pub to ../chapters/papers.bib:
+output in book.tex
+running preprocess -DFORMAT=pdflatex -DDEVICE=paper -DCHAPTER="chapter" -DBOOK="book" -DAPPENDIX="appendix" book.do.txt > tmp_preprocess__book.do.txt
+running mako on tmp_preprocess__book.do.txt to make tmp_mako__book.do.txt
+mako variables: {'FORMAT': 'pdflatex', 'DEVICE': 'paper', 'CHAPTER': 'chapter', 'BOOK': 'book', 'APPENDIX': 'appendix'}
+translating doconce text in tmp_mako__book.do.txt to pdflatex
+open file with encoding utf-8
+*** error: reference ref{map_volume} to non-defined label
+*** error: reference ref{comp_mech} to non-defined label
+*** error: reference ref{passive_tissue} to non-defined label
+*** error: reference ref{linear} to non-defined label
+*** error: reference ref{ch:comp_mech} to non-defined label
+    run the generated script tmp_missing_labels.sh
+    to search for these missing labels!
+figure file figs/rodstress:
+    can use figs/rodstress.pdf for format pdflatex
+figure file figs/stressvec:
+    can use figs/stressvec.pdf for format pdflatex
+
+exporting publish database ../chapters/papers.pub to ../chapters/papers.bib:
+output in book.tex
+running preprocess -DFORMAT=pdflatex -DDEVICE=paper -DCHAPTER="chapter" -DBOOK="book" -DAPPENDIX="appendix" book.do.txt > tmp_preprocess__book.do.txt
+running mako on tmp_preprocess__book.do.txt to make tmp_mako__book.do.txt
+mako variables: {'FORMAT': 'pdflatex', 'DEVICE': 'paper', 'CHAPTER': 'chapter', 'BOOK': 'book', 'APPENDIX': 'appendix'}
+translating doconce text in tmp_mako__book.do.txt to pdflatex
+open file with encoding utf-8
+*** error: found multiple labels:
+    weak0
+running preprocess -DFORMAT=pdflatex -DDEVICE=paper -DCHAPTER="chapter" -DBOOK="book" -DAPPENDIX="appendix" book.do.txt > tmp_preprocess__book.do.txt
+running mako on tmp_preprocess__book.do.txt to make tmp_mako__book.do.txt
+mako variables: {'FORMAT': 'pdflatex', 'DEVICE': 'paper', 'CHAPTER': 'chapter', 'BOOK': 'book', 'APPENDIX': 'appendix'}
+translating doconce text in tmp_mako__book.do.txt to pdflatex
+open file with encoding utf-8
+ERROR: 101 !bt do not match 102 !et directives
+
+
+Two !et after each other!
+
+!et
+with
+\begin{align}
+a(u,v) &= \int_{\Omega} \stress(u) : \nabla v \dx, \label{elast0_bi} \\ 
+\stress(u) &= 2\mu \epsilon +\lambda (\nabla\cdot\bfu) \bfI \label{elast0_stress} \\ 
+L(v) = \int_{\partial\Omega} T\cdot v \ds . \label{elast0_bc}
+\label{weak0}
+\end{align}
+!et
+running preprocess -DFORMAT=pdflatex -DDEVICE=paper -DCHAPTER="chapter" -DBOOK="book" -DAPPENDIX="appendix" book.do.txt > tmp_preprocess__book.do.txt
+running mako on tmp_preprocess__book.do.txt to make tmp_mako__book.do.txt
+mako variables: {'FORMAT': 'pdflatex', 'DEVICE': 'paper', 'CHAPTER': 'chapter', 'BOOK': 'book', 'APPENDIX': 'appendix'}
+translating doconce text in tmp_mako__book.do.txt to pdflatex
+open file with encoding utf-8
+*** error: reference to equation label "weak_pk1" is without parentheses
+    the equation reference should be typeset as (ref{weak_pk1})
+... uations of the form
+ (ref{weak_pk1}}) is included in many text boo ...
+running preprocess -DFORMAT=pdflatex -DDEVICE=paper -DCHAPTER="chapter" -DBOOK="book" -DAPPENDIX="appendix" book.do.txt > tmp_preprocess__book.do.txt
+running mako on tmp_preprocess__book.do.txt to make tmp_mako__book.do.txt
+mako variables: {'FORMAT': 'pdflatex', 'DEVICE': 'paper', 'CHAPTER': 'chapter', 'BOOK': 'book', 'APPENDIX': 'appendix'}
+translating doconce text in tmp_mako__book.do.txt to pdflatex
+open file with encoding utf-8
+*** error: reference ref{map_volume} to non-defined label
+*** error: reference ref{comp_mech} to non-defined label
+*** error: reference ref{passive_tissue} to non-defined label
+*** error: reference ref{linear} to non-defined label
+*** error: reference ref{elast0_weaK} to non-defined label
+*** error: reference ref{ch:comp_mech} to non-defined label
+    run the generated script tmp_missing_labels.sh
+    to search for these missing labels!
+figure file figs/stressvec:
+    can use figs/stressvec.pdf for format pdflatex
+figure file figs/rodstress:
+    can use figs/rodstress.pdf for format pdflatex
+
+exporting publish database ../chapters/papers.pub to ../chapters/papers.bib:
+output in book.tex
+running preprocess -DFORMAT=pdflatex -DDEVICE=paper -DCHAPTER="chapter" -DBOOK="book" -DAPPENDIX="appendix" book.do.txt > tmp_preprocess__book.do.txt
+running mako on tmp_preprocess__book.do.txt to make tmp_mako__book.do.txt
+mako variables: {'FORMAT': 'pdflatex', 'DEVICE': 'paper', 'CHAPTER': 'chapter', 'BOOK': 'book', 'APPENDIX': 'appendix'}
+translating doconce text in tmp_mako__book.do.txt to pdflatex
+open file with encoding utf-8
+*** error: reference ref{map_volume} to non-defined label
+*** error: reference ref{comp_mech} to non-defined label
+*** error: reference ref{passive_tissue} to non-defined label
+*** error: reference ref{linear} to non-defined label
+*** error: reference ref{weak0} to non-defined label
+*** error: reference ref{elast0_weaK} to non-defined label
+*** error: reference ref{weak0} to non-defined label
+*** error: reference ref{ch:comp_mech} to non-defined label
+    run the generated script tmp_missing_labels.sh
+    to search for these missing labels!
+figure file figs/rodstress:
+    can use figs/rodstress.pdf for format pdflatex
+figure file figs/stressvec:
+    can use figs/stressvec.pdf for format pdflatex
+
+exporting publish database ../chapters/papers.pub to ../chapters/papers.bib:
+output in book.tex
+running preprocess -DFORMAT=pdflatex -DDEVICE=paper -DCHAPTER="chapter" -DBOOK="book" -DAPPENDIX="appendix" book.do.txt > tmp_preprocess__book.do.txt
+running mako on tmp_preprocess__book.do.txt to make tmp_mako__book.do.txt
+mako variables: {'FORMAT': 'pdflatex', 'DEVICE': 'paper', 'CHAPTER': 'chapter', 'BOOK': 'book', 'APPENDIX': 'appendix'}
+translating doconce text in tmp_mako__book.do.txt to pdflatex
+open file with encoding utf-8
+*** error: reference ref{map_volume} to non-defined label
+*** error: reference ref{comp_mech} to non-defined label
+*** error: reference ref{passive_tissue} to non-defined label
+*** error: reference ref{linear} to non-defined label
+*** error: reference ref{weak0} to non-defined label
+*** error: reference ref{elast0_weaK} to non-defined label
+*** error: reference ref{weak0} to non-defined label
+*** error: reference ref{ch:comp_mech} to non-defined label
+    run the generated script tmp_missing_labels.sh
+    to search for these missing labels!
+figure file figs/rodstress:
+    can use figs/rodstress.pdf for format pdflatex
+figure file figs/stressvec:
+    can use figs/stressvec.pdf for format pdflatex
+
+exporting publish database ../chapters/papers.pub to ../chapters/papers.bib:
+output in book.tex
+running preprocess -DFORMAT=pdflatex -DDEVICE=paper -DCHAPTER="chapter" -DBOOK="book" -DAPPENDIX="appendix" book.do.txt > tmp_preprocess__book.do.txt
+running mako on tmp_preprocess__book.do.txt to make tmp_mako__book.do.txt
+mako variables: {'FORMAT': 'pdflatex', 'DEVICE': 'paper', 'CHAPTER': 'chapter', 'BOOK': 'book', 'APPENDIX': 'appendix'}
+translating doconce text in tmp_mako__book.do.txt to pdflatex
+open file with encoding utf-8
+*** error: reference ref{map_volume} to non-defined label
+*** error: reference ref{comp_mech} to non-defined label
+*** error: reference ref{passive_tissue} to non-defined label
+*** error: reference ref{linear} to non-defined label
+*** error: reference ref{weak0} to non-defined label
+*** error: reference ref{elast0_weaK} to non-defined label
+*** error: reference ref{weak0} to non-defined label
+*** error: reference ref{ch:comp_mech} to non-defined label
+    run the generated script tmp_missing_labels.sh
+    to search for these missing labels!
+figure file figs/rodstress:
+    can use figs/rodstress.pdf for format pdflatex
+figure file figs/stressvec:
+    can use figs/stressvec.pdf for format pdflatex
+
+exporting publish database ../chapters/papers.pub to ../chapters/papers.bib:
+output in book.tex
+running preprocess -DFORMAT=pdflatex -DDEVICE=paper -DCHAPTER="chapter" -DBOOK="book" -DAPPENDIX="appendix" book.do.txt > tmp_preprocess__book.do.txt
+running mako on tmp_preprocess__book.do.txt to make tmp_mako__book.do.txt
+mako variables: {'FORMAT': 'pdflatex', 'DEVICE': 'paper', 'CHAPTER': 'chapter', 'BOOK': 'book', 'APPENDIX': 'appendix'}
+translating doconce text in tmp_mako__book.do.txt to pdflatex
+open file with encoding utf-8
+*** error: reference ref{map_volume} to non-defined label
+*** error: reference ref{comp_mech} to non-defined label
+*** error: reference ref{passive_tissue} to non-defined label
+*** error: reference ref{linear} to non-defined label
+*** error: reference ref{weak0} to non-defined label
+*** error: reference ref{elast0_weaK} to non-defined label
+*** error: reference ref{weak0} to non-defined label
+*** error: reference ref{ch:comp_mech} to non-defined label
+    run the generated script tmp_missing_labels.sh
+    to search for these missing labels!
+figure file figs/rodstress:
+    can use figs/rodstress.pdf for format pdflatex
+figure file figs/stressvec:
+    can use figs/stressvec.pdf for format pdflatex
+
+exporting publish database ../chapters/papers.pub to ../chapters/papers.bib:
+output in book.tex
+running preprocess -DFORMAT=pdflatex -DDEVICE=paper -DCHAPTER="chapter" -DBOOK="book" -DAPPENDIX="appendix" book.do.txt > tmp_preprocess__book.do.txt
+running mako on tmp_preprocess__book.do.txt to make tmp_mako__book.do.txt
+mako variables: {'FORMAT': 'pdflatex', 'DEVICE': 'paper', 'CHAPTER': 'chapter', 'BOOK': 'book', 'APPENDIX': 'appendix'}
+translating doconce text in tmp_mako__book.do.txt to pdflatex
+open file with encoding utf-8
+*** error: reference ref{map_volume} to non-defined label
+*** error: reference ref{comp_mech} to non-defined label
+*** error: reference ref{passive_tissue} to non-defined label
+*** error: reference ref{linear} to non-defined label
+*** error: reference ref{weak0} to non-defined label
+*** error: reference ref{elast0_weaK} to non-defined label
+*** error: reference ref{weak0} to non-defined label
+*** error: reference ref{ch:comp_mech} to non-defined label
+    run the generated script tmp_missing_labels.sh
+    to search for these missing labels!
+figure file figs/stressvec:
+    can use figs/stressvec.pdf for format pdflatex
+figure file figs/rodstress:
+    can use figs/rodstress.pdf for format pdflatex
+
+exporting publish database ../chapters/papers.pub to ../chapters/papers.bib:
+output in book.tex
+running preprocess -DFORMAT=pdflatex -DDEVICE=paper -DCHAPTER="chapter" -DBOOK="book" -DAPPENDIX="appendix" book.do.txt > tmp_preprocess__book.do.txt
+running mako on tmp_preprocess__book.do.txt to make tmp_mako__book.do.txt
+mako variables: {'FORMAT': 'pdflatex', 'DEVICE': 'paper', 'CHAPTER': 'chapter', 'BOOK': 'book', 'APPENDIX': 'appendix'}
+translating doconce text in tmp_mako__book.do.txt to pdflatex
+open file with encoding utf-8
+*** error: reference ref{map_volume} to non-defined label
+*** error: reference ref{comp_mech} to non-defined label
+*** error: reference ref{passive_tissue} to non-defined label
+*** error: reference ref{linear} to non-defined label
+*** error: reference ref{weak0} to non-defined label
+*** error: reference ref{elast0_weaK} to non-defined label
+*** error: reference ref{weak0} to non-defined label
+*** error: reference ref{ch:comp_mech} to non-defined label
+    run the generated script tmp_missing_labels.sh
+    to search for these missing labels!
+figure file figs/rodstress:
+    can use figs/rodstress.pdf for format pdflatex
+figure file figs/stressvec:
+    can use figs/stressvec.pdf for format pdflatex
+
+exporting publish database ../chapters/papers.pub to ../chapters/papers.bib:
+output in book.tex
+running preprocess -DFORMAT=pdflatex -DDEVICE=paper -DCHAPTER="chapter" -DBOOK="book" -DAPPENDIX="appendix" book.do.txt > tmp_preprocess__book.do.txt
+running mako on tmp_preprocess__book.do.txt to make tmp_mako__book.do.txt
+mako variables: {'FORMAT': 'pdflatex', 'DEVICE': 'paper', 'CHAPTER': 'chapter', 'BOOK': 'book', 'APPENDIX': 'appendix'}
+translating doconce text in tmp_mako__book.do.txt to pdflatex
+open file with encoding utf-8
+*** error: reference ref{XXX} to non-defined label
+*** error: reference ref{map_volume} to non-defined label
+*** error: reference ref{comp_mech} to non-defined label
+*** error: reference ref{passive_tissue} to non-defined label
+*** error: reference ref{linear} to non-defined label
+*** error: reference ref{weak0} to non-defined label
+*** error: reference ref{elast0_weaK} to non-defined label
+*** error: reference ref{weak0} to non-defined label
+*** error: reference ref{ch:comp_mech} to non-defined label
+    run the generated script tmp_missing_labels.sh
+    to search for these missing labels!
+figure file figs/rodstress:
+    can use figs/rodstress.pdf for format pdflatex
+figure file figs/stressvec:
+    can use figs/stressvec.pdf for format pdflatex
+
+exporting publish database ../chapters/papers.pub to ../chapters/papers.bib:
+output in book.tex
+running preprocess -DFORMAT=pdflatex -DDEVICE=paper -DCHAPTER="chapter" -DBOOK="book" -DAPPENDIX="appendix" book.do.txt > tmp_preprocess__book.do.txt
+running mako on tmp_preprocess__book.do.txt to make tmp_mako__book.do.txt
+mako variables: {'FORMAT': 'pdflatex', 'DEVICE': 'paper', 'CHAPTER': 'chapter', 'BOOK': 'book', 'APPENDIX': 'appendix'}
+translating doconce text in tmp_mako__book.do.txt to pdflatex
+open file with encoding utf-8
+*** error: reference ref{XXX} to non-defined label
+*** error: reference ref{map_volume} to non-defined label
+*** error: reference ref{comp_mech} to non-defined label
+*** error: reference ref{passive_tissue} to non-defined label
+*** error: reference ref{linear} to non-defined label
+*** error: reference ref{weak0} to non-defined label
+*** error: reference ref{elast0_weaK} to non-defined label
+*** error: reference ref{weak0} to non-defined label
+*** error: reference ref{ch:comp_mech} to non-defined label
+    run the generated script tmp_missing_labels.sh
+    to search for these missing labels!
+
+*** warning: found \label{...} with backslash
+    (label{...} has no backslash in DocOnce syntax)
+\label{rigid1}
+figure file figs/rodstress:
+    can use figs/rodstress.pdf for format pdflatex
+figure file figs/stressvec:
+    can use figs/stressvec.pdf for format pdflatex
+
+exporting publish database ../chapters/papers.pub to ../chapters/papers.bib:
+output in book.tex
+running preprocess -DFORMAT=pdflatex -DDEVICE=paper -DCHAPTER="chapter" -DBOOK="book" -DAPPENDIX="appendix" book.do.txt > tmp_preprocess__book.do.txt
+running mako on tmp_preprocess__book.do.txt to make tmp_mako__book.do.txt
+mako variables: {'FORMAT': 'pdflatex', 'DEVICE': 'paper', 'CHAPTER': 'chapter', 'BOOK': 'book', 'APPENDIX': 'appendix'}
+translating doconce text in tmp_mako__book.do.txt to pdflatex
+open file with encoding utf-8
+*** error: reference ref{XXX} to non-defined label
+*** error: reference ref{map_volume} to non-defined label
+*** error: reference ref{comp_mech} to non-defined label
+*** error: reference ref{passive_tissue} to non-defined label
+*** error: reference ref{linear} to non-defined label
+*** error: reference ref{weak0} to non-defined label
+*** error: reference ref{elast0_weaK} to non-defined label
+*** error: reference ref{weak0} to non-defined label
+*** error: reference ref{ch:comp_mech} to non-defined label
+    run the generated script tmp_missing_labels.sh
+    to search for these missing labels!
+
+*** warning: found \label{...} with backslash
+    (label{...} has no backslash in DocOnce syntax)
+\label{rigid1}
+figure file figs/rodstress:
+    can use figs/rodstress.pdf for format pdflatex
+figure file figs/stressvec:
+    can use figs/stressvec.pdf for format pdflatex
+
+exporting publish database ../chapters/papers.pub to ../chapters/papers.bib:
+output in book.tex
+running preprocess -DFORMAT=pdflatex -DDEVICE=paper -DCHAPTER="chapter" -DBOOK="book" -DAPPENDIX="appendix" book.do.txt > tmp_preprocess__book.do.txt
+running mako on tmp_preprocess__book.do.txt to make tmp_mako__book.do.txt
+mako variables: {'FORMAT': 'pdflatex', 'DEVICE': 'paper', 'CHAPTER': 'chapter', 'BOOK': 'book', 'APPENDIX': 'appendix'}
+translating doconce text in tmp_mako__book.do.txt to pdflatex
+open file with encoding utf-8
+*** error: reference ref{XXX} to non-defined label
+*** error: reference ref{map_volume} to non-defined label
+*** error: reference ref{eq:P_FS} to non-defined label
+*** error: reference ref{comp_mech} to non-defined label
+*** error: reference ref{passive_tissue} to non-defined label
+*** error: reference ref{linear} to non-defined label
+*** error: reference ref{weak0} to non-defined label
+*** error: reference ref{elast0_weaK} to non-defined label
+*** error: reference ref{weak0} to non-defined label
+*** error: reference ref{ch:comp_mech} to non-defined label
+    run the generated script tmp_missing_labels.sh
+    to search for these missing labels!
+
+*** warning: found \label{...} with backslash
+    (label{...} has no backslash in DocOnce syntax)
+\label{rigid1}
+figure file figs/stressvec:
+    can use figs/stressvec.pdf for format pdflatex
+figure file figs/rodstress:
+    can use figs/rodstress.pdf for format pdflatex
+
+exporting publish database ../chapters/papers.pub to ../chapters/papers.bib:
+output in book.tex
+running preprocess -DFORMAT=pdflatex -DDEVICE=paper -DCHAPTER="chapter" -DBOOK="book" -DAPPENDIX="appendix" book.do.txt > tmp_preprocess__book.do.txt
+running mako on tmp_preprocess__book.do.txt to make tmp_mako__book.do.txt
+mako variables: {'FORMAT': 'pdflatex', 'DEVICE': 'paper', 'CHAPTER': 'chapter', 'BOOK': 'book', 'APPENDIX': 'appendix'}
+translating doconce text in tmp_mako__book.do.txt to pdflatex
+open file with encoding utf-8
+*** error: reference ref{XXX} to non-defined label
+*** error: reference ref{map_volume} to non-defined label
+*** error: reference ref{eq:P_FS} to non-defined label
+*** error: reference ref{comp_mech} to non-defined label
+*** error: reference ref{passive_tissue} to non-defined label
+*** error: reference ref{linear} to non-defined label
+*** error: reference ref{weak0} to non-defined label
+*** error: reference ref{elast0_weaK} to non-defined label
+*** error: reference ref{weak0} to non-defined label
+*** error: reference ref{ch:comp_mech} to non-defined label
+    run the generated script tmp_missing_labels.sh
+    to search for these missing labels!
+
+*** warning: found \label{...} with backslash
+    (label{...} has no backslash in DocOnce syntax)
+\label{rigid1}
+figure file figs/stressvec:
+    can use figs/stressvec.pdf for format pdflatex
+figure file figs/rodstress:
+    can use figs/rodstress.pdf for format pdflatex
+
+exporting publish database ../chapters/papers.pub to ../chapters/papers.bib:
+output in book.tex
+running preprocess -DFORMAT=pdflatex -DDEVICE=paper -DCHAPTER="chapter" -DBOOK="book" -DAPPENDIX="appendix" book.do.txt > tmp_preprocess__book.do.txt
+running mako on tmp_preprocess__book.do.txt to make tmp_mako__book.do.txt
+mako variables: {'FORMAT': 'pdflatex', 'DEVICE': 'paper', 'CHAPTER': 'chapter', 'BOOK': 'book', 'APPENDIX': 'appendix'}
+translating doconce text in tmp_mako__book.do.txt to pdflatex
+open file with encoding utf-8
+*** error: reference ref{XXX} to non-defined label
+*** error: reference ref{map_volume} to non-defined label
+*** error: reference ref{eq:P_FS} to non-defined label
+*** error: reference ref{comp_mech} to non-defined label
+*** error: reference ref{passive_tissue} to non-defined label
+*** error: reference ref{linear} to non-defined label
+*** error: reference ref{weak0} to non-defined label
+*** error: reference ref{elast0_weaK} to non-defined label
+*** error: reference ref{weak0} to non-defined label
+*** error: reference ref{ch:comp_mech} to non-defined label
+    run the generated script tmp_missing_labels.sh
+    to search for these missing labels!
+
+*** warning: found \label{...} with backslash
+    (label{...} has no backslash in DocOnce syntax)
+\label{rigid1}
+figure file figs/stressvec:
+    can use figs/stressvec.pdf for format pdflatex
+figure file figs/rodstress:
+    can use figs/rodstress.pdf for format pdflatex
+
+exporting publish database ../chapters/papers.pub to ../chapters/papers.bib:
+output in book.tex
+running preprocess -DFORMAT=pdflatex -DDEVICE=paper -DCHAPTER="chapter" -DBOOK="book" -DAPPENDIX="appendix" book.do.txt > tmp_preprocess__book.do.txt
+running mako on tmp_preprocess__book.do.txt to make tmp_mako__book.do.txt
+mako variables: {'FORMAT': 'pdflatex', 'DEVICE': 'paper', 'CHAPTER': 'chapter', 'BOOK': 'book', 'APPENDIX': 'appendix'}
+translating doconce text in tmp_mako__book.do.txt to pdflatex
+open file with encoding utf-8
+*** error: reference ref{XXX} to non-defined label
+*** error: reference ref{map_volume} to non-defined label
+*** error: reference ref{eq:P_FS} to non-defined label
+*** error: reference ref{comp_mech} to non-defined label
+*** error: reference ref{passive_tissue} to non-defined label
+*** error: reference ref{linear} to non-defined label
+*** error: reference ref{weak0} to non-defined label
+*** error: reference ref{elast0_weaK} to non-defined label
+*** error: reference ref{weak0} to non-defined label
+*** error: reference ref{ch:comp_mech} to non-defined label
+    run the generated script tmp_missing_labels.sh
+    to search for these missing labels!
+
+*** warning: found \label{...} with backslash
+    (label{...} has no backslash in DocOnce syntax)
+\label{rigid1}
+figure file figs/stressvec:
+    can use figs/stressvec.pdf for format pdflatex
+figure file figs/rodstress:
+    can use figs/rodstress.pdf for format pdflatex
+
+exporting publish database ../chapters/papers.pub to ../chapters/papers.bib:
+output in book.tex
+running preprocess -DFORMAT=pdflatex -DDEVICE=paper -DCHAPTER="chapter" -DBOOK="book" -DAPPENDIX="appendix" book.do.txt > tmp_preprocess__book.do.txt
+running mako on tmp_preprocess__book.do.txt to make tmp_mako__book.do.txt
+mako variables: {'FORMAT': 'pdflatex', 'DEVICE': 'paper', 'CHAPTER': 'chapter', 'BOOK': 'book', 'APPENDIX': 'appendix'}
+translating doconce text in tmp_mako__book.do.txt to pdflatex
+open file with encoding utf-8
+*** error: reference ref{XXX} to non-defined label
+*** error: reference ref{map_volume} to non-defined label
+*** error: reference ref{eq:P_FS} to non-defined label
+*** error: reference ref{comp_mech} to non-defined label
+*** error: reference ref{passive_tissue} to non-defined label
+*** error: reference ref{linear} to non-defined label
+*** error: reference ref{weak0} to non-defined label
+*** error: reference ref{elast0_weaK} to non-defined label
+*** error: reference ref{weak0} to non-defined label
+*** error: reference ref{ch:comp_mech} to non-defined label
+    run the generated script tmp_missing_labels.sh
+    to search for these missing labels!
+
+*** warning: found \label{...} with backslash
+    (label{...} has no backslash in DocOnce syntax)
+\label{rigid1}
+figure file figs/rodstress:
+    can use figs/rodstress.pdf for format pdflatex
+figure file figs/stressvec:
+    can use figs/stressvec.pdf for format pdflatex
+
+exporting publish database ../chapters/papers.pub to ../chapters/papers.bib:
+output in book.tex
+running preprocess -DFORMAT=pdflatex -DDEVICE=paper -DCHAPTER="chapter" -DBOOK="book" -DAPPENDIX="appendix" book.do.txt > tmp_preprocess__book.do.txt
+running mako on tmp_preprocess__book.do.txt to make tmp_mako__book.do.txt
+mako variables: {'FORMAT': 'pdflatex', 'DEVICE': 'paper', 'CHAPTER': 'chapter', 'BOOK': 'book', 'APPENDIX': 'appendix'}
+translating doconce text in tmp_mako__book.do.txt to pdflatex
+open file with encoding utf-8
+*** error: reference ref{XXX} to non-defined label
+*** error: reference ref{map_volume} to non-defined label
+*** error: reference ref{eq:P_FS} to non-defined label
+*** error: reference ref{comp_mech} to non-defined label
+*** error: reference ref{passive_tissue} to non-defined label
+*** error: reference ref{linear} to non-defined label
+*** error: reference ref{weak0} to non-defined label
+*** error: reference ref{elast0_weaK} to non-defined label
+*** error: reference ref{weak0} to non-defined label
+*** error: reference ref{ch:comp_mech} to non-defined label
+    run the generated script tmp_missing_labels.sh
+    to search for these missing labels!
+
+*** warning: found \label{...} with backslash
+    (label{...} has no backslash in DocOnce syntax)
+\label{rigid1}
+figure file figs/rodstress:
+    can use figs/rodstress.pdf for format pdflatex
+figure file figs/stressvec:
+    can use figs/stressvec.pdf for format pdflatex
+
+exporting publish database ../chapters/papers.pub to ../chapters/papers.bib:
+output in book.tex
+running preprocess -DFORMAT=pdflatex -DDEVICE=paper -DCHAPTER="chapter" -DBOOK="book" -DAPPENDIX="appendix" book.do.txt > tmp_preprocess__book.do.txt
+running mako on tmp_preprocess__book.do.txt to make tmp_mako__book.do.txt
+mako variables: {'FORMAT': 'pdflatex', 'DEVICE': 'paper', 'CHAPTER': 'chapter', 'BOOK': 'book', 'APPENDIX': 'appendix'}
+translating doconce text in tmp_mako__book.do.txt to pdflatex
+open file with encoding utf-8
+*** error: found multiple labels:
+    energy1
+running preprocess -DFORMAT=pdflatex -DDEVICE=paper -DCHAPTER="chapter" -DBOOK="book" -DAPPENDIX="appendix" book.do.txt > tmp_preprocess__book.do.txt
+running mako on tmp_preprocess__book.do.txt to make tmp_mako__book.do.txt
+mako variables: {'FORMAT': 'pdflatex', 'DEVICE': 'paper', 'CHAPTER': 'chapter', 'BOOK': 'book', 'APPENDIX': 'appendix'}
+translating doconce text in tmp_mako__book.do.txt to pdflatex
+open file with encoding utf-8
+*** error: reference ref{XXX} to non-defined label
+*** error: reference ref{map_volume} to non-defined label
+*** error: reference ref{eq:P_FS} to non-defined label
+*** error: reference ref{comp_mech} to non-defined label
+*** error: reference ref{passive_tissue} to non-defined label
+*** error: reference ref{linear} to non-defined label
+*** error: reference ref{weak0} to non-defined label
+*** error: reference ref{elast0_weaK} to non-defined label
+*** error: reference ref{weak0} to non-defined label
+*** error: reference ref{ch:comp_mech} to non-defined label
+    run the generated script tmp_missing_labels.sh
+    to search for these missing labels!
+
+*** warning: found \label{...} with backslash
+    (label{...} has no backslash in DocOnce syntax)
+\label{rigid1}
+figure file figs/stressvec:
+    can use figs/stressvec.pdf for format pdflatex
+figure file figs/rodstress:
+    can use figs/rodstress.pdf for format pdflatex
+
+exporting publish database ../chapters/papers.pub to ../chapters/papers.bib:
+output in book.tex
+running preprocess -DFORMAT=pdflatex -DDEVICE=paper -DCHAPTER="chapter" -DBOOK="book" -DAPPENDIX="appendix" book.do.txt > tmp_preprocess__book.do.txt
+running mako on tmp_preprocess__book.do.txt to make tmp_mako__book.do.txt
+mako variables: {'FORMAT': 'pdflatex', 'DEVICE': 'paper', 'CHAPTER': 'chapter', 'BOOK': 'book', 'APPENDIX': 'appendix'}
+translating doconce text in tmp_mako__book.do.txt to pdflatex
+open file with encoding utf-8
+*** error: reference ref{XXX} to non-defined label
+*** error: reference ref{map_volume} to non-defined label
+*** error: reference ref{passive_tissue} to non-defined label
+*** error: reference ref{eq:P_FS} to non-defined label
+*** error: reference ref{comp_mech} to non-defined label
+*** error: reference ref{linear} to non-defined label
+*** error: reference ref{weak0} to non-defined label
+*** error: reference ref{elast0_weaK} to non-defined label
+*** error: reference ref{weak0} to non-defined label
+*** error: reference ref{ch:comp_mech} to non-defined label
+    run the generated script tmp_missing_labels.sh
+    to search for these missing labels!
+
+*** warning: found \label{...} with backslash
+    (label{...} has no backslash in DocOnce syntax)
+\label{rigid1}
+figure file figs/rodstress:
+    can use figs/rodstress.pdf for format pdflatex
+figure file figs/stressvec:
+    can use figs/stressvec.pdf for format pdflatex
+
+exporting publish database ../chapters/papers.pub to ../chapters/papers.bib:
+output in book.tex
+running preprocess -DFORMAT=pdflatex -DDEVICE=paper -DCHAPTER="chapter" -DBOOK="book" -DAPPENDIX="appendix" book.do.txt > tmp_preprocess__book.do.txt
+running mako on tmp_preprocess__book.do.txt to make tmp_mako__book.do.txt
+mako variables: {'FORMAT': 'pdflatex', 'DEVICE': 'paper', 'CHAPTER': 'chapter', 'BOOK': 'book', 'APPENDIX': 'appendix'}
+translating doconce text in tmp_mako__book.do.txt to pdflatex
+open file with encoding utf-8
+*** error: reference ref{XXX} to non-defined label
+*** error: reference ref{map_volume} to non-defined label
+*** error: reference ref{passive_tissue} to non-defined label
+*** error: reference ref{eq:P_FS} to non-defined label
+*** error: reference ref{comp_mech} to non-defined label
+*** error: reference ref{linear} to non-defined label
+*** error: reference ref{weak0} to non-defined label
+*** error: reference ref{elast0_weaK} to non-defined label
+*** error: reference ref{weak0} to non-defined label
+*** error: reference ref{ch:comp_mech} to non-defined label
+    run the generated script tmp_missing_labels.sh
+    to search for these missing labels!
+
+*** warning: found \label{...} with backslash
+    (label{...} has no backslash in DocOnce syntax)
+\label{rigid1}
+figure file figs/stressvec:
+    can use figs/stressvec.pdf for format pdflatex
+figure file figs/rodstress:
+    can use figs/rodstress.pdf for format pdflatex
+
+exporting publish database ../chapters/papers.pub to ../chapters/papers.bib:
+output in book.tex
+running preprocess -DFORMAT=pdflatex -DDEVICE=paper -DCHAPTER="chapter" -DBOOK="book" -DAPPENDIX="appendix" book.do.txt > tmp_preprocess__book.do.txt
+running mako on tmp_preprocess__book.do.txt to make tmp_mako__book.do.txt
+mako variables: {'FORMAT': 'pdflatex', 'DEVICE': 'paper', 'CHAPTER': 'chapter', 'BOOK': 'book', 'APPENDIX': 'appendix'}
+translating doconce text in tmp_mako__book.do.txt to pdflatex
+open file with encoding utf-8
+*** error: reference ref{XXX} to non-defined label
+*** error: reference ref{map_volume} to non-defined label
+*** error: reference ref{passive_tissue} to non-defined label
+*** error: reference ref{eq:P_FS} to non-defined label
+*** error: reference ref{comp_mech} to non-defined label
+*** error: reference ref{linear} to non-defined label
+*** error: reference ref{weak0} to non-defined label
+*** error: reference ref{elast0_weaK} to non-defined label
+*** error: reference ref{weak0} to non-defined label
+*** error: reference ref{ch:comp_mech} to non-defined label
+    run the generated script tmp_missing_labels.sh
+    to search for these missing labels!
+
+*** warning: found \label{...} with backslash
+    (label{...} has no backslash in DocOnce syntax)
+\label{rigid1}
+figure file figs/rodstress:
+    can use figs/rodstress.pdf for format pdflatex
+figure file figs/stressvec:
+    can use figs/stressvec.pdf for format pdflatex
+
+exporting publish database ../chapters/papers.pub to ../chapters/papers.bib:
+output in book.tex
+running preprocess -DFORMAT=pdflatex -DDEVICE=paper -DCHAPTER="chapter" -DBOOK="book" -DAPPENDIX="appendix" book.do.txt > tmp_preprocess__book.do.txt
+running mako on tmp_preprocess__book.do.txt to make tmp_mako__book.do.txt
+mako variables: {'FORMAT': 'pdflatex', 'DEVICE': 'paper', 'CHAPTER': 'chapter', 'BOOK': 'book', 'APPENDIX': 'appendix'}
+translating doconce text in tmp_mako__book.do.txt to pdflatex
+open file with encoding utf-8
+*** error: reference ref{XXX} to non-defined label
+*** error: reference ref{map_volume} to non-defined label
+*** error: reference ref{passive_tissue} to non-defined label
+*** error: reference ref{eq:P_FS} to non-defined label
+*** error: reference ref{comp_mech} to non-defined label
+*** error: reference ref{linear} to non-defined label
+*** error: reference ref{weak0} to non-defined label
+*** error: reference ref{elast0_weaK} to non-defined label
+*** error: reference ref{weak0} to non-defined label
+*** error: reference ref{ch:comp_mech} to non-defined label
+    run the generated script tmp_missing_labels.sh
+    to search for these missing labels!
+
+*** warning: found \label{...} with backslash
+    (label{...} has no backslash in DocOnce syntax)
+\label{rigid1}
+figure file figs/rodstress:
+    can use figs/rodstress.pdf for format pdflatex
+figure file figs/stressvec:
+    can use figs/stressvec.pdf for format pdflatex
+
+exporting publish database ../chapters/papers.pub to ../chapters/papers.bib:
+output in book.tex
+running preprocess -DFORMAT=pdflatex -DDEVICE=paper -DCHAPTER="chapter" -DBOOK="book" -DAPPENDIX="appendix" book.do.txt > tmp_preprocess__book.do.txt
+running mako on tmp_preprocess__book.do.txt to make tmp_mako__book.do.txt
+mako variables: {'FORMAT': 'pdflatex', 'DEVICE': 'paper', 'CHAPTER': 'chapter', 'BOOK': 'book', 'APPENDIX': 'appendix'}
+translating doconce text in tmp_mako__book.do.txt to pdflatex
+open file with encoding utf-8
+*** error: reference ref{XXX} to non-defined label
+*** error: reference ref{map_volume} to non-defined label
+*** error: reference ref{passive_tissue} to non-defined label
+*** error: reference ref{eq:P_FS} to non-defined label
+*** error: reference ref{comp_mech} to non-defined label
+*** error: reference ref{linear} to non-defined label
+*** error: reference ref{weak0} to non-defined label
+*** error: reference ref{elast0_weaK} to non-defined label
+*** error: reference ref{weak0} to non-defined label
+*** error: reference ref{ch:comp_mech} to non-defined label
+    run the generated script tmp_missing_labels.sh
+    to search for these missing labels!
+
+*** warning: found \label{...} with backslash
+    (label{...} has no backslash in DocOnce syntax)
+\label{rigid1}
+figure file figs/rodstress:
+    can use figs/rodstress.pdf for format pdflatex
+figure file figs/stressvec:
+    can use figs/stressvec.pdf for format pdflatex
+
+exporting publish database ../chapters/papers.pub to ../chapters/papers.bib:
+output in book.tex
+running preprocess -DFORMAT=pdflatex -DDEVICE=paper -DCHAPTER="chapter" -DBOOK="book" -DAPPENDIX="appendix" book.do.txt > tmp_preprocess__book.do.txt
+running mako on tmp_preprocess__book.do.txt to make tmp_mako__book.do.txt
+mako variables: {'FORMAT': 'pdflatex', 'DEVICE': 'paper', 'CHAPTER': 'chapter', 'BOOK': 'book', 'APPENDIX': 'appendix'}
+translating doconce text in tmp_mako__book.do.txt to pdflatex
+open file with encoding utf-8
+*** error: reference ref{XXX} to non-defined label
+*** error: reference ref{map_volume} to non-defined label
+*** error: reference ref{passive_tissue} to non-defined label
+*** error: reference ref{eq:P_FS} to non-defined label
+*** error: reference ref{comp_mech} to non-defined label
+*** error: reference ref{weak0} to non-defined label
+*** error: reference ref{elast0_weaK} to non-defined label
+*** error: reference ref{weak0} to non-defined label
+*** error: reference ref{ch:comp_mech} to non-defined label
+    run the generated script tmp_missing_labels.sh
+    to search for these missing labels!
+
+*** warning: found \label{...} with backslash
+    (label{...} has no backslash in DocOnce syntax)
+\label{rigid1}
+figure file figs/stressvec:
+    can use figs/stressvec.pdf for format pdflatex
+figure file figs/rodstress:
+    can use figs/rodstress.pdf for format pdflatex
+
+exporting publish database ../chapters/papers.pub to ../chapters/papers.bib:
+output in book.tex
+running preprocess -DFORMAT=pdflatex -DDEVICE=paper -DCHAPTER="chapter" -DBOOK="book" -DAPPENDIX="appendix" book.do.txt > tmp_preprocess__book.do.txt
+*** error: double !bt or !et in latex block:
+\[
+T\like 
+[^hooke_nonlin]: This extension of Hooke's law to the non-linear regime is not very useful in practice, but the
+concept of tangential stiffness is an essential part of linearizing and solving non-linear
+equations in solid mechanics.
+In order to model the material behavior, we will of course need to describe exactly how
+the tangential stiffness depends on strain. 
+an essential part of linearization methods used in iterative 
+In fact, it has been shown
+that the *tangential stiffness*, which 
+is clearly not consistent
+with the  which implies that the stress 
+Figure 
+Biological tissues are
+quite diverse, and this fact is also
+The mechanical characteristics
+of biological tissuesBiological tissues vary
+substantially in their mechanical characteristics, 
+Real biological
+tissue is typically inelastic, anisotropic, 
+  * Brief description of the exponential stress-strain behavior characteristic of soft tissues
+  * Simple constitutive laws based on strain components and strain invariants
+======= Cardiac microstructure and anisotropy =======
+(Possibly split this section in two, one covering standard anisotropic
+continuum models, and one focusing on the microstructure and related
+models.)
+  * Recapture and expand the description of cardiac microstructure   from Chapter ref{ch1:tissue_struct}, and how this affects cardiac   mechanical properties.
+  * Describe the necessary expansions of the models above to describe orthotropic and transversely isotropic material behavior, including examples of constitutive laws based on strain components and strain (pseudo-)invariants.
+  * Introduce the idea of a local (fiber) coordinate system, and how this enters the strain component based constitutive laws.
+  * Similar notes on spatially varying material directions for   invariant-based models.
+  * Referring back to the first item above, introduce models that   explicitly describe the cardiac microstructure, and discuss the   fundamental differences from the continuum models.
+======= Fitting material parameters =======
+The purpose of this section is to give the readers a very brief
+introduction to how experiments are used to select the material
+parameters, and in particular to illustrate the difficulty and
+uncertainty associated with this part of the modeling.
+  * Brief review of experimental techniques to characterize passive   material response, i.e. uniaxial and biaxial tests, shear tests   etc. Not intended to be a complete presentation or discussion of   experimental techniques, but discuss the different setups with   respect to their ability to characterize anisotropic behavior.
+  * Brief review of material parameters encountered in the   litterature, to illustrate variability
+  * Promises and limitations of image based techniques, for patient   specific parameter fitting.
+======= Computational techniques for passive muscle tissue =======
+Present the necessary extensions of the solution methods from Chapter ref{ch:comp_elast}, in
+order to solve the equations of anisotropic hyeprelastic models with
+spatially varying material directions. 
+The equations derived above, (ref{eq:DivFS})-(ref{eq:T_prescribed})
+are completely general, in the sense that tehy apply to all kinds of materials.
+As long as the deformation satisfies the assumptions of negligible acceleration
+term and body force, it can be described by the equations above. Naturally, 
+any deformation will be highly dependent not only on the forces acting 
+on the material of study (which is included in the equations above), but also on
+the mechanical properties of the material involved. The material properties enter
+the equation above through so-called *constitutive laws*, which define
+a relation between the stresses and strains in a material. 
+The simplest possible stress-strain relation, which is applicable in a wide
+range of engineering materials and cases is known as Hookes law. It defines a 
+linear relation between stress and strain in a material. In the simple case
+of uniaxial stretch, as illustrated in Figure xxx.
+Hookes law can be expressed as
+!bt
+\begin{align}
+\sigma &= E \epsilon. label{hooke1}
+\end{align}
+
+running preprocess -DFORMAT=pdflatex -DDEVICE=paper -DCHAPTER="chapter" -DBOOK="book" -DAPPENDIX="appendix" book.do.txt > tmp_preprocess__book.do.txt
+running mako on tmp_preprocess__book.do.txt to make tmp_mako__book.do.txt
+mako variables: {'FORMAT': 'pdflatex', 'DEVICE': 'paper', 'CHAPTER': 'chapter', 'BOOK': 'book', 'APPENDIX': 'appendix'}
+translating doconce text in tmp_mako__book.do.txt to pdflatex
+open file with encoding utf-8
+*** error: reference ref{XXX} to non-defined label
+*** error: reference ref{map_volume} to non-defined label
+*** error: reference ref{passive_tissue} to non-defined label
+*** error: reference ref{eq:P_FS} to non-defined label
+*** error: reference ref{comp_mech} to non-defined label
+*** error: reference ref{weak0} to non-defined label
+*** error: reference ref{elast0_weaK} to non-defined label
+*** error: reference ref{weak0} to non-defined label
+*** error: reference ref{fig:loading} to non-defined label
+*** error: reference ref{fig:loading} to non-defined label
+*** error: reference ref{fig:loading} to non-defined label
+*** error: reference ref{ch:comp_mech} to non-defined label
+    run the generated script tmp_missing_labels.sh
+    to search for these missing labels!
+
+*** warning: found \label{...} with backslash
+    (label{...} has no backslash in DocOnce syntax)
+\label{rigid1}
+figure file figs/stressvec:
+    can use figs/stressvec.pdf for format pdflatex
+figure file figs/rodstress:
+    can use figs/rodstress.pdf for format pdflatex
+
+exporting publish database ../chapters/papers.pub to ../chapters/papers.bib:
+output in book.tex
+running preprocess -DFORMAT=pdflatex -DDEVICE=paper -DCHAPTER="chapter" -DBOOK="book" -DAPPENDIX="appendix" book.do.txt > tmp_preprocess__book.do.txt
+running mako on tmp_preprocess__book.do.txt to make tmp_mako__book.do.txt
+mako variables: {'FORMAT': 'pdflatex', 'DEVICE': 'paper', 'CHAPTER': 'chapter', 'BOOK': 'book', 'APPENDIX': 'appendix'}
+translating doconce text in tmp_mako__book.do.txt to pdflatex
+open file with encoding utf-8
+*** error: found multiple labels:
+    simple_exp
+running preprocess -DFORMAT=pdflatex -DDEVICE=paper -DCHAPTER="chapter" -DBOOK="book" -DAPPENDIX="appendix" book.do.txt > tmp_preprocess__book.do.txt
+running mako on tmp_preprocess__book.do.txt to make tmp_mako__book.do.txt
+mako variables: {'FORMAT': 'pdflatex', 'DEVICE': 'paper', 'CHAPTER': 'chapter', 'BOOK': 'book', 'APPENDIX': 'appendix'}
+translating doconce text in tmp_mako__book.do.txt to pdflatex
+open file with encoding utf-8
+*** error: reference ref{XXX} to non-defined label
+*** error: reference ref{map_volume} to non-defined label
+*** error: reference ref{passive_tissue} to non-defined label
+*** error: reference ref{eq:P_FS} to non-defined label
+*** error: reference ref{comp_mech} to non-defined label
+*** error: reference ref{weak0} to non-defined label
+*** error: reference ref{elast0_weaK} to non-defined label
+*** error: reference ref{weak0} to non-defined label
+*** error: reference ref{fig:loading} to non-defined label
+*** error: reference ref{fig:loading} to non-defined label
+*** error: reference ref{fig:loading} to non-defined label
+*** error: reference ref{ch:comp_mech} to non-defined label
+    run the generated script tmp_missing_labels.sh
+    to search for these missing labels!
+
+*** warning: found \label{...} with backslash
+    (label{...} has no backslash in DocOnce syntax)
+\label{rigid1}
+figure file figs/rodstress:
+    can use figs/rodstress.pdf for format pdflatex
+figure file figs/stressvec:
+    can use figs/stressvec.pdf for format pdflatex
+
+exporting publish database ../chapters/papers.pub to ../chapters/papers.bib:
+output in book.tex
+running preprocess -DFORMAT=pdflatex -DDEVICE=paper -DCHAPTER="chapter" -DBOOK="book" -DAPPENDIX="appendix" book.do.txt > tmp_preprocess__book.do.txt
+running mako on tmp_preprocess__book.do.txt to make tmp_mako__book.do.txt
+mako variables: {'FORMAT': 'pdflatex', 'DEVICE': 'paper', 'CHAPTER': 'chapter', 'BOOK': 'book', 'APPENDIX': 'appendix'}
+translating doconce text in tmp_mako__book.do.txt to pdflatex
+open file with encoding utf-8
+*** error: reference ref{XXX} to non-defined label
+*** error: reference ref{map_volume} to non-defined label
+*** error: reference ref{passive_tissue} to non-defined label
+*** error: reference ref{eq:P_FS} to non-defined label
+*** error: reference ref{comp_mech} to non-defined label
+*** error: reference ref{weak0} to non-defined label
+*** error: reference ref{elast0_weaK} to non-defined label
+*** error: reference ref{weak0} to non-defined label
+*** error: reference ref{fig:loading} to non-defined label
+*** error: reference ref{fig:loading} to non-defined label
+*** error: reference ref{XXX} to non-defined label
+*** error: reference ref{fig:loading} to non-defined label
+*** error: reference ref{fig:loading} to non-defined label
+*** error: reference ref{ch:comp_mech} to non-defined label
+    run the generated script tmp_missing_labels.sh
+    to search for these missing labels!
+
+*** warning: found \label{...} with backslash
+    (label{...} has no backslash in DocOnce syntax)
+\label{rigid1}
+figure file figs/stressvec:
+    can use figs/stressvec.pdf for format pdflatex
+figure file figs/rodstress:
+    can use figs/rodstress.pdf for format pdflatex
+
+exporting publish database ../chapters/papers.pub to ../chapters/papers.bib:
+output in book.tex
+running preprocess -DFORMAT=pdflatex -DDEVICE=paper -DCHAPTER="chapter" -DBOOK="book" -DAPPENDIX="appendix" book.do.txt > tmp_preprocess__book.do.txt
+running mako on tmp_preprocess__book.do.txt to make tmp_mako__book.do.txt
+mako variables: {'FORMAT': 'pdflatex', 'DEVICE': 'paper', 'CHAPTER': 'chapter', 'BOOK': 'book', 'APPENDIX': 'appendix'}
+translating doconce text in tmp_mako__book.do.txt to pdflatex
+open file with encoding utf-8
+*** error: reference ref{XXX} to non-defined label
+*** error: reference ref{map_volume} to non-defined label
+*** error: reference ref{passive_tissue} to non-defined label
+*** error: reference ref{eq:P_FS} to non-defined label
+*** error: reference ref{comp_mech} to non-defined label
+*** error: reference ref{weak0} to non-defined label
+*** error: reference ref{elast0_weaK} to non-defined label
+*** error: reference ref{weak0} to non-defined label
+*** error: reference ref{fig:loading} to non-defined label
+*** error: reference ref{fig:loading} to non-defined label
+*** error: reference ref{XXX} to non-defined label
+*** error: reference ref{fig:loading} to non-defined label
+*** error: reference ref{fig:loading} to non-defined label
+*** error: reference ref{tab:usyk_param} to non-defined label
+*** error: reference ref{ch:comp_mech} to non-defined label
+    run the generated script tmp_missing_labels.sh
+    to search for these missing labels!
+*** warning: found reference "Table ref{tab:usyk_param}" with unexpected word "Table" in front
+
+    (expected Section/Chapter/Figure ref{tab:usyk_param}, or could it be a reference to an equation, but missing parenthesis in (ref{tab:usyk_param})?)
+
+*** warning: found \label{...} with backslash
+    (label{...} has no backslash in DocOnce syntax)
+\label{rigid1}
+figure file figs/stressvec:
+    can use figs/stressvec.pdf for format pdflatex
+figure file figs/rodstress:
+    can use figs/rodstress.pdf for format pdflatex
+
+exporting publish database ../chapters/papers.pub to ../chapters/papers.bib:
+output in book.tex
+running preprocess -DFORMAT=pdflatex -DDEVICE=paper -DCHAPTER="chapter" -DBOOK="book" -DAPPENDIX="appendix" book.do.txt > tmp_preprocess__book.do.txt
+running mako on tmp_preprocess__book.do.txt to make tmp_mako__book.do.txt
+mako variables: {'FORMAT': 'pdflatex', 'DEVICE': 'paper', 'CHAPTER': 'chapter', 'BOOK': 'book', 'APPENDIX': 'appendix'}
+translating doconce text in tmp_mako__book.do.txt to pdflatex
+open file with encoding utf-8
+*** error: reference ref{XXX} to non-defined label
+*** error: reference ref{map_volume} to non-defined label
+*** error: reference ref{passive_tissue} to non-defined label
+*** error: reference ref{eq:P_FS} to non-defined label
+*** error: reference ref{comp_mech} to non-defined label
+*** error: reference ref{weak0} to non-defined label
+*** error: reference ref{elast0_weaK} to non-defined label
+*** error: reference ref{weak0} to non-defined label
+*** error: reference ref{fig:loading} to non-defined label
+*** error: reference ref{fig:loading} to non-defined label
+*** error: reference ref{XXX} to non-defined label
+*** error: reference ref{fig:loading} to non-defined label
+*** error: reference ref{fig:loading} to non-defined label
+*** error: reference ref{tab:usyk_param} to non-defined label
+*** error: reference ref{ch:comp_mech} to non-defined label
+    run the generated script tmp_missing_labels.sh
+    to search for these missing labels!
+*** warning: found reference "Table ref{tab:usyk_param}" with unexpected word "Table" in front
+
+    (expected Section/Chapter/Figure ref{tab:usyk_param}, or could it be a reference to an equation, but missing parenthesis in (ref{tab:usyk_param})?)
+
+*** warning: found \label{...} with backslash
+    (label{...} has no backslash in DocOnce syntax)
+\label{rigid1}
+figure file figs/rodstress:
+    can use figs/rodstress.pdf for format pdflatex
+figure file figs/stressvec:
+    can use figs/stressvec.pdf for format pdflatex
+
+exporting publish database ../chapters/papers.pub to ../chapters/papers.bib:
+output in book.tex
+running preprocess -DFORMAT=pdflatex -DDEVICE=paper -DCHAPTER="chapter" -DBOOK="book" -DAPPENDIX="appendix" book.do.txt > tmp_preprocess__book.do.txt
+running mako on tmp_preprocess__book.do.txt to make tmp_mako__book.do.txt
+mako variables: {'FORMAT': 'pdflatex', 'DEVICE': 'paper', 'CHAPTER': 'chapter', 'BOOK': 'book', 'APPENDIX': 'appendix'}
+translating doconce text in tmp_mako__book.do.txt to pdflatex
+open file with encoding utf-8
+*** error: reference ref{XXX} to non-defined label
+*** error: reference ref{map_volume} to non-defined label
+*** error: reference ref{passive_tissue} to non-defined label
+*** error: reference ref{eq:P_FS} to non-defined label
+*** error: reference ref{comp_mech} to non-defined label
+*** error: reference ref{weak0} to non-defined label
+*** error: reference ref{elast0_weaK} to non-defined label
+*** error: reference ref{weak0} to non-defined label
+*** error: reference ref{fig:loading} to non-defined label
+*** error: reference ref{fig:loading} to non-defined label
+*** error: reference ref{XXX} to non-defined label
+*** error: reference ref{fig:loading} to non-defined label
+*** error: reference ref{fig:loading} to non-defined label
+*** error: reference ref{tab:usyk_param} to non-defined label
+*** error: reference ref{ch:comp_mech} to non-defined label
+    run the generated script tmp_missing_labels.sh
+    to search for these missing labels!
+*** warning: found reference "Table ref{tab:usyk_param}" with unexpected word "Table" in front
+
+    (expected Section/Chapter/Figure ref{tab:usyk_param}, or could it be a reference to an equation, but missing parenthesis in (ref{tab:usyk_param})?)
+
+*** warning: found \label{...} with backslash
+    (label{...} has no backslash in DocOnce syntax)
+\label{rigid1}
+figure file figs/stressvec:
+    can use figs/stressvec.pdf for format pdflatex
+figure file figs/rodstress:
+    can use figs/rodstress.pdf for format pdflatex
+
+exporting publish database ../chapters/papers.pub to ../chapters/papers.bib:
+output in book.tex
+running preprocess -DFORMAT=pdflatex -DDEVICE=paper -DCHAPTER="chapter" -DBOOK="book" -DAPPENDIX="appendix" book.do.txt > tmp_preprocess__book.do.txt
+running mako on tmp_preprocess__book.do.txt to make tmp_mako__book.do.txt
+mako variables: {'FORMAT': 'pdflatex', 'DEVICE': 'paper', 'CHAPTER': 'chapter', 'BOOK': 'book', 'APPENDIX': 'appendix'}
+translating doconce text in tmp_mako__book.do.txt to pdflatex
+open file with encoding utf-8
+*** error: found multiple labels:
+    usyk_energy
+running preprocess -DFORMAT=pdflatex -DDEVICE=paper -DCHAPTER="chapter" -DBOOK="book" -DAPPENDIX="appendix" book.do.txt > tmp_preprocess__book.do.txt
+running mako on tmp_preprocess__book.do.txt to make tmp_mako__book.do.txt
+mako variables: {'FORMAT': 'pdflatex', 'DEVICE': 'paper', 'CHAPTER': 'chapter', 'BOOK': 'book', 'APPENDIX': 'appendix'}
+translating doconce text in tmp_mako__book.do.txt to pdflatex
+open file with encoding utf-8
+*** error: reference ref{XXX} to non-defined label
+*** error: reference ref{map_volume} to non-defined label
+*** error: reference ref{passive_tissue} to non-defined label
+*** error: reference ref{eq:P_FS} to non-defined label
+*** error: reference ref{comp_mech} to non-defined label
+*** error: reference ref{weak0} to non-defined label
+*** error: reference ref{elast0_weaK} to non-defined label
+*** error: reference ref{weak0} to non-defined label
+*** error: reference ref{fig:loading} to non-defined label
+*** error: reference ref{fig:loading} to non-defined label
+*** error: reference ref{XXX} to non-defined label
+*** error: reference ref{fig:loading} to non-defined label
+*** error: reference ref{fig:loading} to non-defined label
+*** error: reference ref{ch:full_heart} to non-defined label
+*** error: reference ref{ch:comp_mech} to non-defined label
+    run the generated script tmp_missing_labels.sh
+    to search for these missing labels!
+*** warning: latex format will have problem with words
+    containing underscores (this warning is very uncertain, might be wrong too):
+
+E_32
+E_23
+
+    typeset these words with `inline verbatim` or escape with backslash
+    First word appears here:
+apfel-Ogden paper
+* Comment of why we include both E_32 and E_23 when E is symmetric
+
+The models listed so far
+
+*** warning: found \label{...} with backslash
+    (label{...} has no backslash in DocOnce syntax)
+\label{rigid1}
+figure file figs/stressvec:
+    can use figs/stressvec.pdf for format pdflatex
+figure file figs/rodstress:
+    can use figs/rodstress.pdf for format pdflatex
+
+exporting publish database ../chapters/papers.pub to ../chapters/papers.bib:
+output in book.tex
+running preprocess -DFORMAT=pdflatex -DDEVICE=paper -DCHAPTER="chapter" -DBOOK="book" -DAPPENDIX="appendix" book.do.txt > tmp_preprocess__book.do.txt
+running mako on tmp_preprocess__book.do.txt to make tmp_mako__book.do.txt
+mako variables: {'FORMAT': 'pdflatex', 'DEVICE': 'paper', 'CHAPTER': 'chapter', 'BOOK': 'book', 'APPENDIX': 'appendix'}
+translating doconce text in tmp_mako__book.do.txt to pdflatex
+open file with encoding utf-8
+*** error: reference ref{XXX} to non-defined label
+*** error: reference ref{map_volume} to non-defined label
+*** error: reference ref{passive_tissue} to non-defined label
+*** error: reference ref{eq:P_FS} to non-defined label
+*** error: reference ref{comp_mech} to non-defined label
+*** error: reference ref{weak0} to non-defined label
+*** error: reference ref{elast0_weaK} to non-defined label
+*** error: reference ref{weak0} to non-defined label
+*** error: reference ref{fig:loading} to non-defined label
+*** error: reference ref{fig:loading} to non-defined label
+*** error: reference ref{XXX} to non-defined label
+*** error: reference ref{fig:loading} to non-defined label
+*** error: reference ref{fig:loading} to non-defined label
+*** error: reference ref{ch:full_heart} to non-defined label
+*** error: reference ref{ch:comp_mech} to non-defined label
+    run the generated script tmp_missing_labels.sh
+    to search for these missing labels!
+*** warning: latex format will have problem with words
+    containing underscores (this warning is very uncertain, might be wrong too):
+
+E_32
+E_23
+
+    typeset these words with `inline verbatim` or escape with backslash
+    First word appears here:
+apfel-Ogden paper
+* Comment of why we include both E_32 and E_23 when E is symmetric
+
+The models listed so far
+
+*** warning: found \label{...} with backslash
+    (label{...} has no backslash in DocOnce syntax)
+\label{rigid1}
+figure file figs/rodstress:
+    can use figs/rodstress.pdf for format pdflatex
+figure file figs/stressvec:
+    can use figs/stressvec.pdf for format pdflatex
+
+exporting publish database ../chapters/papers.pub to ../chapters/papers.bib:
+output in book.tex
+running preprocess -DFORMAT=pdflatex -DDEVICE=paper -DCHAPTER="chapter" -DBOOK="book" -DAPPENDIX="appendix" book.do.txt > tmp_preprocess__book.do.txt
+running mako on tmp_preprocess__book.do.txt to make tmp_mako__book.do.txt
+mako variables: {'FORMAT': 'pdflatex', 'DEVICE': 'paper', 'CHAPTER': 'chapter', 'BOOK': 'book', 'APPENDIX': 'appendix'}
+translating doconce text in tmp_mako__book.do.txt to pdflatex
+open file with encoding utf-8
+*** error: reference ref{XXX} to non-defined label
+*** error: reference ref{map_volume} to non-defined label
+*** error: reference ref{passive_tissue} to non-defined label
+*** error: reference ref{eq:P_FS} to non-defined label
+*** error: reference ref{comp_mech} to non-defined label
+*** error: reference ref{weak0} to non-defined label
+*** error: reference ref{elast0_weaK} to non-defined label
+*** error: reference ref{weak0} to non-defined label
+*** error: reference ref{fig:loading} to non-defined label
+*** error: reference ref{fig:loading} to non-defined label
+*** error: reference ref{XXX} to non-defined label
+*** error: reference ref{fig:loading} to non-defined label
+*** error: reference ref{fig:loading} to non-defined label
+*** error: reference ref{ch:full_heart} to non-defined label
+*** error: reference ref{ch:comp_mech} to non-defined label
+    run the generated script tmp_missing_labels.sh
+    to search for these missing labels!
+
+*** warning: found \label{...} with backslash
+    (label{...} has no backslash in DocOnce syntax)
+\label{rigid1}
+figure file figs/rodstress:
+    can use figs/rodstress.pdf for format pdflatex
+figure file figs/stressvec:
+    can use figs/stressvec.pdf for format pdflatex
+
+exporting publish database ../chapters/papers.pub to ../chapters/papers.bib:
+output in book.tex
+running preprocess -DFORMAT=pdflatex -DDEVICE=paper -DCHAPTER="chapter" -DBOOK="book" -DAPPENDIX="appendix" book.do.txt > tmp_preprocess__book.do.txt
+running mako on tmp_preprocess__book.do.txt to make tmp_mako__book.do.txt
+mako variables: {'FORMAT': 'pdflatex', 'DEVICE': 'paper', 'CHAPTER': 'chapter', 'BOOK': 'book', 'APPENDIX': 'appendix'}
+translating doconce text in tmp_mako__book.do.txt to pdflatex
+open file with encoding utf-8
+*** error: reference ref{XXX} to non-defined label
+*** error: reference ref{map_volume} to non-defined label
+*** error: reference ref{passive_tissue} to non-defined label
+*** error: reference ref{eq:P_FS} to non-defined label
+*** error: reference ref{comp_mech} to non-defined label
+*** error: reference ref{weak0} to non-defined label
+*** error: reference ref{elast0_weaK} to non-defined label
+*** error: reference ref{weak0} to non-defined label
+*** error: reference ref{fig:loading} to non-defined label
+*** error: reference ref{fig:loading} to non-defined label
+*** error: reference ref{XXX} to non-defined label
+*** error: reference ref{fig:loading} to non-defined label
+*** error: reference ref{fig:loading} to non-defined label
+*** error: reference ref{ch:full_heart} to non-defined label
+*** error: reference ref{ch:comp_mech} to non-defined label
+    run the generated script tmp_missing_labels.sh
+    to search for these missing labels!
+
+*** warning: found \label{...} with backslash
+    (label{...} has no backslash in DocOnce syntax)
+\label{rigid1}
+figure file figs/stressvec:
+    can use figs/stressvec.pdf for format pdflatex
+figure file figs/rodstress:
+    can use figs/rodstress.pdf for format pdflatex
+
+exporting publish database ../chapters/papers.pub to ../chapters/papers.bib:
+output in book.tex
+running preprocess -DFORMAT=pdflatex -DDEVICE=paper -DCHAPTER="chapter" -DBOOK="book" -DAPPENDIX="appendix" book.do.txt > tmp_preprocess__book.do.txt
+running mako on tmp_preprocess__book.do.txt to make tmp_mako__book.do.txt
+mako variables: {'FORMAT': 'pdflatex', 'DEVICE': 'paper', 'CHAPTER': 'chapter', 'BOOK': 'book', 'APPENDIX': 'appendix'}
+translating doconce text in tmp_mako__book.do.txt to pdflatex
+open file with encoding utf-8
+*** error: reference ref{XXX} to non-defined label
+*** error: reference ref{map_volume} to non-defined label
+*** error: reference ref{passive_tissue} to non-defined label
+*** error: reference ref{eq:P_FS} to non-defined label
+*** error: reference ref{comp_mech} to non-defined label
+*** error: reference ref{weak0} to non-defined label
+*** error: reference ref{elast0_weaK} to non-defined label
+*** error: reference ref{weak0} to non-defined label
+*** error: reference ref{fig:loading} to non-defined label
+*** error: reference ref{fig:loading} to non-defined label
+*** error: reference ref{XXX} to non-defined label
+*** error: reference ref{fig:loading} to non-defined label
+*** error: reference ref{fig:loading} to non-defined label
+*** error: reference ref{ch:full_heart} to non-defined label
+*** error: reference ref{ch:comp_mech} to non-defined label
+    run the generated script tmp_missing_labels.sh
+    to search for these missing labels!
+
+*** warning: found \label{...} with backslash
+    (label{...} has no backslash in DocOnce syntax)
+\label{rigid1}
+figure file figs/rodstress:
+    can use figs/rodstress.pdf for format pdflatex
+figure file figs/stressvec:
+    can use figs/stressvec.pdf for format pdflatex
+
+exporting publish database ../chapters/papers.pub to ../chapters/papers.bib:
+output in book.tex
+running preprocess -DFORMAT=pdflatex -DDEVICE=paper -DCHAPTER="chapter" -DBOOK="book" -DAPPENDIX="appendix" book.do.txt > tmp_preprocess__book.do.txt
+running mako on tmp_preprocess__book.do.txt to make tmp_mako__book.do.txt
+mako variables: {'FORMAT': 'pdflatex', 'DEVICE': 'paper', 'CHAPTER': 'chapter', 'BOOK': 'book', 'APPENDIX': 'appendix'}
+translating doconce text in tmp_mako__book.do.txt to pdflatex
+open file with encoding utf-8
+*** error: reference ref{XXX} to non-defined label
+*** error: reference ref{map_volume} to non-defined label
+*** error: reference ref{passive_tissue} to non-defined label
+*** error: reference ref{eq:P_FS} to non-defined label
+*** error: reference ref{comp_mech} to non-defined label
+*** error: reference ref{weak0} to non-defined label
+*** error: reference ref{elast0_weaK} to non-defined label
+*** error: reference ref{weak0} to non-defined label
+*** error: reference ref{fig:loading} to non-defined label
+*** error: reference ref{fig:loading} to non-defined label
+*** error: reference ref{XXX} to non-defined label
+*** error: reference ref{fig:loading} to non-defined label
+*** error: reference ref{fig:loading} to non-defined label
+*** error: reference ref{ch:full_heart} to non-defined label
+*** error: reference ref{ch:comp_mech} to non-defined label
+    run the generated script tmp_missing_labels.sh
+    to search for these missing labels!
+
+*** warning: found \label{...} with backslash
+    (label{...} has no backslash in DocOnce syntax)
+\label{rigid1}
+figure file figs/stressvec:
+    can use figs/stressvec.pdf for format pdflatex
+figure file figs/rodstress:
+    can use figs/rodstress.pdf for format pdflatex
+
+exporting publish database ../chapters/papers.pub to ../chapters/papers.bib:
+output in book.tex
+running preprocess -DFORMAT=pdflatex -DDEVICE=paper -DCHAPTER="chapter" -DBOOK="book" -DAPPENDIX="appendix" book.do.txt > tmp_preprocess__book.do.txt
+running mako on tmp_preprocess__book.do.txt to make tmp_mako__book.do.txt
+mako variables: {'FORMAT': 'pdflatex', 'DEVICE': 'paper', 'CHAPTER': 'chapter', 'BOOK': 'book', 'APPENDIX': 'appendix'}
+translating doconce text in tmp_mako__book.do.txt to pdflatex
+open file with encoding utf-8
+*** error: reference ref{XXX} to non-defined label
+*** error: reference ref{map_volume} to non-defined label
+*** error: reference ref{passive_tissue} to non-defined label
+*** error: reference ref{eq:P_FS} to non-defined label
+*** error: reference ref{comp_mech} to non-defined label
+*** error: reference ref{weak0} to non-defined label
+*** error: reference ref{elast0_weaK} to non-defined label
+*** error: reference ref{weak0} to non-defined label
+*** error: reference ref{fig:loading} to non-defined label
+*** error: reference ref{fig:loading} to non-defined label
+*** error: reference ref{XXX} to non-defined label
+*** error: reference ref{fig:loading} to non-defined label
+*** error: reference ref{fig:loading} to non-defined label
+*** error: reference ref{ch:full_heart} to non-defined label
+*** error: reference ref{ch:comp_mech} to non-defined label
+    run the generated script tmp_missing_labels.sh
+    to search for these missing labels!
+
+*** warning: found \label{...} with backslash
+    (label{...} has no backslash in DocOnce syntax)
+\label{rigid1}
+figure file figs/stressvec:
+    can use figs/stressvec.pdf for format pdflatex
+figure file figs/rodstress:
+    can use figs/rodstress.pdf for format pdflatex
+
+exporting publish database ../chapters/papers.pub to ../chapters/papers.bib:
+output in book.tex
+running preprocess -DFORMAT=pdflatex -DDEVICE=paper -DCHAPTER="chapter" -DBOOK="book" -DAPPENDIX="appendix" book.do.txt > tmp_preprocess__book.do.txt
+running mako on tmp_preprocess__book.do.txt to make tmp_mako__book.do.txt
+mako variables: {'FORMAT': 'pdflatex', 'DEVICE': 'paper', 'CHAPTER': 'chapter', 'BOOK': 'book', 'APPENDIX': 'appendix'}
+translating doconce text in tmp_mako__book.do.txt to pdflatex
+open file with encoding utf-8
+*** error: reference ref{XXX} to non-defined label
+*** error: reference ref{map_volume} to non-defined label
+*** error: reference ref{passive_tissue} to non-defined label
+*** error: reference ref{eq:P_FS} to non-defined label
+*** error: reference ref{comp_mech} to non-defined label
+*** error: reference ref{weak0} to non-defined label
+*** error: reference ref{elast0_weaK} to non-defined label
+*** error: reference ref{weak0} to non-defined label
+*** error: reference ref{fig:loading} to non-defined label
+*** error: reference ref{fig:loading} to non-defined label
+*** error: reference ref{XXX} to non-defined label
+*** error: reference ref{fig:loading} to non-defined label
+*** error: reference ref{fig:loading} to non-defined label
+*** error: reference ref{ch:full_heart} to non-defined label
+*** error: reference ref{ch:comp_mech} to non-defined label
+    run the generated script tmp_missing_labels.sh
+    to search for these missing labels!
+
+*** warning: found \label{...} with backslash
+    (label{...} has no backslash in DocOnce syntax)
+\label{rigid1}
+figure file figs/stressvec:
+    can use figs/stressvec.pdf for format pdflatex
+figure file figs/rodstress:
+    can use figs/rodstress.pdf for format pdflatex
+
+exporting publish database ../chapters/papers.pub to ../chapters/papers.bib:
+output in book.tex
+running preprocess -DFORMAT=pdflatex -DDEVICE=paper -DCHAPTER="chapter" -DBOOK="book" -DAPPENDIX="appendix" book.do.txt > tmp_preprocess__book.do.txt
+running mako on tmp_preprocess__book.do.txt to make tmp_mako__book.do.txt
+mako variables: {'FORMAT': 'pdflatex', 'DEVICE': 'paper', 'CHAPTER': 'chapter', 'BOOK': 'book', 'APPENDIX': 'appendix'}
+translating doconce text in tmp_mako__book.do.txt to pdflatex
+open file with encoding utf-8
+*** error: reference ref{XXX} to non-defined label
+*** error: reference ref{map_volume} to non-defined label
+*** error: reference ref{passive_tissue} to non-defined label
+*** error: reference ref{eq:P_FS} to non-defined label
+*** error: reference ref{comp_mech} to non-defined label
+*** error: reference ref{weak0} to non-defined label
+*** error: reference ref{elast0_weaK} to non-defined label
+*** error: reference ref{weak0} to non-defined label
+*** error: reference ref{fig:loading} to non-defined label
+*** error: reference ref{fig:loading} to non-defined label
+*** error: reference ref{XXX} to non-defined label
+*** error: reference ref{fig:loading} to non-defined label
+*** error: reference ref{fig:loading} to non-defined label
+*** error: reference ref{ch:full_heart} to non-defined label
+*** error: reference ref{ch:comp_mech} to non-defined label
+    run the generated script tmp_missing_labels.sh
+    to search for these missing labels!
+
+*** warning: found \label{...} with backslash
+    (label{...} has no backslash in DocOnce syntax)
+\label{rigid1}
+figure file figs/rodstress:
+    can use figs/rodstress.pdf for format pdflatex
+figure file figs/stressvec:
+    can use figs/stressvec.pdf for format pdflatex
+
+exporting publish database ../chapters/papers.pub to ../chapters/papers.bib:
+output in book.tex
+running preprocess -DFORMAT=pdflatex -DDEVICE=paper -DCHAPTER="chapter" -DBOOK="book" -DAPPENDIX="appendix" book.do.txt > tmp_preprocess__book.do.txt
+running mako on tmp_preprocess__book.do.txt to make tmp_mako__book.do.txt
+mako variables: {'FORMAT': 'pdflatex', 'DEVICE': 'paper', 'CHAPTER': 'chapter', 'BOOK': 'book', 'APPENDIX': 'appendix'}
+translating doconce text in tmp_mako__book.do.txt to pdflatex
+open file with encoding utf-8
+*** error: reference ref{XXX} to non-defined label
+*** error: reference ref{map_volume} to non-defined label
+*** error: reference ref{passive_tissue} to non-defined label
+*** error: reference ref{eq:P_FS} to non-defined label
+*** error: reference ref{comp_mech} to non-defined label
+*** error: reference ref{weak0} to non-defined label
+*** error: reference ref{elast0_weaK} to non-defined label
+*** error: reference ref{weak0} to non-defined label
+*** error: reference ref{fig:loading} to non-defined label
+*** error: reference ref{fig:loading} to non-defined label
+*** error: reference ref{XXX} to non-defined label
+*** error: reference ref{fig:loading} to non-defined label
+*** error: reference ref{fig:loading} to non-defined label
+*** error: reference ref{ch:full_heart} to non-defined label
+*** error: reference ref{ch:comp_mech} to non-defined label
+    run the generated script tmp_missing_labels.sh
+    to search for these missing labels!
+
+*** warning: found \label{...} with backslash
+    (label{...} has no backslash in DocOnce syntax)
+\label{rigid1}
+figure file figs/stressvec:
+    can use figs/stressvec.pdf for format pdflatex
+figure file figs/rodstress:
+    can use figs/rodstress.pdf for format pdflatex
+
+exporting publish database ../chapters/papers.pub to ../chapters/papers.bib:
+output in book.tex
+running preprocess -DFORMAT=pdflatex -DDEVICE=paper -DCHAPTER="chapter" -DBOOK="book" -DAPPENDIX="appendix" book.do.txt > tmp_preprocess__book.do.txt
+Could not run preprocessor:
+preprocess -DFORMAT=pdflatex -DDEVICE=paper -DCHAPTER="chapter" -DBOOK="book" -DAPPENDIX="appendix" book.do.txt > tmp_preprocess__book.do.txt
+preprocess: error: could not find #include'd file "../chapters/loop_list_notes.do.txt" on include path: []
+
+return code from preprocess: 1
+running preprocess -DFORMAT=pdflatex -DDEVICE=paper -DCHAPTER="chapter" -DBOOK="book" -DAPPENDIX="appendix" book.do.txt > tmp_preprocess__book.do.txt
+Could not run preprocessor:
+preprocess -DFORMAT=pdflatex -DDEVICE=paper -DCHAPTER="chapter" -DBOOK="book" -DAPPENDIX="appendix" book.do.txt > tmp_preprocess__book.do.txt
+preprocess: error: could not find #include'd file "../chapters/loop_list_notes.do.txt" on include path: []
+
+return code from preprocess: 1
+running preprocess -DFORMAT=pdflatex -DDEVICE=paper -DCHAPTER="chapter" -DBOOK="book" -DAPPENDIX="appendix" book.do.txt > tmp_preprocess__book.do.txt
+Could not run preprocessor:
+preprocess -DFORMAT=pdflatex -DDEVICE=paper -DCHAPTER="chapter" -DBOOK="book" -DAPPENDIX="appendix" book.do.txt > tmp_preprocess__book.do.txt
+preprocess: error: could not find #include'd file "../chapters/OOP.do.txt" on include path: []
+
+return code from preprocess: 1
+running preprocess -DFORMAT=pdflatex -DDEVICE=paper -DCHAPTER="chapter" -DBOOK="book" -DAPPENDIX="appendix" book.do.txt > tmp_preprocess__book.do.txt
+running mako on tmp_preprocess__book.do.txt to make tmp_mako__book.do.txt
+mako variables: {'FORMAT': 'pdflatex', 'DEVICE': 'paper', 'CHAPTER': 'chapter', 'BOOK': 'book', 'APPENDIX': 'appendix'}
+translating doconce text in tmp_mako__book.do.txt to pdflatex
+open file with encoding utf-8
+*** error: found multiple labels:
+    ch:classes
+running preprocess -DFORMAT=pdflatex -DDEVICE=paper -DCHAPTER="chapter" -DBOOK="book" -DAPPENDIX="appendix" book.do.txt > tmp_preprocess__book.do.txt
+running mako on tmp_preprocess__book.do.txt to make tmp_mako__book.do.txt
+mako variables: {'FORMAT': 'pdflatex', 'DEVICE': 'paper', 'CHAPTER': 'chapter', 'BOOK': 'book', 'APPENDIX': 'appendix'}
+translating doconce text in tmp_mako__book.do.txt to pdflatex
+open file with encoding utf-8
+*** error: found multiple labels:
+    ch:classes
+running preprocess -DFORMAT=pdflatex -DDEVICE=paper -DCHAPTER="chapter" -DBOOK="book" -DAPPENDIX="appendix" book.do.txt > tmp_preprocess__book.do.txt
+running mako on tmp_preprocess__book.do.txt to make tmp_mako__book.do.txt
+mako variables: {'FORMAT': 'pdflatex', 'DEVICE': 'paper', 'CHAPTER': 'chapter', 'BOOK': 'book', 'APPENDIX': 'appendix'}
+translating doconce text in tmp_mako__book.do.txt to pdflatex
+open file with encoding utf-8
+*** warning: latex format will have problem with words
+    containing underscores (this warning is very uncertain, might be wrong too):
+
+x_0
+c_1x
+
+    typeset these words with `inline verbatim` or escape with backslash
+    First word appears here:
+(x_n)_{n=0}^Nnnx_0, x_1, \ldots, x_{n-1}x_0pNx_n = x_0 (1 + p/100)^nnx_nx_{n-1}x_nx_0x_1, x_2, \ldots, x_nNx_n
+*** error: figure file "fig-plot/plot1a_pylab" does not exist!
+running preprocess -DFORMAT=pdflatex -DDEVICE=paper -DCHAPTER="chapter" -DBOOK="book" -DAPPENDIX="appendix" book.do.txt > tmp_preprocess__book.do.txt
+running mako on tmp_preprocess__book.do.txt to make tmp_mako__book.do.txt
+mako variables: {'FORMAT': 'pdflatex', 'DEVICE': 'paper', 'CHAPTER': 'chapter', 'BOOK': 'book', 'APPENDIX': 'appendix'}
+translating doconce text in tmp_mako__book.do.txt to pdflatex
+open file with encoding utf-8
+*** warning: latex format will have problem with words
+    containing underscores (this warning is very uncertain, might be wrong too):
+
+x_0
+c_1x
+
+    typeset these words with `inline verbatim` or escape with backslash
+    First word appears here:
+(x_n)_{n=0}^Nnnx_0, x_1, \ldots, x_{n-1}x_0pNx_n = x_0 (1 + p/100)^nnx_nx_{n-1}x_nx_0x_1, x_2, \ldots, x_nNx_n
+*** error: figure file "fig-plot/plot1a_pylab" does not exist!
+running preprocess -DFORMAT=pdflatex -DDEVICE=paper -DCHAPTER="chapter" -DBOOK="book" -DAPPENDIX="appendix" book.do.txt > tmp_preprocess__book.do.txt
+running mako on tmp_preprocess__book.do.txt to make tmp_mako__book.do.txt
+mako variables: {'FORMAT': 'pdflatex', 'DEVICE': 'paper', 'CHAPTER': 'chapter', 'BOOK': 'book', 'APPENDIX': 'appendix'}
+translating doconce text in tmp_mako__book.do.txt to pdflatex
+open file with encoding utf-8
+*** warning: latex format will have problem with words
+    containing underscores (this warning is very uncertain, might be wrong too):
+
+x_0
+c_1x
+
+    typeset these words with `inline verbatim` or escape with backslash
+    First word appears here:
+(x_n)_{n=0}^Nnnx_0, x_1, \ldots, x_{n-1}x_0pNx_n = x_0 (1 + p/100)^nnx_nx_{n-1}x_nx_0x_1, x_2, \ldots, x_nNx_n
+*** error: figure file "fig-diffeq/Newton_demo_divergence_0001" does not exist!
+running preprocess -DFORMAT=pdflatex -DDEVICE=paper -DCHAPTER="chapter" -DBOOK="book" -DAPPENDIX="appendix" book.do.txt > tmp_preprocess__book.do.txt
+running mako on tmp_preprocess__book.do.txt to make tmp_mako__book.do.txt
+mako variables: {'FORMAT': 'pdflatex', 'DEVICE': 'paper', 'CHAPTER': 'chapter', 'BOOK': 'book', 'APPENDIX': 'appendix'}
+translating doconce text in tmp_mako__book.do.txt to pdflatex
+open file with encoding utf-8
+*** warning: latex format will have problem with words
+    containing underscores (this warning is very uncertain, might be wrong too):
+
+x_0
+c_1x
+
+    typeset these words with `inline verbatim` or escape with backslash
+    First word appears here:
+(x_n)_{n=0}^Nnnx_0, x_1, \ldots, x_{n-1}x_0pNx_n = x_0 (1 + p/100)^nnx_nx_{n-1}x_nx_0x_1, x_2, \ldots, x_nNx_n
+figure file ../chapters/fig-plot/plot1a_pylab:
+    can use ../chapters/fig-plot/plot1a_pylab.pdf for format pdflatex
+*** error: figure file "fig-plot/plot1c_pylab" does not exist!
+running preprocess -DFORMAT=pdflatex -DDEVICE=paper -DCHAPTER="chapter" -DBOOK="book" -DAPPENDIX="appendix" book.do.txt > tmp_preprocess__book.do.txt
+running mako on tmp_preprocess__book.do.txt to make tmp_mako__book.do.txt
+mako variables: {'FORMAT': 'pdflatex', 'DEVICE': 'paper', 'CHAPTER': 'chapter', 'BOOK': 'book', 'APPENDIX': 'appendix'}
+translating doconce text in tmp_mako__book.do.txt to pdflatex
+open file with encoding utf-8
+*** warning: latex format will have problem with words
+    containing underscores (this warning is very uncertain, might be wrong too):
+
+x_0
+c_1x
+
+    typeset these words with `inline verbatim` or escape with backslash
+    First word appears here:
+(x_n)_{n=0}^Nnnx_0, x_1, \ldots, x_{n-1}x_0pNx_n = x_0 (1 + p/100)^nnx_nx_{n-1}x_nx_0x_1, x_2, \ldots, x_nNx_n
+figure file ../chapters/fig-plot/plot1c_pylab:
+    can use ../chapters/fig-plot/plot1c_pylab.pdf for format pdflatex
+figure file ../chapters/fig-diffeq/Newton_demo_divergence_0001:
+    can use ../chapters/fig-diffeq/Newton_demo_divergence_0001.pdf for format pdflatex
+*** error: figure file "fig-ode2/logistic_func_mpl" does not exist!
+running preprocess -DFORMAT=pdflatex -DDEVICE=paper -DCHAPTER="chapter" -DBOOK="book" -DAPPENDIX="appendix" book.do.txt > tmp_preprocess__book.do.txt
+running mako on tmp_preprocess__book.do.txt to make tmp_mako__book.do.txt
+mako variables: {'FORMAT': 'pdflatex', 'DEVICE': 'paper', 'CHAPTER': 'chapter', 'BOOK': 'book', 'APPENDIX': 'appendix'}
+translating doconce text in tmp_mako__book.do.txt to pdflatex
+open file with encoding utf-8
+*** warning: latex format will have problem with words
+    containing underscores (this warning is very uncertain, might be wrong too):
+
+x_0
+c_1x
+
+    typeset these words with `inline verbatim` or escape with backslash
+    First word appears here:
+(x_n)_{n=0}^Nnnx_0, x_1, \ldots, x_{n-1}x_0pNx_n = x_0 (1 + p/100)^nnx_nx_{n-1}x_nx_0x_1, x_2, \ldots, x_nNx_n
+figure file ../chapters/fig-plot/plot4_thick:
+    can use ../chapters/fig-plot/plot4_thick.pdf for format pdflatex
+figure file ../chapters/fig-plot/plot1c_pylab:
+    can use ../chapters/fig-plot/plot1c_pylab.pdf for format pdflatex
+*** error: figure file "fig-diffeq/logistic_growth1" does not exist!
+running preprocess -DFORMAT=pdflatex -DDEVICE=paper -DCHAPTER="chapter" -DBOOK="book" -DAPPENDIX="appendix" book.do.txt > tmp_preprocess__book.do.txt
+running mako on tmp_preprocess__book.do.txt to make tmp_mako__book.do.txt
+mako variables: {'FORMAT': 'pdflatex', 'DEVICE': 'paper', 'CHAPTER': 'chapter', 'BOOK': 'book', 'APPENDIX': 'appendix'}
+translating doconce text in tmp_mako__book.do.txt to pdflatex
+open file with encoding utf-8
+*** warning: latex format will have problem with words
+    containing underscores (this warning is very uncertain, might be wrong too):
+
+x_0
+c_1x
+
+    typeset these words with `inline verbatim` or escape with backslash
+    First word appears here:
+(x_n)_{n=0}^Nnnx_0, x_1, \ldots, x_{n-1}x_0pNx_n = x_0 (1 + p/100)^nnx_nx_{n-1}x_nx_0x_1, x_2, \ldots, x_nNx_n
+figure file ../chapters/fig-plot/Heaviside3:
+    can use ../chapters/fig-plot/Heaviside3.pdf for format pdflatex
+figure file ../chapters/fig-plot/plot1a_pylab:
+    can use ../chapters/fig-plot/plot1a_pylab.pdf for format pdflatex
+figure file ../chapters/fig-ode2/FE_n_10_20:
+    can use ../chapters/fig-ode2/FE_n_10_20.pdf for format pdflatex
+figure file ../chapters/fig-ode2/logistic_func_mpl:
+    can use ../chapters/fig-ode2/logistic_func_mpl.pdf for format pdflatex
+figure file ../chapters/fig-diffeq/Newton_demo_divergence_0000:
+    can use ../chapters/fig-diffeq/Newton_demo_divergence_0000.pdf for format pdflatex
+figure file ../chapters/fig-diffeq/Newton_demo_divergence_0002:
+    can use ../chapters/fig-diffeq/Newton_demo_divergence_0002.pdf for format pdflatex
+figure file ../chapters/fig-diffeq/comic_root:
+    can use ../chapters/fig-diffeq/comic_root.pdf for format pdflatex
+figure file ../chapters/fig-diffeq/logistic_growth1:
+    can use ../chapters/fig-diffeq/logistic_growth1.pdf for format pdflatex
+figure file ../chapters/fig-plot/plot4_thick:
+    can use ../chapters/fig-plot/plot4_thick.pdf for format pdflatex
+figure file ../chapters/fig-diffeq/Newton_demo_divergence_0001:
+    can use ../chapters/fig-diffeq/Newton_demo_divergence_0001.pdf for format pdflatex
+figure file ../chapters/fig-plot/plot1c_pylab:
+    can use ../chapters/fig-plot/plot1c_pylab.pdf for format pdflatex
+output in book.tex
+running preprocess -DFORMAT=pdflatex -DDEVICE=paper -DCHAPTER="chapter" -DBOOK="book" -DAPPENDIX="appendix" book.do.txt > tmp_preprocess__book.do.txt
+running mako on tmp_preprocess__book.do.txt to make tmp_mako__book.do.txt
+mako variables: {'FORMAT': 'pdflatex', 'DEVICE': 'paper', 'CHAPTER': 'chapter', 'BOOK': 'book', 'APPENDIX': 'appendix'}
+translating doconce text in tmp_mako__book.do.txt to pdflatex
+open file with encoding utf-8
+*** warning: latex format will have problem with words
+    containing underscores (this warning is very uncertain, might be wrong too):
+
+x_0
+c_1x
+
+    typeset these words with `inline verbatim` or escape with backslash
+    First word appears here:
+(x_n)_{n=0}^Nnnx_0, x_1, \ldots, x_{n-1}x_0pNx_n = x_0 (1 + p/100)^nnx_nx_{n-1}x_nx_0x_1, x_2, \ldots, x_nNx_n
+figure file ../chapters/fig-diffeq/comic_root:
+    can use ../chapters/fig-diffeq/comic_root.pdf for format pdflatex
+figure file ../chapters/fig-plot/plot1c_pylab:
+    can use ../chapters/fig-plot/plot1c_pylab.pdf for format pdflatex
+figure file ../chapters/fig-plot/Heaviside3:
+    can use ../chapters/fig-plot/Heaviside3.pdf for format pdflatex
+figure file ../chapters/fig-diffeq/logistic_growth1:
+    can use ../chapters/fig-diffeq/logistic_growth1.pdf for format pdflatex
+figure file ../chapters/fig-plot/plot1a_pylab:
+    can use ../chapters/fig-plot/plot1a_pylab.pdf for format pdflatex
+figure file ../chapters/fig-diffeq/Newton_demo_divergence_0000:
+    can use ../chapters/fig-diffeq/Newton_demo_divergence_0000.pdf for format pdflatex
+figure file ../chapters/fig-diffeq/Newton_demo_divergence_0002:
+    can use ../chapters/fig-diffeq/Newton_demo_divergence_0002.pdf for format pdflatex
+figure file ../chapters/fig-ode2/logistic_func_mpl:
+    can use ../chapters/fig-ode2/logistic_func_mpl.pdf for format pdflatex
+figure file ../chapters/fig-diffeq/Newton_demo_divergence_0001:
+    can use ../chapters/fig-diffeq/Newton_demo_divergence_0001.pdf for format pdflatex
+figure file ../chapters/fig-ode2/FE_n_10_20:
+    can use ../chapters/fig-ode2/FE_n_10_20.pdf for format pdflatex
+figure file ../chapters/fig-plot/plot4_thick:
+    can use ../chapters/fig-plot/plot4_thick.pdf for format pdflatex
+output in book.tex
+running preprocess -DFORMAT=pdflatex -DDEVICE=paper -DCHAPTER="chapter" -DBOOK="book" -DAPPENDIX="appendix" book.do.txt > tmp_preprocess__book.do.txt
+running mako on tmp_preprocess__book.do.txt to make tmp_mako__book.do.txt
+mako variables: {'FORMAT': 'pdflatex', 'DEVICE': 'paper', 'CHAPTER': 'chapter', 'BOOK': 'book', 'APPENDIX': 'appendix'}
+translating doconce text in tmp_mako__book.do.txt to pdflatex
+open file with encoding utf-8
+*** warning: latex format will have problem with words
+    containing underscores (this warning is very uncertain, might be wrong too):
+
+x_0
+c_1x
+
+    typeset these words with `inline verbatim` or escape with backslash
+    First word appears here:
+(x_n)_{n=0}^Nnnx_0, x_1, \ldots, x_{n-1}x_0pNx_n = x_0 (1 + p/100)^nnx_nx_{n-1}x_nx_0x_1, x_2, \ldots, x_nNx_n
+figure file ../chapters/fig-plot/plot1a_pylab:
+    can use ../chapters/fig-plot/plot1a_pylab.pdf for format pdflatex
+figure file ../chapters/fig-ode2/FE_n_10_20:
+    can use ../chapters/fig-ode2/FE_n_10_20.pdf for format pdflatex
+figure file ../chapters/fig-ode2/logistic_func_mpl:
+    can use ../chapters/fig-ode2/logistic_func_mpl.pdf for format pdflatex
+figure file ../chapters/fig-diffeq/Newton_demo_divergence_0002:
+    can use ../chapters/fig-diffeq/Newton_demo_divergence_0002.pdf for format pdflatex
+figure file ../chapters/fig-plot/plot1c_pylab:
+    can use ../chapters/fig-plot/plot1c_pylab.pdf for format pdflatex
+figure file ../chapters/fig-plot/plot4_thick:
+    can use ../chapters/fig-plot/plot4_thick.pdf for format pdflatex
+figure file ../chapters/fig-diffeq/logistic_growth1:
+    can use ../chapters/fig-diffeq/logistic_growth1.pdf for format pdflatex
+figure file ../chapters/fig-diffeq/comic_root:
+    can use ../chapters/fig-diffeq/comic_root.pdf for format pdflatex
+figure file ../chapters/fig-diffeq/Newton_demo_divergence_0001:
+    can use ../chapters/fig-diffeq/Newton_demo_divergence_0001.pdf for format pdflatex
+figure file ../chapters/fig-diffeq/Newton_demo_divergence_0000:
+    can use ../chapters/fig-diffeq/Newton_demo_divergence_0000.pdf for format pdflatex
+figure file ../chapters/fig-plot/Heaviside3:
+    can use ../chapters/fig-plot/Heaviside3.pdf for format pdflatex
+output in book.tex
+running preprocess -DFORMAT=pdflatex -DDEVICE=paper -DCHAPTER="chapter" -DBOOK="book" -DAPPENDIX="appendix" book.do.txt > tmp_preprocess__book.do.txt
+running mako on tmp_preprocess__book.do.txt to make tmp_mako__book.do.txt
+mako variables: {'FORMAT': 'pdflatex', 'DEVICE': 'paper', 'CHAPTER': 'chapter', 'BOOK': 'book', 'APPENDIX': 'appendix'}
+translating doconce text in tmp_mako__book.do.txt to pdflatex
+open file with encoding utf-8
+*** warning: latex format will have problem with words
+    containing underscores (this warning is very uncertain, might be wrong too):
+
+x_0
+c_1x
+
+    typeset these words with `inline verbatim` or escape with backslash
+    First word appears here:
+(x_n)_{n=0}^Nnnx_0, x_1, \ldots, x_{n-1}x_0pNx_n = x_0 (1 + p/100)^nnx_nx_{n-1}x_nx_0x_1, x_2, \ldots, x_nNx_n
+figure file ../chapters/fig-plot/plot1a_pylab:
+    can use ../chapters/fig-plot/plot1a_pylab.pdf for format pdflatex
+figure file ../chapters/fig-diffeq/logistic_growth1:
+    can use ../chapters/fig-diffeq/logistic_growth1.pdf for format pdflatex
+figure file ../chapters/fig-plot/plot4_thick:
+    can use ../chapters/fig-plot/plot4_thick.pdf for format pdflatex
+figure file ../chapters/fig-plot/Heaviside3:
+    can use ../chapters/fig-plot/Heaviside3.pdf for format pdflatex
+figure file ../chapters/fig-diffeq/comic_root:
+    can use ../chapters/fig-diffeq/comic_root.pdf for format pdflatex
+figure file ../chapters/fig-diffeq/Newton_demo_divergence_0002:
+    can use ../chapters/fig-diffeq/Newton_demo_divergence_0002.pdf for format pdflatex
+figure file ../chapters/fig-diffeq/Newton_demo_divergence_0000:
+    can use ../chapters/fig-diffeq/Newton_demo_divergence_0000.pdf for format pdflatex
+figure file ../chapters/fig-diffeq/Newton_demo_divergence_0001:
+    can use ../chapters/fig-diffeq/Newton_demo_divergence_0001.pdf for format pdflatex
+figure file ../chapters/fig-plot/plot1c_pylab:
+    can use ../chapters/fig-plot/plot1c_pylab.pdf for format pdflatex
+figure file ../chapters/fig-ode2/logistic_func_mpl:
+    can use ../chapters/fig-ode2/logistic_func_mpl.pdf for format pdflatex
+figure file ../chapters/fig-ode2/FE_n_10_20:
+    can use ../chapters/fig-ode2/FE_n_10_20.pdf for format pdflatex
+output in book.tex
+running preprocess -DFORMAT=pdflatex -DDEVICE=paper -DCHAPTER="chapter" -DBOOK="book" -DAPPENDIX="appendix" book.do.txt > tmp_preprocess__book.do.txt
+running mako on tmp_preprocess__book.do.txt to make tmp_mako__book.do.txt
+mako variables: {'FORMAT': 'pdflatex', 'DEVICE': 'paper', 'CHAPTER': 'chapter', 'BOOK': 'book', 'APPENDIX': 'appendix'}
+translating doconce text in tmp_mako__book.do.txt to pdflatex
+open file with encoding utf-8
+*** warning: latex format will have problem with words
+    containing underscores (this warning is very uncertain, might be wrong too):
+
+x_0
+c_1x
+
+    typeset these words with `inline verbatim` or escape with backslash
+    First word appears here:
+(x_n)_{n=0}^Nnnx_0, x_1, \ldots, x_{n-1}x_0pNx_n = x_0 (1 + p/100)^nnx_nx_{n-1}x_nx_0x_1, x_2, \ldots, x_nNx_n
+figure file ../chapters/fig-plot/plot4_thick:
+    can use ../chapters/fig-plot/plot4_thick.pdf for format pdflatex
+figure file ../chapters/fig-plot/plot1c_pylab:
+    can use ../chapters/fig-plot/plot1c_pylab.pdf for format pdflatex
+figure file ../chapters/fig-ode2/FE_n_10_20:
+    can use ../chapters/fig-ode2/FE_n_10_20.pdf for format pdflatex
+figure file ../chapters/fig-ode2/logistic_func_mpl:
+    can use ../chapters/fig-ode2/logistic_func_mpl.pdf for format pdflatex
+figure file ../chapters/fig-plot/Heaviside3:
+    can use ../chapters/fig-plot/Heaviside3.pdf for format pdflatex
+figure file ../chapters/fig-diffeq/logistic_growth1:
+    can use ../chapters/fig-diffeq/logistic_growth1.pdf for format pdflatex
+figure file ../chapters/fig-diffeq/Newton_demo_divergence_0001:
+    can use ../chapters/fig-diffeq/Newton_demo_divergence_0001.pdf for format pdflatex
+figure file ../chapters/fig-diffeq/Newton_demo_divergence_0000:
+    can use ../chapters/fig-diffeq/Newton_demo_divergence_0000.pdf for format pdflatex
+figure file ../chapters/fig-diffeq/Newton_demo_divergence_0002:
+    can use ../chapters/fig-diffeq/Newton_demo_divergence_0002.pdf for format pdflatex
+figure file ../chapters/fig-diffeq/comic_root:
+    can use ../chapters/fig-diffeq/comic_root.pdf for format pdflatex
+figure file ../chapters/fig-plot/plot1a_pylab:
+    can use ../chapters/fig-plot/plot1a_pylab.pdf for format pdflatex
+output in book.tex
+running preprocess -DFORMAT=pdflatex -DDEVICE=paper -DCHAPTER="chapter" -DBOOK="book" -DAPPENDIX="appendix" book.do.txt > tmp_preprocess__book.do.txt
+running mako on tmp_preprocess__book.do.txt to make tmp_mako__book.do.txt
+mako variables: {'FORMAT': 'pdflatex', 'DEVICE': 'paper', 'CHAPTER': 'chapter', 'BOOK': 'book', 'APPENDIX': 'appendix'}
+translating doconce text in tmp_mako__book.do.txt to pdflatex
+open file with encoding utf-8
+*** warning: latex format will have problem with words
+    containing underscores (this warning is very uncertain, might be wrong too):
+
+x_0
+c_1x
+
+    typeset these words with `inline verbatim` or escape with backslash
+    First word appears here:
+(x_n)_{n=0}^Nnnx_0, x_1, \ldots, x_{n-1}x_0pNx_n = x_0 (1 + p/100)^nnx_nx_{n-1}x_nx_0x_1, x_2, \ldots, x_nNx_n
+figure file ../chapters/fig-plot/plot1a_pylab:
+    can use ../chapters/fig-plot/plot1a_pylab.pdf for format pdflatex
+figure file ../chapters/fig-diffeq/Newton_demo_divergence_0002:
+    can use ../chapters/fig-diffeq/Newton_demo_divergence_0002.pdf for format pdflatex
+figure file ../chapters/fig-ode2/FE_n_10_20:
+    can use ../chapters/fig-ode2/FE_n_10_20.pdf for format pdflatex
+figure file ../chapters/fig-ode2/logistic_func_mpl:
+    can use ../chapters/fig-ode2/logistic_func_mpl.pdf for format pdflatex
+figure file ../chapters/fig-diffeq/comic_root:
+    can use ../chapters/fig-diffeq/comic_root.pdf for format pdflatex
+figure file ../chapters/fig-diffeq/Newton_demo_divergence_0000:
+    can use ../chapters/fig-diffeq/Newton_demo_divergence_0000.pdf for format pdflatex
+figure file ../chapters/fig-plot/plot4_thick:
+    can use ../chapters/fig-plot/plot4_thick.pdf for format pdflatex
+figure file ../chapters/fig-plot/plot1c_pylab:
+    can use ../chapters/fig-plot/plot1c_pylab.pdf for format pdflatex
+figure file ../chapters/fig-plot/Heaviside3:
+    can use ../chapters/fig-plot/Heaviside3.pdf for format pdflatex
+figure file ../chapters/fig-diffeq/logistic_growth1:
+    can use ../chapters/fig-diffeq/logistic_growth1.pdf for format pdflatex
+figure file ../chapters/fig-diffeq/Newton_demo_divergence_0001:
+    can use ../chapters/fig-diffeq/Newton_demo_divergence_0001.pdf for format pdflatex
+output in book.tex
+running preprocess -DFORMAT=pdflatex -DDEVICE=paper -DCHAPTER="chapter" -DBOOK="book" -DAPPENDIX="appendix" book.do.txt > tmp_preprocess__book.do.txt
+running mako on tmp_preprocess__book.do.txt to make tmp_mako__book.do.txt
+mako variables: {'FORMAT': 'pdflatex', 'DEVICE': 'paper', 'CHAPTER': 'chapter', 'BOOK': 'book', 'APPENDIX': 'appendix'}
+translating doconce text in tmp_mako__book.do.txt to pdflatex
+open file with encoding utf-8
+*** warning: latex format will have problem with words
+    containing underscores (this warning is very uncertain, might be wrong too):
+
+x_0
+c_1x
+
+    typeset these words with `inline verbatim` or escape with backslash
+    First word appears here:
+(x_n)_{n=0}^Nnnx_0, x_1, \ldots, x_{n-1}x_0pNx_n = x_0 (1 + p/100)^nnx_nx_{n-1}x_nx_0x_1, x_2, \ldots, x_nNx_n
+figure file ../chapters/fig-diffeq/comic_root:
+    can use ../chapters/fig-diffeq/comic_root.pdf for format pdflatex
+figure file ../chapters/fig-diffeq/Newton_demo_divergence_0002:
+    can use ../chapters/fig-diffeq/Newton_demo_divergence_0002.pdf for format pdflatex
+figure file ../chapters/fig-ode2/FE_n_10_20:
+    can use ../chapters/fig-ode2/FE_n_10_20.pdf for format pdflatex
+figure file ../chapters/fig-ode2/logistic_func_mpl:
+    can use ../chapters/fig-ode2/logistic_func_mpl.pdf for format pdflatex
+figure file ../chapters/fig-plot/plot4_thick:
+    can use ../chapters/fig-plot/plot4_thick.pdf for format pdflatex
+figure file ../chapters/fig-diffeq/Newton_demo_divergence_0001:
+    can use ../chapters/fig-diffeq/Newton_demo_divergence_0001.pdf for format pdflatex
+figure file ../chapters/fig-plot/Heaviside3:
+    can use ../chapters/fig-plot/Heaviside3.pdf for format pdflatex
+figure file ../chapters/fig-diffeq/logistic_growth1:
+    can use ../chapters/fig-diffeq/logistic_growth1.pdf for format pdflatex
+figure file ../chapters/fig-plot/plot1a_pylab:
+    can use ../chapters/fig-plot/plot1a_pylab.pdf for format pdflatex
+figure file ../chapters/fig-diffeq/Newton_demo_divergence_0000:
+    can use ../chapters/fig-diffeq/Newton_demo_divergence_0000.pdf for format pdflatex
+figure file ../chapters/fig-plot/plot1c_pylab:
+    can use ../chapters/fig-plot/plot1c_pylab.pdf for format pdflatex
+output in book.tex
+running preprocess -DFORMAT=pdflatex -DDEVICE=paper -DCHAPTER="chapter" -DBOOK="book" -DAPPENDIX="appendix" book.do.txt > tmp_preprocess__book.do.txt
+running mako on tmp_preprocess__book.do.txt to make tmp_mako__book.do.txt
+mako variables: {'FORMAT': 'pdflatex', 'DEVICE': 'paper', 'CHAPTER': 'chapter', 'BOOK': 'book', 'APPENDIX': 'appendix'}
+translating doconce text in tmp_mako__book.do.txt to pdflatex
+open file with encoding utf-8
+*** warning: latex format will have problem with words
+    containing underscores (this warning is very uncertain, might be wrong too):
+
+x_0
+c_1x
+
+    typeset these words with `inline verbatim` or escape with backslash
+    First word appears here:
+(x_n)_{n=0}^Nnnx_0, x_1, \ldots, x_{n-1}x_0pNx_n = x_0 (1 + p/100)^nnx_nx_{n-1}x_nx_0x_1, x_2, \ldots, x_nNx_n
+figure file ../chapters/fig-plot/plot1a_pylab:
+    can use ../chapters/fig-plot/plot1a_pylab.pdf for format pdflatex
+figure file ../chapters/fig-diffeq/logistic_growth1:
+    can use ../chapters/fig-diffeq/logistic_growth1.pdf for format pdflatex
+figure file ../chapters/fig-plot/plot4_thick:
+    can use ../chapters/fig-plot/plot4_thick.pdf for format pdflatex
+figure file ../chapters/fig-diffeq/comic_root:
+    can use ../chapters/fig-diffeq/comic_root.pdf for format pdflatex
+figure file ../chapters/fig-diffeq/Newton_demo_divergence_0002:
+    can use ../chapters/fig-diffeq/Newton_demo_divergence_0002.pdf for format pdflatex
+figure file ../chapters/fig-ode2/logistic_func_mpl:
+    can use ../chapters/fig-ode2/logistic_func_mpl.pdf for format pdflatex
+figure file ../chapters/fig-ode2/FE_n_10_20:
+    can use ../chapters/fig-ode2/FE_n_10_20.pdf for format pdflatex
+figure file ../chapters/fig-diffeq/Newton_demo_divergence_0000:
+    can use ../chapters/fig-diffeq/Newton_demo_divergence_0000.pdf for format pdflatex
+figure file ../chapters/fig-plot/Heaviside3:
+    can use ../chapters/fig-plot/Heaviside3.pdf for format pdflatex
+figure file ../chapters/fig-diffeq/Newton_demo_divergence_0001:
+    can use ../chapters/fig-diffeq/Newton_demo_divergence_0001.pdf for format pdflatex
+figure file ../chapters/fig-plot/plot1c_pylab:
+    can use ../chapters/fig-plot/plot1c_pylab.pdf for format pdflatex
+output in book.tex
+running preprocess -DFORMAT=pdflatex -DDEVICE=paper -DCHAPTER="chapter" -DBOOK="book" -DAPPENDIX="appendix" book.do.txt > tmp_preprocess__book.do.txt
+running mako on tmp_preprocess__book.do.txt to make tmp_mako__book.do.txt
+mako variables: {'FORMAT': 'pdflatex', 'DEVICE': 'paper', 'CHAPTER': 'chapter', 'BOOK': 'book', 'APPENDIX': 'appendix'}
+translating doconce text in tmp_mako__book.do.txt to pdflatex
+open file with encoding utf-8
+*** warning: latex format will have problem with words
+    containing underscores (this warning is very uncertain, might be wrong too):
+
+x_0
+c_1x
+
+    typeset these words with `inline verbatim` or escape with backslash
+    First word appears here:
+(x_n)_{n=0}^Nnnx_0, x_1, \ldots, x_{n-1}x_0pNx_n = x_0 (1 + p/100)^nnx_nx_{n-1}x_nx_0x_1, x_2, \ldots, x_nNx_n
+figure file ../chapters/fig-ode2/logistic_func_mpl:
+    can use ../chapters/fig-ode2/logistic_func_mpl.pdf for format pdflatex
+figure file ../chapters/fig-plot/plot1c_pylab:
+    can use ../chapters/fig-plot/plot1c_pylab.pdf for format pdflatex
+figure file ../chapters/fig-diffeq/Newton_demo_divergence_0001:
+    can use ../chapters/fig-diffeq/Newton_demo_divergence_0001.pdf for format pdflatex
+figure file ../chapters/fig-plot/plot1a_pylab:
+    can use ../chapters/fig-plot/plot1a_pylab.pdf for format pdflatex
+figure file ../chapters/fig-plot/plot4_thick:
+    can use ../chapters/fig-plot/plot4_thick.pdf for format pdflatex
+figure file ../chapters/fig-plot/Heaviside3:
+    can use ../chapters/fig-plot/Heaviside3.pdf for format pdflatex
+figure file ../chapters/fig-diffeq/logistic_growth1:
+    can use ../chapters/fig-diffeq/logistic_growth1.pdf for format pdflatex
+figure file ../chapters/fig-diffeq/comic_root:
+    can use ../chapters/fig-diffeq/comic_root.pdf for format pdflatex
+figure file ../chapters/fig-ode2/FE_n_10_20:
+    can use ../chapters/fig-ode2/FE_n_10_20.pdf for format pdflatex
+figure file ../chapters/fig-diffeq/Newton_demo_divergence_0000:
+    can use ../chapters/fig-diffeq/Newton_demo_divergence_0000.pdf for format pdflatex
+figure file ../chapters/fig-diffeq/Newton_demo_divergence_0002:
+    can use ../chapters/fig-diffeq/Newton_demo_divergence_0002.pdf for format pdflatex
+output in book.tex
+running preprocess -DFORMAT=pdflatex -DDEVICE=paper -DCHAPTER="chapter" -DBOOK="book" -DAPPENDIX="appendix" book.do.txt > tmp_preprocess__book.do.txt
+running mako on tmp_preprocess__book.do.txt to make tmp_mako__book.do.txt
+mako variables: {'FORMAT': 'pdflatex', 'DEVICE': 'paper', 'CHAPTER': 'chapter', 'BOOK': 'book', 'APPENDIX': 'appendix'}
+translating doconce text in tmp_mako__book.do.txt to pdflatex
+open file with encoding utf-8
+*** warning: latex format will have problem with words
+    containing underscores (this warning is very uncertain, might be wrong too):
+
+x_0
+c_1x
+
+    typeset these words with `inline verbatim` or escape with backslash
+    First word appears here:
+(x_n)_{n=0}^Nnnx_0, x_1, \ldots, x_{n-1}x_0pNx_n = x_0 (1 + p/100)^nnx_nx_{n-1}x_nx_0x_1, x_2, \ldots, x_nNx_n
+figure file ../chapters/fig-diffeq/logistic_growth1:
+    can use ../chapters/fig-diffeq/logistic_growth1.pdf for format pdflatex
+figure file ../chapters/fig-plot/plot4_thick:
+    can use ../chapters/fig-plot/plot4_thick.pdf for format pdflatex
+figure file ../chapters/fig-ode2/FE_n_10_20:
+    can use ../chapters/fig-ode2/FE_n_10_20.pdf for format pdflatex
+figure file ../chapters/fig-diffeq/Newton_demo_divergence_0001:
+    can use ../chapters/fig-diffeq/Newton_demo_divergence_0001.pdf for format pdflatex
+figure file ../chapters/fig-diffeq/comic_root:
+    can use ../chapters/fig-diffeq/comic_root.pdf for format pdflatex
+figure file ../chapters/fig-plot/plot1c_pylab:
+    can use ../chapters/fig-plot/plot1c_pylab.pdf for format pdflatex
+figure file ../chapters/fig-plot/plot1a_pylab:
+    can use ../chapters/fig-plot/plot1a_pylab.pdf for format pdflatex
+figure file ../chapters/fig-diffeq/Newton_demo_divergence_0002:
+    can use ../chapters/fig-diffeq/Newton_demo_divergence_0002.pdf for format pdflatex
+figure file ../chapters/fig-plot/Heaviside3:
+    can use ../chapters/fig-plot/Heaviside3.pdf for format pdflatex
+figure file ../chapters/fig-ode2/logistic_func_mpl:
+    can use ../chapters/fig-ode2/logistic_func_mpl.pdf for format pdflatex
+figure file ../chapters/fig-diffeq/Newton_demo_divergence_0000:
+    can use ../chapters/fig-diffeq/Newton_demo_divergence_0000.pdf for format pdflatex
+output in book.tex
+running preprocess -DFORMAT=pdflatex -DDEVICE=paper -DCHAPTER="chapter" -DBOOK="book" -DAPPENDIX="appendix" book.do.txt > tmp_preprocess__book.do.txt
+running mako on tmp_preprocess__book.do.txt to make tmp_mako__book.do.txt
+mako variables: {'FORMAT': 'pdflatex', 'DEVICE': 'paper', 'CHAPTER': 'chapter', 'BOOK': 'book', 'APPENDIX': 'appendix'}
+translating doconce text in tmp_mako__book.do.txt to pdflatex
+open file with encoding utf-8
+*** warning: latex format will have problem with words
+    containing underscores (this warning is very uncertain, might be wrong too):
+
+c_1x
+
+    typeset these words with `inline verbatim` or escape with backslash
+    First word appears here:
+\int_a^b f(x)dxf'(x)u'=f(u,t)y=c_0 + c_1xxyy=c_0 + c_1x + c_2x^2c_0+c_1xc_0+c_1xc_0+c_1x+c_2x^2c_2=0f(x)=\sin 
+figure file ../chapters/fig-plot/plot4_thick:
+    can use ../chapters/fig-plot/plot4_thick.pdf for format pdflatex
+figure file ../chapters/fig-plot/Heaviside3:
+    can use ../chapters/fig-plot/Heaviside3.pdf for format pdflatex
+figure file ../chapters/fig-plot/plot1c_pylab:
+    can use ../chapters/fig-plot/plot1c_pylab.pdf for format pdflatex
+figure file ../chapters/fig-plot/plot1a_pylab:
+    can use ../chapters/fig-plot/plot1a_pylab.pdf for format pdflatex
+output in book.tex
+running preprocess -DFORMAT=pdflatex -DDEVICE=paper -DCHAPTER="chapter" -DBOOK="book" -DAPPENDIX="appendix" book.do.txt > tmp_preprocess__book.do.txt
+running mako on tmp_preprocess__book.do.txt to make tmp_mako__book.do.txt
+mako variables: {'FORMAT': 'pdflatex', 'DEVICE': 'paper', 'CHAPTER': 'chapter', 'BOOK': 'book', 'APPENDIX': 'appendix'}
+translating doconce text in tmp_mako__book.do.txt to pdflatex
+open file with encoding utf-8
+*** warning: latex format will have problem with words
+    containing underscores (this warning is very uncertain, might be wrong too):
+
+c_1x
+
+    typeset these words with `inline verbatim` or escape with backslash
+    First word appears here:
+\int_a^b f(x)dxf'(x)u'=f(u,t)y=c_0 + c_1xxyy=c_0 + c_1x + c_2x^2c_0+c_1xc_0+c_1xc_0+c_1x+c_2x^2c_2=0f(x)=\sin 
+figure file ../chapters/fig-plot/plot1c_pylab:
+    can use ../chapters/fig-plot/plot1c_pylab.pdf for format pdflatex
+figure file ../chapters/fig-plot/plot4_thick:
+    can use ../chapters/fig-plot/plot4_thick.pdf for format pdflatex
+figure file ../chapters/fig-plot/Heaviside3:
+    can use ../chapters/fig-plot/Heaviside3.pdf for format pdflatex
+figure file ../chapters/fig-plot/plot1a_pylab:
+    can use ../chapters/fig-plot/plot1a_pylab.pdf for format pdflatex
+output in book.tex
+running preprocess -DFORMAT=pdflatex -DDEVICE=paper -DCHAPTER="chapter" -DBOOK="book" -DAPPENDIX="appendix" book.do.txt > tmp_preprocess__book.do.txt
+running mako on tmp_preprocess__book.do.txt to make tmp_mako__book.do.txt
+mako variables: {'FORMAT': 'pdflatex', 'DEVICE': 'paper', 'CHAPTER': 'chapter', 'BOOK': 'book', 'APPENDIX': 'appendix'}
+translating doconce text in tmp_mako__book.do.txt to pdflatex
+open file with encoding utf-8
+*** error: found multiple labels:
+    ch:intro
+running preprocess -DFORMAT=pdflatex -DDEVICE=paper -DCHAPTER="chapter" -DBOOK="book" -DAPPENDIX="appendix" book.do.txt > tmp_preprocess__book.do.txt
+running mako on tmp_preprocess__book.do.txt to make tmp_mako__book.do.txt
+mako variables: {'FORMAT': 'pdflatex', 'DEVICE': 'paper', 'CHAPTER': 'chapter', 'BOOK': 'book', 'APPENDIX': 'appendix'}
+translating doconce text in tmp_mako__book.do.txt to pdflatex
+open file with encoding utf-8
+*** error: found multiple labels:
+    ch:intro
+running preprocess -DFORMAT=pdflatex -DDEVICE=paper -DCHAPTER="chapter" -DBOOK="book" -DAPPENDIX="appendix" book.do.txt > tmp_preprocess__book.do.txt
+running mako on tmp_preprocess__book.do.txt to make tmp_mako__book.do.txt
+mako variables: {'FORMAT': 'pdflatex', 'DEVICE': 'paper', 'CHAPTER': 'chapter', 'BOOK': 'book', 'APPENDIX': 'appendix'}
+translating doconce text in tmp_mako__book.do.txt to pdflatex
+open file with encoding utf-8
+*** warning: latex format will have problem with words
+    containing underscores (this warning is very uncertain, might be wrong too):
+
+c_1x
+
+    typeset these words with `inline verbatim` or escape with backslash
+    First word appears here:
+\int_a^b f(x)dxf'(x)u'=f(u,t)y=c_0 + c_1xxyy=c_0 + c_1x + c_2x^2c_0+c_1xc_0+c_1xc_0+c_1x+c_2x^2c_2=0f(x)=\sin 
+figure file ../chapters/fig-plot/plot1c_pylab:
+    can use ../chapters/fig-plot/plot1c_pylab.pdf for format pdflatex
+figure file ../chapters/fig-plot/plot4_thick:
+    can use ../chapters/fig-plot/plot4_thick.pdf for format pdflatex
+figure file ../chapters/fig-plot/Heaviside3:
+    can use ../chapters/fig-plot/Heaviside3.pdf for format pdflatex
+figure file ../chapters/fig-plot/plot1a_pylab:
+    can use ../chapters/fig-plot/plot1a_pylab.pdf for format pdflatex
+output in book.tex
+running preprocess -DFORMAT=pdflatex -DDEVICE=paper -DCHAPTER="chapter" -DBOOK="book" -DAPPENDIX="appendix" book.do.txt > tmp_preprocess__book.do.txt
+running mako on tmp_preprocess__book.do.txt to make tmp_mako__book.do.txt
+mako variables: {'FORMAT': 'pdflatex', 'DEVICE': 'paper', 'CHAPTER': 'chapter', 'BOOK': 'book', 'APPENDIX': 'appendix'}
+translating doconce text in tmp_mako__book.do.txt to pdflatex
+open file with encoding utf-8
+*** warning: latex format will have problem with words
+    containing underscores (this warning is very uncertain, might be wrong too):
+
+c_1x
+
+    typeset these words with `inline verbatim` or escape with backslash
+    First word appears here:
+\int_a^b f(x)dxf'(x)u'=f(u,t)y=c_0 + c_1xxyy=c_0 + c_1x + c_2x^2c_0+c_1xc_0+c_1xc_0+c_1x+c_2x^2c_2=0f(x)=\sin 
+figure file ../chapters/fig-plot/plot4_thick:
+    can use ../chapters/fig-plot/plot4_thick.pdf for format pdflatex
+figure file ../chapters/fig-plot/plot1a_pylab:
+    can use ../chapters/fig-plot/plot1a_pylab.pdf for format pdflatex
+figure file ../chapters/fig-plot/Heaviside3:
+    can use ../chapters/fig-plot/Heaviside3.pdf for format pdflatex
+figure file ../chapters/fig-plot/plot1c_pylab:
+    can use ../chapters/fig-plot/plot1c_pylab.pdf for format pdflatex
+output in book.tex
