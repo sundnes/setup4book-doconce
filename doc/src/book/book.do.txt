@@ -1,9 +1,8 @@
 # Note on the Springer T4 style: here we use the modifications
 # introduced in t4do.sty and svmonodo.sty (both are bundled with DocOnce).
 
-TITLE:  Computational heart mechanics
+TITLE:  Introduction to scientific programming with Python
 AUTHOR: Joakim Sundnes at Simula Research Laboratory & Department of Informatics, University of Oslo
-AUTHOR: Andrew D. McCulloch at Bioengineering Department, University of California, San Diego
 DATE: today
 
 ## Handy mako variables and functions for the preprocessing step
@@ -20,41 +19,59 @@ label{ch:preface}
 TOC: on
 
 !split
-========= Introduction and Motivation =========
+========= Introduction =========
 label{ch:intro}
-# #include "../chapters/intro/intro.do.txt"
+# #include "../chapters/intro.do.txt"
 
 !split
-========= Introduction to Non-Linear Solid Mechanics =========
-label{ch:mech_intro}
-# #include "../chapters/mech_intro/mech_intro.do.txt"
+========= Computing with formulas =========
+label{ch:formulas}
+# #include "../chapters/formulas.do.txt"
 
 !split
-========= Computational techniques for elasticity =========
-label{ch:comp_elast}
-# #include "../chapters/comp_mech/comp_mech.do.txt"
+========= Loops and lists =========
+label{ch:loops}
+# #include "../chapters/looplist_notes.do.txt"
 
 !split
-========= Constitutive laws for passive heart tissue =========
-label{ch:passive}
-# #include "../chapters/passive_tissue/passive.do.txt"
+========= Functions and branching =========
+label{ch:funcif}
+# #include "../chapters/funcif.do.txt"
 
 !split
-========= Modeling cell and tissue contraction =========
-label{ch:contraction}
-# #include "../chapters/contraction/contraction.do.txt"
+========= User input and error handling =========
+label{ch:input}
+# #include "../chapters/input.do.txt"
 
 !split
-========= Boundary conditions and whole heart models =========
-label{ch:heart_models}
-# #include "../chapters/heart_models/heart_models.do.txt"
+========= Arrays and plotting =========
+label{ch:array_plot}
+# #include "../chapters/plot_mpl.do.txt"
+
+# !split
+# ========= Difference equations =========
+# label{ch:diff_eq}
+# # #include "../chapters/diffeq.do.txt"
 
 !split
-========= Open problems in cardiac mechanics =========
-label{ch:open}
-# #include "../chapters/open_problems/open_problems.do.txt"
+========= Dictionaries and strings =========
+label{ch:dictstring}
+# #include "../chapters/dictstring.do.txt"
 
+!split
+========= Classes =========
+label{ch:classes}
+# #include "../chapters/class.do.txt"
 
+!split
+========= Object-oriented programming =========
+label{ch:oop}
+# #include "../chapters/oo.do.txt"
+
+# !split
+# ========= Solving ordinary differential equations =========
+# label{ch:odesys}
+# # #include "../chapters/ode_systems.do.txt"
 
 __Remark.__
 Documents that contain raw Mako code in verbatim code blocks cannot
@@ -73,4 +90,4 @@ link to the "this stand-alone document":
 !split
 ======= References =======
 
-BIBFILE: ../chapters/papers.pub
+#BIBFILE: ../chapters/papers.pub
